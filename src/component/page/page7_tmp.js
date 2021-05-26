@@ -3,12 +3,12 @@ import styled from "styled-components";
 import theme from "../theme";
 import Grid from '@material-ui/core/Grid';
 import backSvg from "../../resource/BTN-18.svg"
-import Image1 from '../../resource/page6_1.png';
-import Image2 from '../../resource/page6_2.png';
-import Image3 from '../../resource/page6_3.png';
-import BTN1 from '../../resource/BTN-09.svg';
-import BTN2 from '../../resource/BTN-10.svg';
-import BTN3 from '../../resource/BTN-11.svg';
+import Image1 from '../../resource/page1_1.png';
+import Image2 from '../../resource/page1_2.png';
+import Image3 from '../../resource/page1_1.png';
+import BTN1 from '../../resource/BTN-12.svg';
+import BTN2 from '../../resource/BTN-13.svg';
+import BTN3 from '../../resource/BTN-14.svg';
 import prevSvg from "../../resource/BTN-17.svg";
 
 const ContentStyle = styled.div`
@@ -96,7 +96,7 @@ class Page extends SuperPage{
                 <Grid container>
                     <Grid item xs={12}>
                         <div></div>
-                        <h1>어떤 화가를 선택하시겠어요?</h1>
+                        <h1>어떤 화풍을 입혀보시겠어요 ?</h1>
                     </Grid>
                     <Grid item xs={4}
                         alignItems="center"

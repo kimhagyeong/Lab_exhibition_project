@@ -4,13 +4,10 @@ import theme from "../theme";
 import Grid from '@material-ui/core/Grid';
 import backSvg from "../../resource/BTN-18.svg"
 import homeSvg from "../../resource/BTN-19.svg"
-import Image1 from '../../resource/page5_1.png';
 import Image2 from '../../resource/page5_2.png';
-import Image3 from '../../resource/page5_3.png';
-import BTN1 from '../../resource/BTN-06.svg';
-import BTN2 from '../../resource/BTN-07.svg';
-import BTN3 from '../../resource/BTN-08.svg';
-import nextSvg from "../../resource/BTN-16.svg";
+import Image3 from '../../resource/page8_1.png';
+import nextSvg from "../../resource/BTN-18.svg";
+import BTN from "../../resource/BTN-15.svg";
 
 const Section = styled.section`
     display: flex;
@@ -83,7 +80,7 @@ const ContentStyle = styled.div`
             margin-bottom:-67px;
         }
         &>h1{
-            font: normal normal normal 47px/42px ${theme.GmarketFontMedium};
+            font: normal normal normal 47px/53px ${theme.GmarketFontMedium};
             letter-spacing: 0px;
             color: #3B3B3B;
             opacity: 1;
@@ -91,49 +88,42 @@ const ContentStyle = styled.div`
         } 
     }
     &>div>div:nth-child(2){
+        &>div{
+            height:637px;
+        }
+        &>div>div{
+            width: 262px;
+            height: 262px;
+            background: #FFFFFF 0% 0% no-repeat padding-box;
+            border: 1px solid #707070;
+            display:block;
+            margin-top:0px;
+
+        }
         img{
-            width: 470px;
-            height: 470px;
-            margin-top:115px;
+            width: 262px;
+            height: 241px;
+            display:block;
+            margin-bottom:0px;
         }
     }
     &>div>div:nth-child(3){
-        img{
-            width: 470px;
-            height: 470px;
-            margin-top:115px;
+        position:relative;
+        img:nth-child(1){
+            width: 88px;
+            height: 66px;
+            position: absolute;
+            top: 290px;
+            left: -80px;
+        }
+        img:nth-child(2){
+            width: 471px;
+            height: 637px;
         }
     }
     &>div>div:nth-child(4){
         img{
-            width: 470px;
-            height: 470px;
-            margin-top:115px;
-        }
-    }
-    
-    &>div>div:nth-child(5){
-        img{
             ${theme.BubbleButton}
-            margin-top:68px;
-        }
-    }
-    &>div>div:nth-child(6){
-        img{
-            ${theme.BubbleButton}
-            margin-top:68px;
-        }
-    }
-    &>div>div:nth-child(7){
-        img{
-            ${theme.BubbleButton}
-            margin-top:68px;
-        }
-    }
-    &>div>div:nth-child(8){
-        img{
-            width: 74px;
-            height: 74px;
             margin-top:60px;
         }
     }
@@ -151,38 +141,25 @@ class Page extends SuperPage{
                 <Grid container>
                     <Grid item xs={12}>
                         <div></div>
-                        <h1>어떤 화가를 선택하시겠어요?</h1>
+                        <h1>완성된 사진입니다. 어떠신가요?<br />N초 후 인쇄를 진행합니다.</h1>
                     </Grid>
-                    <Grid item xs={4}
+                    <Grid item xs={6} alignItems="center">
+                        <Grid container
+                            direction="column"
+                            justify="space-between"
+                            alignItems="center">
+                                <div></div>
+                                <img src={Image2} alt="#"></img>
+                        </Grid>
+                    </Grid>
+                    <Grid item xs={6}
                         alignItems="center"
                     >
-                        <img src={Image1} alt="#"></img>
-                    </Grid>
-                    <Grid item xs={4}
-                        alignItems="center"
-                    >
-                        <img src={Image2} alt="#"></img>    
-                    </Grid>
-                    <Grid item xs={4}
-                        alignItems="center"
-                    >
-                        <img src={Image3} alt="#"></img>    
-                    </Grid>
-                    <Grid item xs={4}
-                        alignItems="center"
-                    >
-                        <img src={BTN1} alt="#" />
-                    </Grid>
-                    <Grid item xs={4}
-                        alignItems="center">
-                        <img src={BTN2} alt="#" />
-                    </Grid>
-                    <Grid item xs={4}
-                        alignItems="center">
-                        <img src={BTN3} alt="#" />
+                        <img src={nextSvg} alt="#"/>  
+                        <img src={Image3} alt="#"></img>
                     </Grid>
                     <Grid item xs={12}>
-                        <img src={nextSvg} alt="#"/>    
+                        <img src={BTN} alt="#"/>    
                     </Grid>
                 </Grid>
             </ContentStyle>

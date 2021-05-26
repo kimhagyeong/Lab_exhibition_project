@@ -53,7 +53,8 @@ const Section = styled.section`
             opacity: 1;
             width:550px;
             top: 470px;
-            right: -230px;
+            right: -210px;
+            // right: -230px;
         }
     }
 `;
