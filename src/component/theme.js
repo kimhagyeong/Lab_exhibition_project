@@ -11,7 +11,8 @@ const theme = {
     GmarketFontBold: "GmarketSansBold",
     GmarketFontMedium:"GmarketSansMedium",
     GmarketFontLight:"GmarketSansLight",
-    BubbleButton
+    BubbleButton,
+    DefaultImgSrc:"https://defavoritebucket-resized.s3.amazonaws.com/popup/hyun_gum_IMG_3164_2020-02-12_091133.6554680000.JPG"
   };
   
   export default theme;

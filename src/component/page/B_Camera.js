@@ -1,8 +1,10 @@
-import SuperPage from './page2';
+import React, { Component } from 'react';
 import styled from "styled-components";
-import BTN from '../../resource/BTN-03.svg'
 import theme from "../theme";
 import Grid from '@material-ui/core/Grid';
+import arrowSvg from "../../resource/BTN-02.svg";
+import homeSvg from "../../resource/BTN-19.svg"
+import Section from "../section01";
 
 const ContentStyle = styled.div`
     width:1390px;
@@ -36,33 +38,64 @@ const ContentStyle = styled.div`
         border: 1px solid #707070;
         opacity: 1;
     }
-    img{
-        ${theme.BubbleButton}
-        margin-top:40px;
-    }
 `;
-class Page extends SuperPage {
+
+class Page extends Component {
     constructor(props) {
         super(props);
         this.state = {
         }
     }
+
     content() {
         return (
             <ContentStyle>
                 <Grid
                     container
                     direction="column"
-                    justify="space-around"
+                    justify="flex-start"
                     alignItems="center"
                 >
                     <h1>카메라는 아래쪽에 있습니다</h1>
                     <div>
-                        {/* camera */}
+                        {/* camera 
+                            this.props.setCameraImg("blabla image src");
+                        */}
                     </div>
-                    <img src={BTN} alt="#"/>
+                    <h1>여기를&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src={arrowSvg} alt="#" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;보세요</h1>
                 </Grid>
             </ContentStyle>
+        )
+    }
+
+    backButton() {
+        return (
+            <>
+            </>
+        )
+    }
+
+    commonSection() {
+        return(
+            <>
+                <div>
+                    <a href="#home" onClick={this.props.reset}><img src={homeSvg} alt="#" /></a>
+                    <h2>AI Photographer</h2>
+                    {this.backButton()}
+                </div>
+                {this.content()}
+                <div>
+                    <h2>KOREATECH 30TH X DICE</h2>
+                </div>
+            </>
+        )
+    }
+
+    render() {
+        return (
+            <Section id="camera">
+                {this.commonSection()}
+            </Section>
         )
     }
 }

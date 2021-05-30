@@ -1,15 +1,16 @@
-import SuperPage from "./page5"
+import SuperPage from "./E_ChooseA_1.js"
 import styled from "styled-components";
 import theme from "../theme";
 import Grid from '@material-ui/core/Grid';
 import backSvg from "../../resource/BTN-18.svg"
-import Image1 from '../../resource/page6_1.png';
-import Image2 from '../../resource/page6_2.png';
-import Image3 from '../../resource/page6_3.png';
-import BTN1 from '../../resource/BTN-09.svg';
-import BTN2 from '../../resource/BTN-10.svg';
-import BTN3 from '../../resource/BTN-11.svg';
-import prevSvg from "../../resource/BTN-17.svg";
+import Image1 from '../../resource/page1_1.png';
+import Image2 from '../../resource/page1_2.png';
+import Image3 from '../../resource/page1_1.png';
+import BTN1 from '../../resource/BTN-12.svg';
+import BTN2 from '../../resource/BTN-13.svg';
+import BTN3 from '../../resource/BTN-14.svg';
+import nextSvg from "../../resource/BTN-17.svg";
+import Section from "../section02";
 
 const ContentStyle = styled.div`
     width:1550px;
@@ -96,38 +97,52 @@ class Page extends SuperPage{
                 <Grid container>
                     <Grid item xs={12}>
                         <div></div>
-                        <h1>어떤 화가를 선택하시겠어요?</h1>
+                        <h1>어떤 화풍을 선택하시겠어요?</h1>
                     </Grid>
-                    <Grid item xs={4}
+                    <Grid container xs={4}
+                        direction="row"
+                        justify="center"
                         alignItems="center"
                     >
                         <img src={Image1} alt="#"></img>
                     </Grid>
-                    <Grid item xs={4}
+                    <Grid container xs={4}
+                        direction="row"
+                        justify="center"
                         alignItems="center"
                     >
-                        <img src={Image2} alt="#"></img>    
+                        <img src={Image2} alt="#"></img>
                     </Grid>
-                    <Grid item xs={4}
+                    <Grid container xs={4}
+                        direction="row"
+                        justify="center"
                         alignItems="center"
                     >
-                        <img src={Image3} alt="#"></img>    
+                        <img src={Image3} alt="#"></img>
                     </Grid>
-                    <Grid item xs={4}
+                    <Grid container xs={4}
+                        direction="row"
+                        justify="center"
                         alignItems="center"
                     >
-                        <img src={BTN1} alt="#" />
+                        <a href="#result" onClick={this.props.setMode("4")}><img src={BTN1} alt="#" /></a>
                     </Grid>
-                    <Grid item xs={4}
-                        alignItems="center">
-                        <img src={BTN2} alt="#" />
+                    <Grid container xs={4}
+                        direction="row"
+                        justify="center"
+                        alignItems="center"
+                    >
+                        <a href="#result" onClick={this.props.setMode("5")}><img src={BTN2} alt="#" /></a>
                     </Grid>
-                    <Grid item xs={4}
-                        alignItems="center">
-                        <img src={BTN3} alt="#" />
+                    <Grid container xs={4}
+                        direction="row"
+                        justify="center"
+                        alignItems="center"
+                    >
+                        <a href="#result" onClick={this.props.setMode("6")}><img src={BTN3} alt="#" /></a>
                     </Grid>
                     <Grid item xs={12}>
-                        <img src={prevSvg} alt="#"/>    
+                        <a href="#chooseB_1"><img src={nextSvg} alt="#" /></a>
                     </Grid>
                 </Grid>
             </ContentStyle>
@@ -136,7 +151,14 @@ class Page extends SuperPage{
 
     backButton(){
         return(
-            <img src={backSvg} alt="#" />
+            <a href="#chooseMode"><img src={backSvg} alt="#" /></a>
+        )
+    }
+    render() {
+        return (
+            <Section id="chooseB_2">
+                {this.commonSection()}
+            </Section>
         )
     }
 }

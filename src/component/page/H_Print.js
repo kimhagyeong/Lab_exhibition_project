@@ -1,67 +1,13 @@
-import SuperPage from "./page2"
+import SuperPage from "./B_Camera"
 import styled from "styled-components";
 import theme from "../theme";
 import Grid from '@material-ui/core/Grid';
 import backSvg from "../../resource/BTN-18.svg"
-import homeSvg from "../../resource/BTN-19.svg"
 import Image2 from '../../resource/page5_2.png';
 import Image3 from '../../resource/page8_1.png';
 import nextSvg from "../../resource/BTN-18.svg";
 import BTN from "../../resource/BTN-15.svg";
-
-const Section = styled.section`
-    display: flex;
-    flex-wrap: wrap;
-    box-sizing: border-box;   
-    &>div:nth-child(1){
-       width:185px;
-       height:100%;
-       position:relative;
-       h2{
-            position:absolute;
-            -webkit-transform:rotate(270deg);
-            font: normal normal normal 34px/43px ${theme.GmarketFontBold};
-            letter-spacing: 1.36px;
-            color: ${theme.LightOrangeColor};
-            opacity: 1;
-            width:340px;
-            top:490px;
-            right:-49px;
-       }
-       &>img:nth-child(1){
-            position:absolute;
-            top: 46px;
-            left: 47px;
-            width: 43px;
-            height: 41px;
-       }
-       &>img:nth-child(3){
-        position:absolute;
-        top: 970px;
-        left: 31px;
-        width: 74px;
-        height: 74px;
-   }
-   }
-  
-    &>div:nth-child(3){
-        width:185px;
-        height:100%;
-        position:relative;
-        h2{
-            position:absolute;
-            -webkit-transform:rotate(90deg);
-            font: normal normal normal 34px/43px ${theme.GmarketFontBold};
-            letter-spacing: 1.36px;
-            color:  ${theme.LightOrangeColor};
-            opacity: 1;
-            width:550px;
-            top: 470px;
-            right: -210px;
-            // right: -230px;
-        }
-    }
-`;
+import Section from "../section03";
 
 const ContentStyle = styled.div`
     width:1550px;
@@ -173,16 +119,8 @@ class Page extends SuperPage{
     }
     render() {
         return (
-            <Section color={theme.WhiteColor}>
-                <div>
-                    <img src={homeSvg} alt="#" />
-                    <h2>AI Photographer</h2>
-                    {this.backButton()}
-                </div>
-                {this.content()}
-                <div>
-                    <h2>KOREATECH 30TH X DICE</h2>
-                </div>
+            <Section id="print">
+                {this.commonSection()}
             </Section>
         )
     }

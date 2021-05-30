@@ -39,7 +39,7 @@ const Section = styled.section`
     &>div>div:nth-child(3){
         height:192px;
         text-align:center;
-        & > img{
+        & > a> img{
             ${theme.BubbleButton}
             margin-top:0;
         }
@@ -54,7 +54,7 @@ class Page extends Component {
     }
     render() {
         return (
-            <Section>
+            <Section id="home">
                 <Grid container>
                     <Grid xs={6} container
                     direction="column"
@@ -75,7 +75,7 @@ class Page extends Component {
 
                     </Grid>
                     <Grid item xs={12}>
-                        <img src={BTN} alt="#"/>
+                        <a href="#camera"><img src={BTN} alt="#" ></img></a>
                     </Grid>
                 </Grid>
             </Section>

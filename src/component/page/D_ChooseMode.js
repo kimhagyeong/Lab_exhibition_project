@@ -1,10 +1,11 @@
-import SuperPage from './page2';
+import SuperPage from './B_Camera';
 import styled from "styled-components";
 import theme from "../theme";
 import Grid from '@material-ui/core/Grid';
 import BTN1 from '../../resource/BTN-04.svg';
 import BTN2 from '../../resource/BTN-05.svg';
 import backSvg from "../../resource/BTN-18.svg"
+import Section from "../section01";
 
 const ContentStyle = styled.div`
     width:1390px;
@@ -35,7 +36,7 @@ const ContentStyle = styled.div`
             width: 508px;
             height: 730px;
             border-radius:254px / 365px;
-            margin-top:20px;
+            margin-top:70px;
         }
     }
     &>div>div:nth-child(3){
@@ -43,7 +44,7 @@ const ContentStyle = styled.div`
             width: 508px;
             height: 730px;
             border-radius:254px / 365px;
-            margin-top:20px;
+            margin-top:70px;
         }
     }
     &>div>div:nth-child(4){
@@ -75,24 +76,33 @@ class Page extends SuperPage{
                         <div></div>
                         <h1>어떤 스타일을 원하시나요?</h1>
                     </Grid>
-                    <Grid item xs={6}
+                    <Grid container xs={6}
+                        direction="row"
+                        justify="center"
                         alignItems="center"
-                    >
+                      >
                         <img src="https://defavoritebucket-resized.s3.amazonaws.com/popup/hyun_gum_IMG_3164_2020-02-12_091133.6554680000.JPG" alt="#"></img>
                     </Grid>
-                    <Grid item xs={6}
+                    <Grid container xs={6}
+                        direction="row"
+                        justify="center"
                         alignItems="center"
-                    >
+                      >
                         <img src="https://defavoritebucket-resized.s3.amazonaws.com/popup/hyun_gum_IMG_3164_2020-02-12_091133.6554680000.JPG" alt="#"></img>
                     </Grid>
-                    <Grid item xs={6}
+                    <Grid container xs={6}
+                        direction="row"
+                        justify="center"
                         alignItems="center"
-                    >
-                        <img src={BTN1} alt="#" />
+                      >
+                        <a href="#chooseA_1"><img src={BTN1} alt="#" /></a>
                     </Grid>
-                    <Grid item xs={6}
-                        alignItems="center">
-                        <img src={BTN2} alt="#" />
+                    <Grid container xs={6}
+                        direction="row"
+                        justify="center"
+                        alignItems="center"
+                      >
+                        <a href="#chooseB_1"><img src={BTN2} alt="#" /></a>
                     </Grid>
 
                 </Grid>
@@ -102,7 +112,14 @@ class Page extends SuperPage{
 
     backButton(){
         return(
-            <img src={backSvg} alt="#" />
+            <a href="#cameraConfirm"><img src={backSvg} alt="#" /></a>
+        )
+    }
+    render() {
+        return (
+            <Section id="chooseMode">
+                {this.commonSection()}
+            </Section>
         )
     }
 }

@@ -1,7 +1,8 @@
-import SuperPage from './page2';
+import SuperPage from './B_Camera';
 import styled from "styled-components";
 import theme from "../theme";
 import Grid from '@material-ui/core/Grid';
+import Section from "../section01"
 
 const ContentStyle = styled.div`
     width:1390px;
@@ -45,6 +46,14 @@ class Page extends SuperPage {
                     </div>
                 </Grid>
             </ContentStyle>
+        )
+    }
+
+    render() {
+        return (
+            <Section id="end">
+                {this.commonSection()}
+            </Section>
         )
     }
 }
