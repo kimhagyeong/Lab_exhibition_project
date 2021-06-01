@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import './App.css';
 import GlobalStyle from "./component/GlobalStyles"
 import theme from "./component/theme"
@@ -17,7 +17,7 @@ import End from "./component/page/I_End";
 function App() {
 
   const [cameraImg, setCameraImg] = useState(theme.DefaultImgSrc);
-  const [resultImg, setResultImg] = useState("");
+  const [resultImg, setResultImg] = useState(theme.DefaultImgSrc);
   const [mode, setMode] = useState("");
   const [numAI, setNumAI] = useState("");
 
@@ -28,23 +28,36 @@ function App() {
     setNumAI("");
     console.log("리셋");
   }
-  useEffect(() => {
-    console.log(mode);
-  }, [mode]);
+  
+  const setCameraImgFunction=(data)=>{
+    setCameraImg(data)
+  }
+
+  const setModeFunction=(data)=>{
+    setMode(data);
+  }
+
+  const setNumAIFunction = (data) =>{
+    setNumAI(data)
+  }
+  
+  const setResultImgFunction = (data) =>{
+    setResultImg(data)
+  }
   
   return (
     <>
       <GlobalStyle />
       <Home></Home>
-      <Camera reset={reset} setCameraImg ={setCameraImg}></Camera>
+      <Camera reset={reset} setCameraImg ={setCameraImgFunction}></Camera>
       <CameraConfirm cameraImg={cameraImg}></CameraConfirm>
       <ChooseMode></ChooseMode>
-      <ModeA setMode={setMode} mode={mode}></ModeA>
-      <ModeA2 setMode={setMode}></ModeA2>
-      <ModeB setMode={setMode}></ModeB>
-      <ModeB2 setMode={setMode}></ModeB2>
-      <Result mode={mode} setNumAI={setNumAI}></Result>
-      <Print mode={mode} numAI={numAI} cameraImg={cameraImg} resultImg={resultImg} setResultImg={setResultImg}></Print>
+      <ModeA setMode={setModeFunction} mode={mode}></ModeA>
+      <ModeA2 setMode={setModeFunction}></ModeA2>
+      <ModeB setMode={setModeFunction}></ModeB>
+      <ModeB2 setMode={setModeFunction}></ModeB2>
+      <Result mode={mode} setNumAI={setNumAIFunction}></Result>
+      <Print mode={mode} numAI={numAI} cameraImg={cameraImg} resultImg={resultImg} setResultImg={setResultImgFunction}></Print>
       <End resultImg={resultImg}></End>
     </>
   );

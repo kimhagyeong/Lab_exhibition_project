@@ -3,8 +3,6 @@ import styled from "styled-components";
 import theme from "../theme";
 import Grid from '@material-ui/core/Grid';
 import backSvg from "../../resource/BTN-18.svg"
-import Image2 from '../../resource/page5_2.png';
-import Image3 from '../../resource/page8_1.png';
 import nextSvg from "../../resource/BTN-18.svg";
 import BTN from "../../resource/BTN-15.svg";
 import Section from "../section03";
@@ -18,6 +16,7 @@ const ContentStyle = styled.div`
     &>div>div:nth-child(1){
         text-align:center;
         padding-top:30px;
+        margin-bottom: 50px;
         &>div{
             width: 679px;
             height: 39px;
@@ -44,7 +43,11 @@ const ContentStyle = styled.div`
             border: 1px solid #707070;
             display:block;
             margin-top:0px;
-
+            &>img{
+                width:262px;
+                height:262px;
+                margin-top:0px;
+            }
         }
         img{
             width: 262px;
@@ -89,23 +92,29 @@ class Page extends SuperPage{
                         <div></div>
                         <h1>완성된 사진입니다. 어떠신가요?<br />N초 후 인쇄를 진행합니다.</h1>
                     </Grid>
-                    <Grid item xs={6} alignItems="center">
+                    <Grid container xs={6} 
+                        direction="row"
+                        justify="center"
+                        alignItems="center"
+                    >
                         <Grid container
                             direction="column"
                             justify="space-between"
                             alignItems="center">
-                                <div></div>
-                                <img src={Image2} alt="#"></img>
+                                <div><img src={this.props.cameraImg} alt="#"/></div>
+                                <img src={theme.CategoryImg[this.props.mode]} alt="#"></img>
                         </Grid>
                     </Grid>
-                    <Grid item xs={6}
+                    <Grid container xs={6}
+                        direction="row"
+                        justify="center"
                         alignItems="center"
                     >
                         <img src={nextSvg} alt="#"/>  
-                        <img src={Image3} alt="#"></img>
+                        <img src={this.props.resultImg} alt="#"></img>
                     </Grid>
                     <Grid item xs={12}>
-                        <img src={BTN} alt="#"/>    
+                        <a href="#chooseMode"><img src={BTN} alt="#"/></a>
                     </Grid>
                 </Grid>
             </ContentStyle>
@@ -114,7 +123,7 @@ class Page extends SuperPage{
 
     backButton(){
         return(
-            <img src={backSvg} alt="#" />
+            <a href="#result"><img src={backSvg} alt="#" /></a>
         )
     }
     render() {

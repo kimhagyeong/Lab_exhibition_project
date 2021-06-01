@@ -3,9 +3,6 @@ import styled from "styled-components";
 import theme from "../theme";
 import Grid from '@material-ui/core/Grid';
 import backSvg from "../../resource/BTN-18.svg"
-import Image1 from '../../resource/page6_1.png';
-import Image2 from '../../resource/page6_2.png';
-import Image3 from '../../resource/page6_3.png';
 import BTN1 from '../../resource/BTN-09.svg';
 import BTN2 from '../../resource/BTN-10.svg';
 import BTN3 from '../../resource/BTN-11.svg';
@@ -84,7 +81,7 @@ const ContentStyle = styled.div`
         }
     }
 `;
-class Page extends SuperPage{
+class Page extends SuperPage {
     constructor(props) {
         super(props);
         this.state = {
@@ -104,42 +101,42 @@ class Page extends SuperPage{
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={Image1} alt="#"></img>
+                        <img src={theme.CategoryImg["자코모 발라"]} alt="#"></img>
                     </Grid>
                     <Grid container xs={4}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={Image2} alt="#"></img>
+                        <img src={theme.CategoryImg["프란시스 피카비아"]} alt="#"></img>
                     </Grid>
                     <Grid container xs={4}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={Image3} alt="#"></img>
+                        <img src={theme.CategoryImg["피카소"]} alt="#"></img>
                     </Grid>
                     <Grid container xs={4}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <a href="#result" onClick={this.props.setMode("자코모 발라")}><img src={BTN1} alt="#" /></a>
+                        <a href="#result" onClick={() => this.props.setMode("자코모 발라")}><img src={BTN1} alt="#" /></a>
                     </Grid>
                     <Grid container xs={4}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <a href="#result" onClick={this.props.setMode("프란시스 피카비아")}><img src={BTN2} alt="#" /></a>
+                        <a href="#result" onClick={() => this.props.setMode("프란시스 피카비아")}><img src={BTN2} alt="#" /></a>
                     </Grid>
                     <Grid container xs={4}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <a href="#result" onClick={this.props.setMode("피카소")}><img src={BTN3} alt="#" /></a>
+                        <a href="#result" onClick={() => this.props.setMode("피카소")}><img src={BTN3} alt="#" /></a>
                     </Grid>
                     <Grid item xs={12}>
                         <a href="#chooseA_1"><img src={prevSvg} alt="#" /></a>
@@ -149,8 +146,8 @@ class Page extends SuperPage{
         )
     }
 
-    backButton(){
-        return(
+    backButton() {
+        return (
             <a href="#chooseMode"><img src={backSvg} alt="#" /></a>
         )
     }

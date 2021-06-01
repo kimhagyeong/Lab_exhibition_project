@@ -22,6 +22,11 @@ const ContentStyle = styled.div`
         background: #FFFFFF 0% 0% no-repeat padding-box;
         border: 1px solid #707070;
         opacity: 1;
+        &>img{
+            width: 565px;
+            height: 764px;
+            margin-top:0px;
+        }
     }
     
 `;
@@ -43,6 +48,7 @@ class Page extends SuperPage {
                     <h1>인쇄가 완료되었습니다.<br/>N초 후 메인화면으로 이동합니다.</h1>
                     <div>
                         {/* camera */}
+                        <img src={this.props.resultImg} alt="#"/>
                     </div>
                 </Grid>
             </ContentStyle>

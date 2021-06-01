@@ -20,14 +20,14 @@ const Section = styled.section`
             top:490px;
             right:-49px;
        }
-       &>img:nth-child(1){
+       &>a:nth-child(1)>img{
             position:absolute;
             top: 46px;
             left: 47px;
             width: 43px;
             height: 41px;
        }
-       &>img:nth-child(3){
+       &>a:nth-child(3)>img{
         position:absolute;
         top: 970px;
         left: 31px;

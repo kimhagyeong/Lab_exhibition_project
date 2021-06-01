@@ -83,7 +83,7 @@ const ContentStyle = styled.div`
         }
     }
     p{
-        font: normal normal normal 22px/42px ${theme.GmarketFontMedium};
+        font: normal normal normal 23px/42px ${theme.GmarketFontMedium};
         letter-spacing: 0px;
         color: #3B3B3B;
         opacity: 1;
@@ -105,37 +105,51 @@ class Page extends SuperPage{
                         <div></div>
                         <h1>[{this.props.mode}]를 선택하였습니다</h1>
                     </Grid>
-                    <Grid item xs={4}
+                    <Grid container xs={4}
+                        direction="row"
+                        justify="center"
                         alignItems="center"
                     >
                         <img src={Image1} alt="#"></img>
                     </Grid>
-                    <Grid item xs={4}
+                    <Grid container xs={4}
+                        direction="row"
+                        justify="center"
                         alignItems="center"
                     >
                         <img src={Image2} alt="#"></img>    
                     </Grid>
-                    <Grid item xs={4}
+                    <Grid container xs={4}
+                        direction="row"
+                        justify="center"
                         alignItems="center"
                     >
                         <img src={Image3} alt="#"></img>    
                     </Grid>
 
-                    <Grid item xs={4}
+                    <Grid container xs={4}
+                        direction="column"
+                        justify="center"
                         alignItems="center"
                     >
-                        <p>리듬들(1934)</p>
-                        <img src={BTN1} alt="#" />
+                        <p>{theme.ArtistArts[this.props.mode][0]}</p>
+                        <a href="#print" onClick={()=>this.props.setNumAI("1")}><img src={BTN1} alt="#" /></a>
                     </Grid>
-                    <Grid item xs={4}
-                        alignItems="center">
-                        <p>삶의 기쁨(1930)</p>
-                        <img src={BTN2} alt="#" />
+                    <Grid container xs={4}
+                        direction="column"
+                        justify="center"
+                        alignItems="center"
+                    >
+                        <p>{theme.ArtistArts[this.props.mode][1]}</p>
+                        <a href="#print" onClick={()=>this.props.setNumAI("2")}><img src={BTN2} alt="#" /></a>
                     </Grid>
-                    <Grid item xs={4}
-                        alignItems="center">
-                        <p>무한리듬(1934)</p>
-                        <img src={BTN3} alt="#" />
+                    <Grid container xs={4}
+                        direction="column"
+                        justify="center"
+                        alignItems="center"
+                    >
+                        <p>{theme.ArtistArts[this.props.mode][2]}</p>
+                        <a href="#print" onClick={()=>this.props.setNumAI("3")}><img src={BTN3} alt="#" /></a>
                     </Grid>
                 </Grid>
             </ContentStyle>

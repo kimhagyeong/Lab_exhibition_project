@@ -3,9 +3,6 @@ import styled from "styled-components";
 import theme from "../theme";
 import Grid from '@material-ui/core/Grid';
 import backSvg from "../../resource/BTN-18.svg"
-import Image1 from '../../resource/page5_1.png';
-import Image2 from '../../resource/page5_2.png';
-import Image3 from '../../resource/page5_3.png';
 import BTN1 from '../../resource/BTN-06.svg';
 import BTN2 from '../../resource/BTN-07.svg';
 import BTN3 from '../../resource/BTN-08.svg';
@@ -104,42 +101,42 @@ class Page extends SuperPage {
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={Image1} alt="#"></img>
+                        <img src={theme.CategoryImg["로베르 들로네"]} alt="#"></img>
                     </Grid>
                     <Grid container xs={4}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={Image2} alt="#"></img>
+                        <img src={theme.CategoryImg["반 고흐"]} alt="#"></img>
                     </Grid>
                     <Grid container xs={4}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={Image3} alt="#"></img>
+                        <img src={theme.CategoryImg["앙드레 드랭"]} alt="#"></img>
                     </Grid>
                     <Grid container xs={4}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <a href="#result" onClick={()=>{this.props.setMode("로베르 들로네"); console.log(this.props.mode)}}><img src={BTN1} alt="#" /></a>
+                        <a href="#result" onClick={() => this.props.setMode("로베르 들로네")}><img src={BTN1} alt="#" /></a>
                     </Grid>
                     <Grid container xs={4}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <a href="#result" onClick={this.props.setMode("반 고흐")}><img src={BTN2} alt="#" /></a>
+                        <a href="#result" onClick={() => this.props.setMode("반 고흐")}><img src={BTN2} alt="#" /></a>
                     </Grid>
                     <Grid container xs={4}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <a href="#result" onClick={this.props.setMode("앙드레 드랭")}><img src={BTN3} alt="#" /></a>
+                        <a href="#result" onClick={() => this.props.setMode("앙드레 드랭")}><img src={BTN3} alt="#" /></a>
                     </Grid>
                     <Grid item xs={12}>
                         <a href="#chooseA_2"><img src={nextSvg} alt="#" /></a>
