@@ -42,7 +42,7 @@ const ContentStyle = styled.div`
             margin-top:0px;
         }
     }
-    &>div>a>img{
+    &>div>img{
         ${theme.BubbleButton}
         margin-top:40px;
     }
@@ -51,8 +51,27 @@ class Page extends SuperPage {
     constructor(props) {
         super(props);
         this.state = {
+            currentCount: 5
         }
     }
+    timer() {
+        this.setState({
+          currentCount: this.state.currentCount - 1
+        })
+        if(this.state.currentCount < 1) { 
+          clearInterval(this.intervalId);
+          this.props.setPageNum("4");
+        }
+        console.log(this.state.currentCount);
+      }
+      
+    componentDidMount() {
+    this.intervalId = setInterval(this.timer.bind(this), 1000);
+    }
+    componentWillUnmount(){
+    clearInterval(this.intervalId);
+    }
+
     content() {
         return (
             <ContentStyle>
@@ -62,12 +81,12 @@ class Page extends SuperPage {
                     justify="space-around"
                     alignItems="center"
                 >
-                    <h1>N초 후에 자동으로 넘어갑니다</h1>
+                    <h1>{this.state.currentCount}초 후에 자동으로 넘어갑니다</h1>
                     <div>
                         {/* camera */}
                         <img src={this.props.cameraImg} alt="#"/>
                     </div>
-                    <a href="#camera" onClick={this.props.reset}><img src={BTN} alt="#"/></a>
+                    <img src={BTN} alt="#" onClick={() => this.props.setPageNum("2")}/>
                 </Grid>
             </ContentStyle>
         )

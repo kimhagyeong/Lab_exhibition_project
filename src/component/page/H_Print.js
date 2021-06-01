@@ -81,7 +81,25 @@ class Page extends SuperPage{
     constructor(props) {
         super(props);
         this.state = {
+            currentCount: 10
         }
+    }
+    timer() {
+        this.setState({
+          currentCount: this.state.currentCount - 1
+        })
+        if(this.state.currentCount < 1) { 
+          clearInterval(this.intervalId);
+          this.props.setPageNum("11");
+        }
+        console.log(this.state.currentCount);
+      }
+      
+    componentDidMount() {
+        this.intervalId = setInterval(this.timer.bind(this), 1000);
+    }
+    componentWillUnmount(){
+        clearInterval(this.intervalId);
     }
 
     content() {
@@ -90,7 +108,7 @@ class Page extends SuperPage{
                 <Grid container>
                     <Grid item xs={12}>
                         <div></div>
-                        <h1>완성된 사진입니다. 어떠신가요?<br />N초 후 인쇄를 진행합니다.</h1>
+                        <h1>완성된 사진입니다. 어떠신가요?<br />{this.state.currentCount}초 후 인쇄를 진행합니다.</h1>
                     </Grid>
                     <Grid container xs={6} 
                         direction="row"
@@ -114,7 +132,7 @@ class Page extends SuperPage{
                         <img src={this.props.resultImg} alt="#"></img>
                     </Grid>
                     <Grid item xs={12}>
-                        <a href="#chooseMode"><img src={BTN} alt="#"/></a>
+                        <img src={BTN} alt="#" onClick={() => this.props.setPageNum("4")}/>
                     </Grid>
                 </Grid>
             </ContentStyle>
@@ -123,7 +141,7 @@ class Page extends SuperPage{
 
     backButton(){
         return(
-            <a href="#result"><img src={backSvg} alt="#" /></a>
+            <img src={backSvg} alt="#" onClick={() => this.props.setPageNum("4")} />
         )
     }
     render() {

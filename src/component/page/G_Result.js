@@ -133,7 +133,7 @@ class Page extends SuperPage{
                         alignItems="center"
                     >
                         <p>{theme.ArtistArts[this.props.mode][0]}</p>
-                        <a href="#print" onClick={()=>this.props.setNumAI("1")}><img src={BTN1} alt="#" /></a>
+                        <img src={BTN1} alt="#" onClick={()=>{this.props.setNumAI("1"); this.props.setPageNum("10")}}/>
                     </Grid>
                     <Grid container xs={4}
                         direction="column"
@@ -141,7 +141,7 @@ class Page extends SuperPage{
                         alignItems="center"
                     >
                         <p>{theme.ArtistArts[this.props.mode][1]}</p>
-                        <a href="#print" onClick={()=>this.props.setNumAI("2")}><img src={BTN2} alt="#" /></a>
+                        <img src={BTN2} alt="#" onClick={()=>{this.props.setNumAI("2"); this.props.setPageNum("10")}}/>
                     </Grid>
                     <Grid container xs={4}
                         direction="column"
@@ -149,7 +149,7 @@ class Page extends SuperPage{
                         alignItems="center"
                     >
                         <p>{theme.ArtistArts[this.props.mode][2]}</p>
-                        <a href="#print" onClick={()=>this.props.setNumAI("3")}><img src={BTN3} alt="#" /></a>
+                        <img src={BTN3} alt="#" onClick={()=>{this.props.setNumAI("3"); this.props.setPageNum("10")}}/>
                     </Grid>
                 </Grid>
             </ContentStyle>
@@ -158,7 +158,7 @@ class Page extends SuperPage{
 
     backButton(){
         return(
-            <a href="#chooseMode"><img src={backSvg} alt="#" /></a>
+            <img src={backSvg} alt="#" onClick={() => this.props.setPageNum("4")} />
         )
     }
     render() {

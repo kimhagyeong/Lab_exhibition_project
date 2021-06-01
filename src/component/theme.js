@@ -6,6 +6,7 @@ import page6_2 from "../resource/page6_2.png";
 import page6_3 from "../resource/page6_3.png";
 
 import page1_1 from "../resource/page1_1.png";
+import page1_2 from "../resource/page1_2.png";
 
 const BubbleButton = {
   width: "382px",
@@ -22,9 +23,9 @@ const CategoryImg = {
   "1": page1_1,
   "2": page1_1,
   "3": page1_1,
-  "4": page1_1,
-  "5": page1_1,
-  "6": page1_1,
+  "4": page1_2,
+  "5": page1_2,
+  "6": page1_2,
 };
 
 const ArtistArts ={

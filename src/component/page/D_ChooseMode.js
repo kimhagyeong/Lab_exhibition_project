@@ -67,7 +67,11 @@ class Page extends SuperPage{
         this.state = {
         }
     }
-
+    componentDidMount() {
+      }
+    componentWillUnmount(){
+    }
+  
     content() {
         return (
             <ContentStyle>
@@ -95,14 +99,14 @@ class Page extends SuperPage{
                         justify="center"
                         alignItems="center"
                       >
-                        <a href="#chooseA_1"><img src={BTN1} alt="#" /></a>
+                        <img src={BTN1} alt="#" onClick={() => this.props.setPageNum("5")}/>
                     </Grid>
                     <Grid container xs={6}
                         direction="row"
                         justify="center"
                         alignItems="center"
                       >
-                        <a href="#chooseB_1"><img src={BTN2} alt="#" /></a>
+                        <img src={BTN2} alt="#" onClick={() => this.props.setPageNum("7")}/>
                     </Grid>
 
                 </Grid>
@@ -112,7 +116,7 @@ class Page extends SuperPage{
 
     backButton(){
         return(
-            <a href="#cameraConfirm"><img src={backSvg} alt="#" /></a>
+            <img src={backSvg} alt="#" onClick={() => this.props.setPageNum("2")}/>
         )
     }
     render() {

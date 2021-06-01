@@ -34,8 +34,27 @@ class Page extends SuperPage {
     constructor(props) {
         super(props);
         this.state = {
+            currentCount: 5
         }
     }
+    timer() {
+        this.setState({
+          currentCount: this.state.currentCount - 1
+        })
+        if(this.state.currentCount < 1) { 
+          clearInterval(this.intervalId);
+          this.props.setPageNum("1");
+        }
+        console.log(this.state.currentCount);
+      }
+      
+    componentDidMount() {
+        this.intervalId = setInterval(this.timer.bind(this), 1000);
+    }
+    componentWillUnmount(){
+        clearInterval(this.intervalId);
+    }
+
     content() {
         return (
             <ContentStyle>
@@ -45,7 +64,7 @@ class Page extends SuperPage {
                     justify="space-around"
                     alignItems="center"
                 >
-                    <h1>인쇄가 완료되었습니다.<br/>N초 후 메인화면으로 이동합니다.</h1>
+                    <h1>인쇄가 완료되었습니다.<br/>{this.state.currentCount}초 후 메인화면으로 이동합니다.</h1>
                     <div>
                         {/* camera */}
                         <img src={this.props.resultImg} alt="#"/>

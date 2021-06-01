@@ -2,11 +2,10 @@ import SuperPage from "./E_ChooseA_1.js"
 import styled from "styled-components";
 import theme from "../theme";
 import Grid from '@material-ui/core/Grid';
-import backSvg from "../../resource/BTN-18.svg"
 import BTN1 from '../../resource/BTN-12.svg';
 import BTN2 from '../../resource/BTN-13.svg';
 import BTN3 from '../../resource/BTN-14.svg';
-import nextSvg from "../../resource/BTN-17.svg";
+import prevSvg from "../../resource/BTN-17.svg";
 import Section from "../section02";
 
 const ContentStyle = styled.div`
@@ -122,35 +121,30 @@ class Page extends SuperPage {
                         justify="center"
                         alignItems="center"
                     >
-                        <a href="#result" onClick={() => this.props.setMode("4")}><img src={BTN1} alt="#" /></a>
+                        <img src={BTN1} alt="#" onClick={() => {this.props.setMode("4"); this.props.setPageNum("10")}} />
                     </Grid>
                     <Grid container xs={4}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <a href="#result" onClick={() => this.props.setMode("5")}><img src={BTN2} alt="#" /></a>
+                        <img src={BTN2} alt="#" onClick={() => {this.props.setMode("5"); this.props.setPageNum("10")}} />
                     </Grid>
                     <Grid container xs={4}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <a href="#result" onClick={() => this.props.setMode("6")}><img src={BTN3} alt="#" /></a>
+                       <img src={BTN3} alt="#" onClick={() => {this.props.setMode("6"); this.props.setPageNum("10")}} />
                     </Grid>
                     <Grid item xs={12}>
-                        <a href="#chooseB_1"><img src={nextSvg} alt="#" /></a>
+                       <img src={prevSvg} alt="#" onClick={()=>this.props.setPageNum("7")}/>
                     </Grid>
                 </Grid>
             </ContentStyle>
         )
     }
 
-    backButton() {
-        return (
-            <a href="#chooseMode"><img src={backSvg} alt="#" /></a>
-        )
-    }
     render() {
         return (
             <Section id="chooseB_2">

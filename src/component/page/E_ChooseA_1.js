@@ -122,24 +122,24 @@ class Page extends SuperPage {
                         justify="center"
                         alignItems="center"
                     >
-                        <a href="#result" onClick={() => this.props.setMode("로베르 들로네")}><img src={BTN1} alt="#" /></a>
+                        <img src={BTN1} alt="#" onClick={() => {this.props.setMode("로베르 들로네"); this.props.setPageNum("9")}} />
                     </Grid>
                     <Grid container xs={4}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <a href="#result" onClick={() => this.props.setMode("반 고흐")}><img src={BTN2} alt="#" /></a>
+                        <img src={BTN2} alt="#" onClick={() => {this.props.setMode("반 고흐"); this.props.setPageNum("9")}}/>
                     </Grid>
                     <Grid container xs={4}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <a href="#result" onClick={() => this.props.setMode("앙드레 드랭")}><img src={BTN3} alt="#" /></a>
+                        <img src={BTN3} alt="#" onClick={() => {this.props.setMode("앙드레 드랭"); this.props.setPageNum("9")}}/>
                     </Grid>
                     <Grid item xs={12}>
-                        <a href="#chooseA_2"><img src={nextSvg} alt="#" /></a>
+                        <img src={nextSvg} alt="#" onClick={()=> this.props.setPageNum("6")} />
                     </Grid>
                 </Grid>
             </ContentStyle>
@@ -148,7 +148,7 @@ class Page extends SuperPage {
 
     backButton() {
         return (
-            <a href="#chooseMode"><img src={backSvg} alt="#" /></a>
+            <img src={backSvg} alt="#" onClick={() => this.props.setPageNum("4")} />
         )
     }
 

@@ -44,8 +44,27 @@ class Page extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            // currentCount: 5
         }
     }
+
+    timer() {
+      this.setState({
+        currentCount: this.state.currentCount - 1
+      })
+      if(this.state.currentCount < 1) { 
+        clearInterval(this.intervalId);
+        this.props.setPageNum("3");
+      }
+      console.log(this.state.currentCount);
+    }
+
+    // componentDidMount() {
+    //   this.intervalId = setInterval(this.timer.bind(this), 1000);
+    // }
+    // componentWillUnmount(){
+    //   clearInterval(this.intervalId);
+    // }
 
     content() {
         return (
@@ -57,10 +76,11 @@ class Page extends Component {
                     alignItems="center"
                 >
                     <h1>카메라는 아래쪽에 있습니다</h1>
-                    <div>
+                    <div  onClick={() => {this.props.setPageNum("3"); this.props.setCameraImg(theme.DefaultImgSrc);}}>
                         {/* camera 
                             this.props.setCameraImg("blabla image src");
                         */}
+                        일단 네모 클릭하면 다음 화면으로
                     </div>
                     <h1>여기를&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src={arrowSvg} alt="#" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;보세요</h1>
                 </Grid>
@@ -79,7 +99,7 @@ class Page extends Component {
         return(
             <>
                 <div>
-                    <a href="#home" onClick={this.props.reset}><img src={homeSvg} alt="#" /></a>
+                    <img src={homeSvg} alt="#"  onClick={() => {this.props.setPageNum("1"); this.props.reset();}}/>
                     <h2>AI Photographer</h2>
                     {this.backButton()}
                 </div>

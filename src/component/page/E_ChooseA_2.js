@@ -2,7 +2,6 @@ import SuperPage from "./E_ChooseA_1.js"
 import styled from "styled-components";
 import theme from "../theme";
 import Grid from '@material-ui/core/Grid';
-import backSvg from "../../resource/BTN-18.svg"
 import BTN1 from '../../resource/BTN-09.svg';
 import BTN2 from '../../resource/BTN-10.svg';
 import BTN3 from '../../resource/BTN-11.svg';
@@ -122,33 +121,27 @@ class Page extends SuperPage {
                         justify="center"
                         alignItems="center"
                     >
-                        <a href="#result" onClick={() => this.props.setMode("자코모 발라")}><img src={BTN1} alt="#" /></a>
+                        <img src={BTN1} alt="#" onClick={() => {this.props.setMode("자코모 발라"); this.props.setPageNum("9")}} />
                     </Grid>
                     <Grid container xs={4}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <a href="#result" onClick={() => this.props.setMode("프란시스 피카비아")}><img src={BTN2} alt="#" /></a>
+                        <img src={BTN2} alt="#" onClick={() => {this.props.setMode("프란시스 피카비아"); this.props.setPageNum("9")}}/>
                     </Grid>
                     <Grid container xs={4}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <a href="#result" onClick={() => this.props.setMode("피카소")}><img src={BTN3} alt="#" /></a>
+                        <img src={BTN3} alt="#" onClick={() => {this.props.setMode("피카소"); this.props.setPageNum("9")}}/>
                     </Grid>
                     <Grid item xs={12}>
-                        <a href="#chooseA_1"><img src={prevSvg} alt="#" /></a>
+                        <img src={prevSvg} alt="#" onClick={()=> this.props.setPageNum("5")} />
                     </Grid>
                 </Grid>
             </ContentStyle>
-        )
-    }
-
-    backButton() {
-        return (
-            <a href="#chooseMode"><img src={backSvg} alt="#" /></a>
         )
     }
     render() {

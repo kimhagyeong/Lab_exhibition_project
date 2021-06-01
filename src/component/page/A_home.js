@@ -39,7 +39,7 @@ const Section = styled.section`
     &>div>div:nth-child(3){
         height:192px;
         text-align:center;
-        & > a> img{
+        & > img{
             ${theme.BubbleButton}
             margin-top:0;
         }
@@ -75,7 +75,7 @@ class Page extends Component {
 
                     </Grid>
                     <Grid item xs={12}>
-                        <a href="#camera"><img src={BTN} alt="#" ></img></a>
+                        <img src={BTN} alt="#" onClick={() => this.props.setPageNum("2")} ></img>
                     </Grid>
                 </Grid>
             </Section>
