@@ -6,6 +6,7 @@ import backSvg from "../../resource/BTN-18.svg"
 import nextSvg from "../../resource/BTN-18.svg";
 import BTN from "../../resource/BTN-15.svg";
 import Section from "../section03";
+import axios from "axios";
 
 const ContentStyle = styled.div`
     width:1550px;
@@ -97,6 +98,23 @@ class Page extends SuperPage{
       
     componentDidMount() {
         this.intervalId = setInterval(this.timer.bind(this), 1000);
+        this.callAPI();
+    }
+    callAPI=async()=>{
+        var img = "https://defavoritebucket-resized.s3.amazonaws.com/popup/마음터치우주_오베르교회.jpg"
+        try{
+            img = await axios.get('https://test.com/', {
+                params: {
+                img:this.props.cameraImg,
+                mode:this.props.mode,
+                numAI:this.props.numAI
+                }
+            });
+        }
+        catch(error){
+            img = "https://defavoritebucket-resized.s3.amazonaws.com/popup/SecitonUiD_우주나비_1_09_232159.png"
+        }
+        this.props.setResultImg(img);
     }
     componentWillUnmount(){
         clearInterval(this.intervalId);

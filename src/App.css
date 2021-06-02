@@ -3,8 +3,10 @@ body::-webkit-scrollbar {
 }
 
 section{
-  width:100vw;
-  height:100vh;
+  width:1920px;
+  height:1080px;
+  position:relative;
+
 }
 *{
   box-sizing: border-box;

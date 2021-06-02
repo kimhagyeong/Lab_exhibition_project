@@ -37,8 +37,8 @@ const ContentStyle = styled.div`
         border: 1px solid #707070;
         opacity: 1;
         &>img{
-            width:650px;
-            height:650px;
+            max-width:650px;
+            max-height:650px;
             margin-top:0px;
         }
     }

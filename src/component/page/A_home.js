@@ -24,14 +24,14 @@ const Section = styled.section`
         letter-spacing: 0px;
         color: #FFFFFF;
         opacity: 1;
-        font: normal normal bold 5vh/6.01851vh ${theme.GmarketFontBold};
+        font: normal normal bold 54px/65px ${theme.GmarketFontBold};
         margin:90px 0 47px 0;
     }
     p{
         letter-spacing: 0px;
         color: ${theme.LightWhiteColor};
         opacity: 1;
-        font: normal normal 2.8903vh/3.7037vh ${theme.GmarketFontLight};
+        font: normal normal 31px/40px ${theme.GmarketFontLight};
         text-align: center;
         margin:0;
     }

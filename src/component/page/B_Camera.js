@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import arrowSvg from "../../resource/BTN-02.svg";
 import homeSvg from "../../resource/BTN-19.svg"
 import Section from "../section01";
+import Webcame from "../webcam.js";
 
 const ContentStyle = styled.div`
     width:1390px;
@@ -76,11 +77,12 @@ class Page extends Component {
                     alignItems="center"
                 >
                     <h1>카메라는 아래쪽에 있습니다</h1>
-                    <div  onClick={() => {this.props.setPageNum("3"); this.props.setCameraImg(theme.DefaultImgSrc);}}>
-                        {/* camera 
-                            this.props.setCameraImg("blabla image src");
-                        */}
-                        일단 네모 클릭하면 다음 화면으로
+                    <div>
+                        화면 클릭하면 다음 화면으로
+                        <Webcame 
+                            setCameraImg={this.props.setCameraImg}
+                            setPageNum={this.props.setPageNum}>
+                        </Webcame>
                     </div>
                     <h1>여기를&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src={arrowSvg} alt="#" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;보세요</h1>
                 </Grid>
