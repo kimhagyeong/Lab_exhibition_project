@@ -7,6 +7,7 @@ import BTN2 from '../../resource/BTN-13.svg';
 import BTN3 from '../../resource/BTN-14.svg';
 import prevSvg from "../../resource/BTN-17.svg";
 import Section from "../section02";
+import axios from "axios"
 
 const ContentStyle = styled.div`
     width:1550px;
@@ -84,8 +85,36 @@ class Page extends SuperPage {
     constructor(props) {
         super(props);
         this.state = {
+            imgSrc4:"https://defavoritebucket-resized.s3.amazonaws.com/popup/SecitonUiD_우주나비_1_09_232159.png",
+            imgSrc5:"https://defavoritebucket-resized.s3.amazonaws.com/popup/SecitonUiD_우주나비_1_09_232159.png",
+            imgSrc6:"https://defavoritebucket-resized.s3.amazonaws.com/popup/SecitonUiD_우주나비_1_09_232159.png"
         }
     }
+
+    componentDidMount() {
+        this.callAPI();
+    }
+    callAPI=async()=>{
+        var img = theme.CategoryImg["1"];
+        try{
+            img = await axios.get('https://test.com/', {
+                params: {
+                img:this.props.cameraImg,
+                mode:this.props.mode,
+                numAI:this.props.numAI
+                }
+            });
+        }
+        catch(error){
+            img = theme.CategoryImg["4"]
+        }
+        this.setState({
+            imgSrc1:img,
+            imgSrc2:img,
+            imgSrc3:img
+        })
+    }
+
 
     content() {
         return (
@@ -100,21 +129,21 @@ class Page extends SuperPage {
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={theme.CategoryImg["4"]} alt="#"></img>
+                        <img src={this.state.imgSrc4} alt="#"></img>
                     </Grid>
                     <Grid container xs={4}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={theme.CategoryImg["5"]} alt="#"></img>
+                        <img src={this.state.imgSrc5} alt="#"></img>
                     </Grid>
                     <Grid container xs={4}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={theme.CategoryImg["6"]} alt="#"></img>
+                        <img src={this.state.imgSrc6} alt="#"></img>
                     </Grid>
                     <Grid container xs={4}
                         direction="row"

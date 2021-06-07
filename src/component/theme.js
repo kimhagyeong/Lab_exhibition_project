@@ -39,7 +39,7 @@ const ArtistArts ={
 }
 
 const theme = {
-  OrangeColor: "#FD7F23",
+  OrangeColor: "rgb(254,143,72)",
   LightOrangeColor: "#FD9142",
   WhiteColor: "#FFFFFF",
   LightWhiteColor: "#F4F4F4",

@@ -3,13 +3,11 @@ import styled from "styled-components";
 import theme from "../theme";
 import Grid from '@material-ui/core/Grid';
 import backSvg from "../../resource/BTN-18.svg"
-import Image1 from '../../resource/page8_1.png';
-import Image2 from '../../resource/page8_2.png';
-import Image3 from '../../resource/page8_3.png';
 import BTN1 from '../../resource/BTN-12.svg';
 import BTN2 from '../../resource/BTN-13.svg';
 import BTN3 from '../../resource/BTN-14.svg';
 import Section from "../section02"
+import axios from "axios"
 
 const ContentStyle = styled.div`
     width:1550px;
@@ -94,8 +92,36 @@ class Page extends SuperPage{
     constructor(props) {
         super(props);
         this.state = {
+            imgSrc1:theme.CategoryImg["1"],
+            imgSrc2:theme.CategoryImg["2"],
+            imgSrc3:theme.CategoryImg["3"]
         }
     }
+
+    componentDidMount() {
+        this.callAPI();
+    }
+    callAPI=async()=>{
+        var img = theme.CategoryImg["1"];
+        try{
+            img = await axios.get('https://test.com/', {
+                params: {
+                img:this.props.cameraImg,
+                mode:this.props.mode,
+                numAI:this.props.numAI
+                }
+            });
+        }
+        catch(error){
+            img = "https://defavoritebucket-resized.s3.amazonaws.com/popup/SecitonUiD_우주나비_1_09_232159.png"
+        }
+        this.setState({
+            imgSrc1:img,
+            imgSrc2:img,
+            imgSrc3:img
+        })
+    }
+
 
     content() {
         return (
@@ -110,21 +136,21 @@ class Page extends SuperPage{
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={Image1} alt="#"></img>
+                        <img src={this.state.imgSrc1} alt="#"></img>
                     </Grid>
                     <Grid container xs={4}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={Image2} alt="#"></img>    
+                        <img src={this.state.imgSrc2} alt="#"></img>    
                     </Grid>
                     <Grid container xs={4}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={Image3} alt="#"></img>    
+                        <img src={this.state.imgSrc3} alt="#"></img>    
                     </Grid>
 
                     <Grid container xs={4}
