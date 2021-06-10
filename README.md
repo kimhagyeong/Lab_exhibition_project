@@ -1,11 +1,23 @@
 # Getting Started with Create React App
 
-node.js 설치 후
+1. node.js 설치 ( 아래 링크 들어가서 따라해보세요 )
+- https://www.next-t.co.kr/blog/%EA%B0%9C%EB%B0%9C-%EC%84%9C%EB%B2%84%EA%B0%9C%EB%B0%9C-nodejs-%EC%9C%88%EB%8F%84%EC%9A%B0-%EC%84%A4%EC%B9%98%EB%B0%A9%EB%B2%95
+2. 이 깃 파일을 다운받아주세요
+3. code 버튼 > download zip
+4. 압축파일을 풀고 exhibition 폴더 안에 터미널을 실행 시키세요.
+- window user : 시작메뉴에서 cmd를 쳐서 명령 프롬프트(검정창)을 열어주세요
+- mac user : 터미널 app을 실행하세요
+- download 한 폴더의 하위 exhibition 폴더로 들어가세요.
+- 경로를 복사하세요.
+- cd 경로
+- 엔터
+- 안되면 폴더 구별자를 / 또는 \ 또는 ₩ 로 바꿔서 입력해보세요
+5. exhibition 폴더 안에서 아래 두 명령어를 차례로 쳐주세요. 
 
 ### `npm i`
 ### `npm start`
 
-# 디자인 요구사항
+# 디자이너에게 부탁하는 요구사항
 1. 모든 이미지 파일들은 화질 높여서 보내주세요..
 2. 4페이지에 채색하기, 화풍입히기 페이지에 보내줄 이미지는 타원형 말고 직사각형으로 보내주세요.
 3. 화풍입히기 버튼 3,4,5번 없습니다.
