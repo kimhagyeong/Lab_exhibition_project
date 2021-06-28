@@ -122,24 +122,24 @@ class Page extends SuperPage {
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={BTN1} alt="#" onClick={() => {this.props.setMode("로베르 들로네"); this.props.setPageNum("9")}} />
+                        <img src={BTN1} alt="#" onClick={() => {this.props.setMode("로베르 들로네"); this.props.setPageNum("6")}} />
                     </Grid>
                     <Grid container xs={4}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={BTN2} alt="#" onClick={() => {this.props.setMode("반 고흐"); this.props.setPageNum("9")}}/>
+                        <img src={BTN2} alt="#" onClick={() => {this.props.setMode("반 고흐"); this.props.setPageNum("6")}}/>
                     </Grid>
                     <Grid container xs={4}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={BTN3} alt="#" onClick={() => {this.props.setMode("앙드레 드랭"); this.props.setPageNum("9")}}/>
+                        <img src={BTN3} alt="#" onClick={() => {this.props.setMode("앙드레 드랭"); this.props.setPageNum("6")}}/>
                     </Grid>
                     <Grid item xs={12}>
-                        <img src={nextSvg} alt="#" onClick={()=> this.props.setPageNum("6")} />
+                        <img src={nextSvg} alt="#" onClick={()=> this.props.setPageNum("5")} />
                     </Grid>
                 </Grid>
             </ContentStyle>
@@ -148,7 +148,7 @@ class Page extends SuperPage {
 
     backButton() {
         return (
-            <img src={backSvg} alt="#" onClick={() => this.props.setPageNum("4")} />
+            <img src={backSvg} alt="#" onClick={() => this.props.setPageNum("2")} />
         )
     }
 

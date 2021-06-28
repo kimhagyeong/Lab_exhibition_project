@@ -1,13 +1,13 @@
-import SuperPage from "./E_ChooseA_1.js"
+import SuperPage from "./B_Camera"
 import styled from "styled-components";
 import theme from "../theme";
 import Grid from '@material-ui/core/Grid';
+import backSvg from "../../resource/BTN-18.svg"
 import BTN1 from '../../resource/BTN-12.svg';
 import BTN2 from '../../resource/BTN-13.svg';
 import BTN3 from '../../resource/BTN-14.svg';
-import prevSvg from "../../resource/BTN-17.svg";
-import Section from "../section02";
 import axios from "axios"
+import Section from "../section02"
 
 const ContentStyle = styled.div`
     width:1550px;
@@ -19,7 +19,7 @@ const ContentStyle = styled.div`
         text-align:center;
         padding-top:30px;
         &>div{
-            width: 679px;
+            width: 1000px;
             height: 39px;
             background: rgb(255,210,181) 0% 0% no-repeat padding-box;
             display:inline-block;
@@ -35,32 +35,34 @@ const ContentStyle = styled.div`
     }
     &>div>div:nth-child(2){
         img{
-            width: 470px;
-            height: 470px;
-            margin-top:115px;
+            width: 370px;
+            height: 370px;
+            margin-top:240px;
         }
     }
     &>div>div:nth-child(3){
         img{
-            width: 470px;
-            height: 470px;
-            margin-top:115px;
+            width: 370px;
+            height: 370px;
+            margin-top:240px;
         }
     }
     &>div>div:nth-child(4){
         img{
-            width: 470px;
-            height: 470px;
-            margin-top:115px;
+            width: 370px;
+            height: 370px;
+            margin-top:240px;
+        }
+    }
+    &>div>div:nth-child(5){
+        img{
+            width: 370px;
+            height: 370px;
+            margin-top:240px;
         }
     }
     
-    &>div>div:nth-child(5){
-        img{
-            ${theme.BubbleButton}
-            margin-top:68px;
-        }
-    }
+    
     &>div>div:nth-child(6){
         img{
             ${theme.BubbleButton}
@@ -75,19 +77,31 @@ const ContentStyle = styled.div`
     }
     &>div>div:nth-child(8){
         img{
+            ${theme.BubbleButton}
+            margin-top:68px;
+        }
+    }
+    &>div>div:nth-child(9){
+        img{
+            ${theme.BubbleButton}
+            margin-top:68px;
+        }
+    }
+    &>div>div:nth-child(10){
+        img{
             width: 74px;
             height: 74px;
             margin-top:60px;
         }
     }
 `;
-class Page extends SuperPage {
+class Page extends SuperPage{
     constructor(props) {
         super(props);
         this.state = {
-            imgSrc4:"https://defavoritebucket-resized.s3.amazonaws.com/popup/SecitonUiD_우주나비_1_09_232159.png",
-            imgSrc5:"https://defavoritebucket-resized.s3.amazonaws.com/popup/SecitonUiD_우주나비_1_09_232159.png",
-            imgSrc6:"https://defavoritebucket-resized.s3.amazonaws.com/popup/SecitonUiD_우주나비_1_09_232159.png"
+            imgSrc1:theme.CategoryImg["1"],
+            imgSrc2:theme.CategoryImg["2"],
+            imgSrc3:theme.CategoryImg["3"]
         }
     }
 
@@ -106,13 +120,13 @@ class Page extends SuperPage {
             });
         }
         catch(error){
-            img = theme.CategoryImg["4"]
+            img = "https://defavoritebucket-resized.s3.amazonaws.com/popup/SecitonUiD_우주나비_1_09_232159.png"
         }
-        this.setState({
-            imgSrc1:img,
-            imgSrc2:img,
-            imgSrc3:img
-        })
+        // this.setState({
+        //     imgSrc1:img,
+        //     imgSrc2:img,
+        //     imgSrc3:img
+        // })
     }
 
 
@@ -122,61 +136,78 @@ class Page extends SuperPage {
                 <Grid container>
                     <Grid item xs={12}>
                         <div></div>
-                        <h1>어떤 화풍을 선택하시겠어요?</h1>
+                        <h1>[{theme.ArtistArts[this.props.mode][this.props.numAI-1]}] 선택하였습니다</h1>
                     </Grid>
-                    <Grid container xs={4}
+                    <Grid container xs={3}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={this.state.imgSrc4} alt="#"></img>
+                        <img src={this.state.imgSrc1} alt="#"></img>
                     </Grid>
-                    <Grid container xs={4}
+                    <Grid container xs={3}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={this.state.imgSrc5} alt="#"></img>
+                        <img src={this.state.imgSrc2} alt="#"></img>    
                     </Grid>
-                    <Grid container xs={4}
+                    <Grid container xs={3}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={this.state.imgSrc6} alt="#"></img>
+                        <img src={this.state.imgSrc3} alt="#"></img>    
                     </Grid>
-                    <Grid container xs={4}
+                    <Grid container xs={3}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={BTN1} alt="#" onClick={() => {this.props.setMode("4"); this.props.setPageNum("10")}} />
+                        <img src={this.state.imgSrc3} alt="#"></img>    
                     </Grid>
-                    <Grid container xs={4}
-                        direction="row"
+
+                    <Grid container xs={3}
+                        direction="column"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={BTN2} alt="#" onClick={() => {this.props.setMode("5"); this.props.setPageNum("10")}} />
+                        <img src={BTN1} alt="#" onClick={()=>{this.props.setPageNum("8")}}/>
                     </Grid>
-                    <Grid container xs={4}
-                        direction="row"
+                    <Grid container xs={3}
+                        direction="column"
                         justify="center"
                         alignItems="center"
                     >
-                       <img src={BTN3} alt="#" onClick={() => {this.props.setMode("6"); this.props.setPageNum("10")}} />
+                        <img src={BTN2} alt="#" onClick={()=>{this.props.setPageNum("8")}}/>
                     </Grid>
-                    <Grid item xs={12}>
-                       <img src={prevSvg} alt="#" onClick={()=>this.props.setPageNum("7")}/>
+                    <Grid container xs={3}
+                        direction="column"
+                        justify="center"
+                        alignItems="center"
+                    >
+                        <img src={BTN3} alt="#" onClick={()=>{this.props.setPageNum("8")}}/>
+                    </Grid>
+                    <Grid container xs={3}
+                        direction="column"
+                        justify="center"
+                        alignItems="center"
+                    >
+                        <img src={BTN3} alt="#" onClick={()=>{this.props.setPageNum("8")}}/>
                     </Grid>
                 </Grid>
             </ContentStyle>
         )
     }
 
+    backButton(){
+        return(
+            <img src={backSvg} alt="#" onClick={() => this.props.setPageNum("6")} />
+        )
+    }
     render() {
         return (
-            <Section id="chooseB_2">
+            <Section id="result">
                 {this.commonSection()}
             </Section>
         )

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import theme from "../theme";
 import Grid from '@material-ui/core/Grid';
 import backSvg from "../../resource/BTN-18.svg"
-import nextSvg from "../../resource/BTN-18.svg";
+import nextSvg from "../../resource/BTN-18-2.svg";
 import BTN from "../../resource/BTN-15.svg";
 import Section from "../section03";
 import axios from "axios";
@@ -91,7 +91,7 @@ class Page extends SuperPage{
         })
         if(this.state.currentCount < 1) { 
           clearInterval(this.intervalId);
-          this.props.setPageNum("11");
+          this.props.setPageNum("9");
         }
         console.log(this.state.currentCount);
       }
@@ -150,7 +150,7 @@ class Page extends SuperPage{
                         <img src={this.props.resultImg} alt="#"></img>
                     </Grid>
                     <Grid item xs={12}>
-                        <img src={BTN} alt="#" onClick={() => this.props.setPageNum("4")}/>
+                        <img src={BTN} alt="#" onClick={() => this.props.setPageNum("6")}/>
                     </Grid>
                 </Grid>
             </ContentStyle>
@@ -159,7 +159,7 @@ class Page extends SuperPage{
 
     backButton(){
         return(
-            <img src={backSvg} alt="#" onClick={() => this.props.setPageNum("4")} />
+            <img src={backSvg} alt="#" onClick={() => this.props.setPageNum("7")} />
         )
     }
     render() {

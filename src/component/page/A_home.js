@@ -10,10 +10,14 @@ const Section = styled.section`
     background-color:${theme.OrangeColor};
 
     &>div>div:nth-child(1){
-        height:900px
+        height:612px
     }
     &>div>div:nth-child(2){
-        height:900px;
+        height:612px;
+    }
+    &>div>div:nth-child(5){
+        height:276px;
+        text-align:center;
     }
     img{
         width: 510px;
@@ -25,7 +29,8 @@ const Section = styled.section`
         color: #FFFFFF;
         opacity: 1;
         font: normal normal bold 54px/65px ${theme.GmarketFontBold};
-        margin:90px 0 47px 0;
+        // margin:90px 0 47px 0;
+        margin:46px 0 38px 0;
     }
     p{
         letter-spacing: 0px;
@@ -35,13 +40,12 @@ const Section = styled.section`
         text-align: center;
         margin:0;
     }
-
-    &>div>div:nth-child(3){
+    &>div>div:nth-child(6){
         height:192px;
         text-align:center;
         & > img{
             ${theme.BubbleButton}
-            margin-top:0;
+            margin:0;
         }
     }
 `;
@@ -56,23 +60,31 @@ class Page extends Component {
         return (
             <Section id="home">
                 <Grid container>
-                    <Grid xs={6} container
+                    <Grid xs={1} container
                     direction="column"
                     justify="flex-start"
-                    alignItems="center"
-                  >
-                        <img src={Image1} alt="#"></img>
-                        <h2>화가의 채색을 입혀드립니다</h2>
-                        <p>AI를 이용하여 작품에 대한 전반적인<br />질감과 색을 학습해 입혀드립니다</p>
+                    alignItems="center">
                     </Grid>
-                    <Grid xs={6} container
+                    <Grid xs={5} container
+                    direction="column"
+                    justify="flex-start"
+                    alignItems="center">
+                        <img src={Image1} alt="#"></img>
+                    </Grid>
+                    <Grid xs={5} container
                     direction="column"
                     justify="flex-start"
                     alignItems="center">
                         <img src={Image2} alt="#"></img>
-                        <h2>화가의 화풍을 입혀드립니다</h2>
-                        <p>AI를 이용하여 작가에 대한 전반적인<br />드로잉 특성을 학습해 입혀드립니다</p>
-
+                    </Grid>
+                    <Grid xs={1} container
+                    direction="column"
+                    justify="flex-start"
+                    alignItems="center">
+                    </Grid>
+                    <Grid item xs={12}>
+                        <h2>화가의 채색을 입혀드립니다</h2>
+                        <p>AI를 이용하여 작품에 대한 전반적인<br />질감과 색을 학습해 입혀드립니다</p>
                     </Grid>
                     <Grid item xs={12}>
                         <img src={BTN} alt="#" onClick={() => this.props.setPageNum("2")} ></img>

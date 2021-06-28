@@ -5,12 +5,10 @@ import theme from "./component/theme"
 import Home from "./component/page/A_home";
 import Camera from "./component/page/B_Camera";
 import CameraConfirm from "./component/page/C_CameraConfirm";
-import ChooseMode from "./component/page/D_ChooseMode";
-import ModeA from "./component/page/E_ChooseA_1";
-import ModeA2 from "./component/page/E_ChooseA_2";
-import ModeB from "./component/page/F_ChooseB_1";
-import ModeB2 from "./component/page/F_ChooseB_2";
-import Result from "./component/page/G_Result";
+import Painter from "./component/page/D_Painter_1";
+import Painter2 from "./component/page/D_Painter_2";
+import Masterpiece from "./component/page/F_Masterpiece";
+import Variation from "./component/page/G_Variation";
 import Print from "./component/page/H_Print";
 import End from "./component/page/I_End";
 
@@ -56,14 +54,12 @@ function App() {
       {pageNum==="1"?<Home setPageNum={setPageNumFunction}></Home>:null}
       {pageNum==="2"?<Camera setPageNum={setPageNumFunction} reset={reset} setCameraImg ={setCameraImgFunction}></Camera>:null}
       {pageNum==="3"?<CameraConfirm setPageNum={setPageNumFunction} reset={reset}  cameraImg={cameraImg}></CameraConfirm>:null}
-      {pageNum==="4"?<ChooseMode setPageNum={setPageNumFunction} reset={reset} ></ChooseMode>:null}
-      {pageNum==="5"?<ModeA setPageNum={setPageNumFunction} reset={reset} setMode={setModeFunction} mode={mode}></ModeA>:null}
-      {pageNum==="6"?<ModeA2 setPageNum={setPageNumFunction} reset={reset} setMode={setModeFunction}></ModeA2>:null}
-      {pageNum==="7"?<ModeB setPageNum={setPageNumFunction} reset={reset} setMode={setModeFunction}></ModeB>:null}
-      {pageNum==="8"?<ModeB2 setPageNum={setPageNumFunction} reset={reset} setMode={setModeFunction}></ModeB2>:null}
-      {pageNum==="9"?<Result setPageNum={setPageNumFunction} reset={reset} mode={mode} setNumAI={setNumAIFunction}></Result>:null}
-      {pageNum==="10"?<Print setPageNum={setPageNumFunction} reset={reset} mode={mode} numAI={numAI} cameraImg={cameraImg} resultImg={resultImg} setResultImg={setResultImgFunction}></Print>:null}
-      {pageNum==="11"?<End setPageNum={setPageNumFunction} reset={reset} resultImg={resultImg}></End>:null}
+      {pageNum==="4"?<Painter setPageNum={setPageNumFunction} reset={reset} setMode={setModeFunction} mode={mode}></Painter>:null}
+      {pageNum==="5"?<Painter2 setPageNum={setPageNumFunction} reset={reset} setMode={setModeFunction}></Painter2>:null}
+      {pageNum==="6"?<Masterpiece setPageNum={setPageNumFunction} reset={reset} mode={mode} setNumAI={setNumAIFunction}></Masterpiece>:null}
+      {pageNum==="7"?<Variation setPageNum={setPageNumFunction} reset={reset} mode={mode} numAI={numAI}></Variation>:null}
+      {pageNum==="8"?<Print setPageNum={setPageNumFunction} reset={reset} mode={mode} numAI={numAI} cameraImg={cameraImg} resultImg={resultImg} setResultImg={setResultImgFunction}></Print>:null}
+      {pageNum==="9"?<End setPageNum={setPageNumFunction} reset={reset} resultImg={resultImg}></End>:null}
       
     </>
   );

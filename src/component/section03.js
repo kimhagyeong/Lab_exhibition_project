@@ -48,7 +48,7 @@ const Section = styled.section`
             color:  ${theme.LightOrangeColor};
             opacity: 1;
             width:550px;
-            top: 470px;
+            top: 504px;
             right: -210px;
             // right: -230px;
         }

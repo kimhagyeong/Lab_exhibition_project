@@ -1,13 +1,13 @@
-import SuperPage from "./E_ChooseA_1.js"
+import SuperPage from "./D_Painter_1.js"
 import styled from "styled-components";
 import theme from "../theme";
 import Grid from '@material-ui/core/Grid';
+import backSvg from "../../resource/BTN-18.svg"
 import BTN1 from '../../resource/BTN-12.svg';
 import BTN2 from '../../resource/BTN-13.svg';
 import BTN3 from '../../resource/BTN-14.svg';
-import nextSvg from "../../resource/BTN-16.svg";
 import Section from "../section02"
-import axios from "axios";
+import axios from "axios"
 
 const ContentStyle = styled.div`
     width:1550px;
@@ -19,7 +19,7 @@ const ContentStyle = styled.div`
         text-align:center;
         padding-top:30px;
         &>div{
-            width: 679px;
+            width: 845px;
             height: 39px;
             background: rgb(255,210,181) 0% 0% no-repeat padding-box;
             display:inline-block;
@@ -58,19 +58,19 @@ const ContentStyle = styled.div`
     &>div>div:nth-child(5){
         img{
             ${theme.BubbleButton}
-            margin-top:68px;
+            margin-top:53px;
         }
     }
     &>div>div:nth-child(6){
         img{
             ${theme.BubbleButton}
-            margin-top:68px;
+            margin-top:53px;
         }
     }
     &>div>div:nth-child(7){
         img{
             ${theme.BubbleButton}
-            margin-top:68px;
+            margin-top:53px;
         }
     }
     &>div>div:nth-child(8){
@@ -80,14 +80,21 @@ const ContentStyle = styled.div`
             margin-top:60px;
         }
     }
+    p{
+        font: normal normal normal 23px/42px ${theme.GmarketFontMedium};
+        letter-spacing: 0px;
+        color: #3B3B3B;
+        opacity: 1;
+        margin:53px 0px 0px 0px;
+    }
 `;
-class Page extends SuperPage {
+class Page extends SuperPage{
     constructor(props) {
         super(props);
         this.state = {
-            imgSrc1:"https://defavoritebucket-resized.s3.amazonaws.com/popup/SecitonUiD_우주나비_1_09_232159.png",
-            imgSrc2:"https://defavoritebucket-resized.s3.amazonaws.com/popup/SecitonUiD_우주나비_1_09_232159.png",
-            imgSrc3:"https://defavoritebucket-resized.s3.amazonaws.com/popup/SecitonUiD_우주나비_1_09_232159.png"
+            imgSrc1:theme.CategoryImg["1"],
+            imgSrc2:theme.CategoryImg["2"],
+            imgSrc3:theme.CategoryImg["3"]
         }
     }
 
@@ -106,7 +113,7 @@ class Page extends SuperPage {
             });
         }
         catch(error){
-            img = theme.CategoryImg["1"]
+            img = "https://defavoritebucket-resized.s3.amazonaws.com/popup/SecitonUiD_우주나비_1_09_232159.png"
         }
         this.setState({
             imgSrc1:img,
@@ -115,13 +122,14 @@ class Page extends SuperPage {
         })
     }
 
+
     content() {
         return (
             <ContentStyle>
                 <Grid container>
                     <Grid item xs={12}>
                         <div></div>
-                        <h1>어떤 화풍을 선택하시겠어요?</h1>
+                        <h1>[{this.props.mode}] 선택하였습니다</h1>
                     </Grid>
                     <Grid container xs={4}
                         direction="row"
@@ -135,46 +143,53 @@ class Page extends SuperPage {
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={this.state.imgSrc2} alt="#"></img>
+                        <img src={this.state.imgSrc2} alt="#"></img>    
                     </Grid>
                     <Grid container xs={4}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={this.state.imgSrc3} alt="#"></img>
+                        <img src={this.state.imgSrc3} alt="#"></img>    
                     </Grid>
+
                     <Grid container xs={4}
-                        direction="row"
+                        direction="column"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={BTN1} alt="#" onClick={() => {this.props.setMode("1"); this.props.setPageNum("10")}} />
+                        <p>{theme.ArtistArts[this.props.mode][0]}</p>
+                        <img src={BTN1} alt="#" onClick={()=>{this.props.setNumAI("1"); this.props.setPageNum("7")}}/>
                     </Grid>
                     <Grid container xs={4}
-                        direction="row"
+                        direction="column"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={BTN2} alt="#" onClick={() => {this.props.setMode("2"); this.props.setPageNum("10")}} />
+                        <p>{theme.ArtistArts[this.props.mode][1]}</p>
+                        <img src={BTN2} alt="#" onClick={()=>{this.props.setNumAI("2"); this.props.setPageNum("7")}}/>
                     </Grid>
                     <Grid container xs={4}
-                        direction="row"
+                        direction="column"
                         justify="center"
                         alignItems="center"
                     >
-                       <img src={BTN3} alt="#" onClick={() => {this.props.setMode("3"); this.props.setPageNum("10")}} />
-                    </Grid>
-                    <Grid item xs={12}>
-                       <img src={nextSvg} alt="#" onClick={()=>this.props.setPageNum("8")}/>
+                        <p>{theme.ArtistArts[this.props.mode][2]}</p>
+                        <img src={BTN3} alt="#" onClick={()=>{this.props.setNumAI("3"); this.props.setPageNum("7")}}/>
                     </Grid>
                 </Grid>
             </ContentStyle>
         )
     }
+
+    backButton(){
+        return(
+            <img src={backSvg} alt="#" onClick={() => this.props.setPageNum("4")} />
+        )
+    }
     render() {
         return (
-            <Section id="chooseB_1">
+            <Section id="result">
                 {this.commonSection()}
             </Section>
         )
