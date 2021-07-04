@@ -7,7 +7,7 @@ import BTN1 from '../../resource/BTN-12.svg';
 import BTN2 from '../../resource/BTN-13.svg';
 import BTN3 from '../../resource/BTN-14.svg';
 import Section from "../section02"
-import axios from "axios"
+// import axios from "axios"
 
 const ContentStyle = styled.div`
     width:1550px;
@@ -34,24 +34,48 @@ const ContentStyle = styled.div`
         } 
     }
     &>div>div:nth-child(2){
-        img{
+        position:relative;
+        & > img:nth-child(1){
             width: 470px;
             height: 470px;
             margin-top:115px;
+        }
+        & > img:nth-child(2){
+            width: 100px;
+            height: 100px;
+            position:absolute;
+            top:485px;
+            left:23px;
         }
     }
     &>div>div:nth-child(3){
-        img{
+        position:relative;
+        & > img:nth-child(1){
             width: 470px;
             height: 470px;
             margin-top:115px;
         }
+        & > img:nth-child(2){
+            width: 100px;
+            height: 100px;
+            position:absolute;
+            top:485px;
+            left:23px;
+        }
     }
     &>div>div:nth-child(4){
-        img{
+        position:relative;
+        & > img:nth-child(1){
             width: 470px;
             height: 470px;
             margin-top:115px;
+        }
+        & > img:nth-child(2){
+            width: 100px;
+            height: 100px;
+            position:absolute;
+            top:485px;
+            left:24px;
         }
     }
     
@@ -88,40 +112,21 @@ const ContentStyle = styled.div`
         margin:53px 0px 0px 0px;
     }
 `;
-class Page extends SuperPage{
+class Page extends SuperPage {
     constructor(props) {
         super(props);
         this.state = {
-            imgSrc1:theme.CategoryImg["1"],
-            imgSrc2:theme.CategoryImg["2"],
-            imgSrc3:theme.CategoryImg["3"]
+            resultImg1: this.props.masterpieceResultImg[theme.PainterArts[this.props.painter][0]],
+            resultImg2: this.props.masterpieceResultImg[theme.PainterArts[this.props.painter][1]],
+            resultImg3: this.props.masterpieceResultImg[theme.PainterArts[this.props.painter][2]],
+            masterpieceImg1 : theme.Masterpieces[theme.PainterArts[this.props.painter][0]],
+            masterpieceImg2 : theme.Masterpieces[theme.PainterArts[this.props.painter][1]],
+            masterpieceImg3 : theme.Masterpieces[theme.PainterArts[this.props.painter][2]]
         }
     }
 
     componentDidMount() {
-        this.callAPI();
     }
-    callAPI=async()=>{
-        var img = theme.CategoryImg["1"];
-        try{
-            img = await axios.get('https://test.com/', {
-                params: {
-                img:this.props.cameraImg,
-                mode:this.props.mode,
-                numAI:this.props.numAI
-                }
-            });
-        }
-        catch(error){
-            img = "https://defavoritebucket-resized.s3.amazonaws.com/popup/SecitonUiD_우주나비_1_09_232159.png"
-        }
-        this.setState({
-            imgSrc1:img,
-            imgSrc2:img,
-            imgSrc3:img
-        })
-    }
-
 
     content() {
         return (
@@ -129,28 +134,31 @@ class Page extends SuperPage{
                 <Grid container>
                     <Grid item xs={12}>
                         <div></div>
-                        <h1>[{this.props.mode}] 선택하였습니다</h1>
+                        <h1>[{this.props.painter}] 선택하였습니다</h1>
                     </Grid>
                     <Grid container xs={4}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={this.state.imgSrc1} alt="#"></img>
+                        <img src={this.state.resultImg1} alt="#"></img>
+                        <img src={this.state.masterpieceImg1} alt="#"></img>
                     </Grid>
                     <Grid container xs={4}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={this.state.imgSrc2} alt="#"></img>    
+                        <img src={this.state.resultImg2} alt="#"></img>
+                        <img src={this.state.masterpieceImg2} alt="#"></img>
                     </Grid>
                     <Grid container xs={4}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={this.state.imgSrc3} alt="#"></img>    
+                        <img src={this.state.resultImg3} alt="#"></img>
+                        <img src={this.state.masterpieceImg3} alt="#"></img>
                     </Grid>
 
                     <Grid container xs={4}
@@ -158,32 +166,32 @@ class Page extends SuperPage{
                         justify="center"
                         alignItems="center"
                     >
-                        <p>{theme.ArtistArts[this.props.mode][0]}</p>
-                        <img src={BTN1} alt="#" onClick={()=>{this.props.setNumAI("1"); this.props.setPageNum("7")}}/>
+                        <p>{theme.PainterArts[this.props.painter][0]}</p>
+                        <img src={BTN1} alt="#" onClick={() => { this.props.setMasterpiece(theme.PainterArts[this.props.painter][0]); this.props.setPageNum("7") }} />
                     </Grid>
                     <Grid container xs={4}
                         direction="column"
                         justify="center"
                         alignItems="center"
                     >
-                        <p>{theme.ArtistArts[this.props.mode][1]}</p>
-                        <img src={BTN2} alt="#" onClick={()=>{this.props.setNumAI("2"); this.props.setPageNum("7")}}/>
+                        <p>{theme.PainterArts[this.props.painter][1]}</p>
+                        <img src={BTN2} alt="#" onClick={() => { this.props.setMasterpiece(theme.PainterArts[this.props.painter][1]); this.props.setPageNum("7") }} />
                     </Grid>
                     <Grid container xs={4}
                         direction="column"
                         justify="center"
                         alignItems="center"
                     >
-                        <p>{theme.ArtistArts[this.props.mode][2]}</p>
-                        <img src={BTN3} alt="#" onClick={()=>{this.props.setNumAI("3"); this.props.setPageNum("7")}}/>
+                        <p>{theme.PainterArts[this.props.painter][2]}</p>
+                        <img src={BTN3} alt="#" onClick={() => { this.props.setMasterpiece(theme.PainterArts[this.props.painter][2]); this.props.setPageNum("7") }} />
                     </Grid>
                 </Grid>
             </ContentStyle>
         )
     }
 
-    backButton(){
-        return(
+    backButton() {
+        return (
             <img src={backSvg} alt="#" onClick={() => this.props.setPageNum("4")} />
         )
     }

@@ -19,13 +19,13 @@ const ContentStyle = styled.div`
     &>div>div{
         width: 565px;
         height: 764px;
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        border: 1px solid #707070;
+        // background: #FFFFFF 0% 0% no-repeat padding-box;
+        // border: 1px solid #707070;
         opacity: 1;
         &>img{
             width: 565px;
-            height: 764px;
-            margin-top:0px;
+            max-height: 764px;
+            margin-top:50px;
         }
     }
     
@@ -45,7 +45,6 @@ class Page extends SuperPage {
           clearInterval(this.intervalId);
           this.props.setPageNum("1");
         }
-        console.log(this.state.currentCount);
       }
       
     componentDidMount() {

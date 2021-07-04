@@ -3,11 +3,10 @@ import styled from "styled-components";
 import theme from "../theme";
 import Grid from '@material-ui/core/Grid';
 import backSvg from "../../resource/BTN-18.svg"
-import BTN1 from '../../resource/BTN-12.svg';
-import BTN2 from '../../resource/BTN-13.svg';
-import BTN3 from '../../resource/BTN-14.svg';
+import BTN1 from '../../resource/BTN-theme.svg';
 import axios from "axios"
 import Section from "../section02"
+import Example from "../../resource/masterpiece1_1.png";
 
 const ContentStyle = styled.div`
     width:1550px;
@@ -64,27 +63,63 @@ const ContentStyle = styled.div`
     
     
     &>div>div:nth-child(6){
+        position:relative;
         img{
             ${theme.BubbleButton}
             margin-top:68px;
+        }
+        p{
+            position:absolute;
+            text-align: center;
+            font: normal normal bold 55px/52px ${theme.GmarketFontBold};
+            letter-spacing: 1.72px;
+            color: ${theme.OrangeColor};
+            top:108px;
         }
     }
     &>div>div:nth-child(7){
+        position:relative;
         img{
             ${theme.BubbleButton}
             margin-top:68px;
+        }
+        p{
+            position:absolute;
+            text-align: center;
+            font: normal normal bold 55px/52px ${theme.GmarketFontBold};
+            letter-spacing: 1.72px;
+            color: ${theme.OrangeColor};
+            top:108px;
         }
     }
     &>div>div:nth-child(8){
+        position:relative;
         img{
             ${theme.BubbleButton}
             margin-top:68px;
         }
+        p{
+            position:absolute;
+            text-align: center;
+            font: normal normal bold 55px/52px ${theme.GmarketFontBold};
+            letter-spacing: 1.72px;
+            color: ${theme.OrangeColor};
+            top:108px;
+        }
     }
     &>div>div:nth-child(9){
+        position:relative;
         img{
             ${theme.BubbleButton}
             margin-top:68px;
+        }
+        p{
+            position:absolute;
+            text-align: center;
+            font: normal normal bold 55px/52px ${theme.GmarketFontBold};
+            letter-spacing: 1.72px;
+            color: ${theme.OrangeColor};
+            top:108px;
         }
     }
     &>div>div:nth-child(10){
@@ -95,38 +130,44 @@ const ContentStyle = styled.div`
         }
     }
 `;
-class Page extends SuperPage{
+class Page extends SuperPage {
     constructor(props) {
         super(props);
         this.state = {
-            imgSrc1:theme.CategoryImg["1"],
-            imgSrc2:theme.CategoryImg["2"],
-            imgSrc3:theme.CategoryImg["3"]
+            imgSrc1: theme.DefaultImgSrc,
+            imgSrc2: theme.DefaultImgSrc,
+            imgSrc3: theme.DefaultImgSrc,
+            imgSrc4: theme.DefaultImgSrc
         }
     }
 
     componentDidMount() {
         this.callAPI();
     }
-    callAPI=async()=>{
-        var img = theme.CategoryImg["1"];
-        try{
+    callAPI = async () => {
+        var img;
+        try {
             img = await axios.get('https://test.com/', {
                 params: {
-                img:this.props.cameraImg,
-                mode:this.props.mode,
-                numAI:this.props.numAI
+                    img: this.props.cameraImg,
+                    masterpiece: this.props.masterpiece
                 }
             });
         }
-        catch(error){
-            img = "https://defavoritebucket-resized.s3.amazonaws.com/popup/SecitonUiD_우주나비_1_09_232159.png"
+        catch (error) {
+            img = {
+                "imgSrc1" : Example,
+                "imgSrc2" : Example,
+                "imgSrc3" : Example,
+                "imgSrc4" : Example,
+            }
         }
-        // this.setState({
-        //     imgSrc1:img,
-        //     imgSrc2:img,
-        //     imgSrc3:img
-        // })
+        this.setState({
+            imgSrc1:img.imgSrc1,
+            imgSrc2:img.imgSrc2,
+            imgSrc3:img.imgSrc3,
+            imgSrc4:img.imgSrc4
+        })
     }
 
 
@@ -136,7 +177,7 @@ class Page extends SuperPage{
                 <Grid container>
                     <Grid item xs={12}>
                         <div></div>
-                        <h1>[{theme.ArtistArts[this.props.mode][this.props.numAI-1]}] 선택하였습니다</h1>
+                        <h1>[{this.props.masterpiece}] 선택하였습니다</h1>
                     </Grid>
                     <Grid container xs={3}
                         direction="row"
@@ -150,21 +191,21 @@ class Page extends SuperPage{
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={this.state.imgSrc2} alt="#"></img>    
+                        <img src={this.state.imgSrc2} alt="#"></img>
                     </Grid>
                     <Grid container xs={3}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={this.state.imgSrc3} alt="#"></img>    
+                        <img src={this.state.imgSrc3} alt="#"></img>
                     </Grid>
                     <Grid container xs={3}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={this.state.imgSrc3} alt="#"></img>    
+                        <img src={this.state.imgSrc4} alt="#"></img>
                     </Grid>
 
                     <Grid container xs={3}
@@ -172,36 +213,40 @@ class Page extends SuperPage{
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={BTN1} alt="#" onClick={()=>{this.props.setPageNum("8")}}/>
+                        <img src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc1)}} />
+                        <p>1</p>
                     </Grid>
                     <Grid container xs={3}
                         direction="column"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={BTN2} alt="#" onClick={()=>{this.props.setPageNum("8")}}/>
+                        <img src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc1) }} />
+                        <p>2</p>
                     </Grid>
                     <Grid container xs={3}
                         direction="column"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={BTN3} alt="#" onClick={()=>{this.props.setPageNum("8")}}/>
+                        <img src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc1) }} />
+                        <p>3</p>
                     </Grid>
                     <Grid container xs={3}
                         direction="column"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={BTN3} alt="#" onClick={()=>{this.props.setPageNum("8")}}/>
+                        <img src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc1) }} />
+                        <p>4</p>
                     </Grid>
                 </Grid>
             </ContentStyle>
         )
     }
 
-    backButton(){
-        return(
+    backButton() {
+        return (
             <img src={backSvg} alt="#" onClick={() => this.props.setPageNum("6")} />
         )
     }

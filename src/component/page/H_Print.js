@@ -6,7 +6,6 @@ import backSvg from "../../resource/BTN-18.svg"
 import nextSvg from "../../resource/BTN-18-2.svg";
 import BTN from "../../resource/BTN-15.svg";
 import Section from "../section03";
-import axios from "axios";
 
 const ContentStyle = styled.div`
     width:1550px;
@@ -68,7 +67,7 @@ const ContentStyle = styled.div`
         }
         img:nth-child(2){
             width: 471px;
-            height: 637px;
+            max-height: 637px;
         }
     }
     &>div>div:nth-child(4){
@@ -78,7 +77,7 @@ const ContentStyle = styled.div`
         }
     }
 `;
-class Page extends SuperPage{
+class Page extends SuperPage {
     constructor(props) {
         super(props);
         this.state = {
@@ -87,36 +86,18 @@ class Page extends SuperPage{
     }
     timer() {
         this.setState({
-          currentCount: this.state.currentCount - 1
+            currentCount: this.state.currentCount - 1
         })
-        if(this.state.currentCount < 1) { 
-          clearInterval(this.intervalId);
-          this.props.setPageNum("9");
+        if (this.state.currentCount < 1) {
+            clearInterval(this.intervalId);
+            this.props.setPageNum("9");
         }
-        console.log(this.state.currentCount);
-      }
-      
+    }
+
     componentDidMount() {
         this.intervalId = setInterval(this.timer.bind(this), 1000);
-        this.callAPI();
     }
-    callAPI=async()=>{
-        var img = "https://defavoritebucket-resized.s3.amazonaws.com/popup/마음터치우주_오베르교회.jpg"
-        try{
-            img = await axios.get('https://test.com/', {
-                params: {
-                img:this.props.cameraImg,
-                mode:this.props.mode,
-                numAI:this.props.numAI
-                }
-            });
-        }
-        catch(error){
-            img = "https://defavoritebucket-resized.s3.amazonaws.com/popup/SecitonUiD_우주나비_1_09_232159.png"
-        }
-        this.props.setResultImg(img);
-    }
-    componentWillUnmount(){
+    componentWillUnmount() {
         clearInterval(this.intervalId);
     }
 
@@ -128,7 +109,7 @@ class Page extends SuperPage{
                         <div></div>
                         <h1>완성된 사진입니다. 어떠신가요?<br />{this.state.currentCount}초 후 인쇄를 진행합니다.</h1>
                     </Grid>
-                    <Grid container xs={6} 
+                    <Grid container xs={6}
                         direction="row"
                         justify="center"
                         alignItems="center"
@@ -137,8 +118,8 @@ class Page extends SuperPage{
                             direction="column"
                             justify="space-between"
                             alignItems="center">
-                                <div><img src={this.props.cameraImg} alt="#"/></div>
-                                <img src={theme.CategoryImg[this.props.mode]} alt="#"></img>
+                            <div><img src={this.props.cameraImg} alt="#" /></div>
+                            <img src={theme.CategoryImg[this.props.painter]} alt="#"></img>
                         </Grid>
                     </Grid>
                     <Grid container xs={6}
@@ -146,19 +127,19 @@ class Page extends SuperPage{
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={nextSvg} alt="#"/>  
+                        <img src={nextSvg} alt="#" />
                         <img src={this.props.resultImg} alt="#"></img>
                     </Grid>
                     <Grid item xs={12}>
-                        <img src={BTN} alt="#" onClick={() => this.props.setPageNum("6")}/>
+                        <img src={BTN} alt="#" onClick={() => this.props.setPageNum("6")} />
                     </Grid>
                 </Grid>
             </ContentStyle>
         )
     }
 
-    backButton(){
-        return(
+    backButton() {
+        return (
             <img src={backSvg} alt="#" onClick={() => this.props.setPageNum("7")} />
         )
     }

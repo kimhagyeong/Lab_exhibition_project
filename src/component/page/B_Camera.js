@@ -34,7 +34,7 @@ const ContentStyle = styled.div`
     }
     &>div>div{
         width: 650px;
-        height: 650px;
+        height: 490px;
         background: #FFFFFF 0% 0% no-repeat padding-box;
         border: 1px solid #707070;
         opacity: 1;
@@ -45,7 +45,6 @@ class Page extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            // currentCount: 5
         }
     }
 
@@ -57,15 +56,7 @@ class Page extends Component {
         clearInterval(this.intervalId);
         this.props.setPageNum("3");
       }
-      console.log(this.state.currentCount);
     }
-
-    // componentDidMount() {
-    //   this.intervalId = setInterval(this.timer.bind(this), 1000);
-    // }
-    // componentWillUnmount(){
-    //   clearInterval(this.intervalId);
-    // }
 
     content() {
         return (
@@ -76,9 +67,8 @@ class Page extends Component {
                     justify="flex-start"
                     alignItems="center"
                 >
-                    <h1>카메라는 아래쪽에 있습니다</h1>
+                    <h1>카메라는 아래쪽에 있습니다 <br/>화면을 클릭하면 찰칵!</h1>
                     <div>
-                        화면 클릭하면 다음 화면으로
                         <Webcame 
                             setCameraImg={this.props.setCameraImg}
                             setPageNum={this.props.setPageNum}>
