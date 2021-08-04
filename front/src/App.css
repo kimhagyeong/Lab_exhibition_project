@@ -1,0 +1,31 @@
+body::-webkit-scrollbar {
+  display: none;
+}
+
+section{
+  width:1920px;
+  height:1080px;
+  position:relative;
+
+}
+*{
+  box-sizing: border-box;
+}
+body{
+  position:relative;
+}
+
+@font-face {
+  font-family: "GmarketSansBold";
+  src: url("./font/GmarketSansTTFBold.ttf");
+}
+
+@font-face {
+  font-family: "GmarketSansMedium";
+  src: url("./font/GmarketSansTTFMedium.ttf");
+}
+
+@font-face {
+  font-family: "GmarketSansLight";
+  src: url("./font/GmarketSansTTFLight.ttf");
+}

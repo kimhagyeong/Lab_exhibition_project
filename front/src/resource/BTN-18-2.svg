@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   id="Layer_1"
+   data-name="Layer 1"
+   viewBox="0 0 74 74.22"
+   version="1.1"
+   sodipodi:docname="BTN-18.svg"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview10"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     showgrid="false"
+     inkscape:zoom="7.9266078"
+     inkscape:cx="26.556127"
+     inkscape:cy="37.657975"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="그룹_10" />
+  <defs
+     id="defs4">
+    <style
+       id="style2">.cls-1{fill:#f28f47;}.cls-2{fill:#fff;}</style>
+  </defs>
+  <g
+     id="그룹_10"
+     data-name="그룹 10">
+    <circle
+       id="타원_11"
+       data-name="타원 11"
+       class="cls-1"
+       cx="37"
+       cy="37.22"
+       r="37" />
+    <path
+       id="패스_9"
+       data-name="패스 9"
+       class="cls-2"
+       d="m 25.98591,17.420977 a -3.46,-3.46 0 0 1 4.88,0 l 17.12,17.12 a -3.44,-3.44 0 0 1 0.11,4.76 l -16.85,16.88 a -3.4508622,-3.4508622 0 0 1 -4.93,-4.83 h 0.05 l 14.3,-14.55 -14.68,-14.51 a -3.42,-3.42 0 0 1 0,-4.83 z" />
+  </g>
+</svg>
