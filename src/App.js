@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import GlobalStyle from "./component/GlobalStyles"
 import theme from "./component/theme"
+import AD from "./component/page/A_AD";
 import Home from "./component/page/A_home";
 import Camera from "./component/page/B_Camera";
 import CameraConfirm from "./component/page/C_CameraConfirm";
@@ -18,7 +19,8 @@ function App() {
   const [resultImg, setResultImg] = useState(theme.DefaultImgSrc);
   const [painter, setPainter] = useState("");
   const [masterpiece, setMasterpiece] = useState("");
-  const [pageNum, setPageNum] = useState("1");
+  // const [pageNum, setPageNum] = useState("1");
+  const [pageNum, setPageNum] = useState("0");
   const [masterpieceResultImg, setMasterpieceResultImg] = useState(""
     // {
     // "리듬들(1934)":theme.DefaultImgSrc ,
@@ -76,6 +78,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
+      {pageNum === "0" ? <AD setPageNum={setPageNumFunction}></AD> : null}
       {pageNum === "1" ? <Home setPageNum={setPageNumFunction}></Home> : null}
       {pageNum === "2" ? <Camera setPageNum={setPageNumFunction} reset={reset} setCameraImg={setCameraImgFunction}></Camera> : null}
       {pageNum === "3" ? <CameraConfirm setPageNum={setPageNumFunction} reset={reset} cameraImg={cameraImg} setMasterpieceResultImg={setMasterpieceResultImgFunction}></CameraConfirm> : null}
