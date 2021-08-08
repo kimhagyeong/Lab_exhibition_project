@@ -7,6 +7,7 @@ import BTN1 from '../../resource/BTN-theme.svg';
 import axios from "axios"
 import Section from "../section02"
 import Example from "../../resource/masterpiece1_1.png";
+import Video from "./test.mp4";
 
 const ContentStyle = styled.div`
     width:1550px;
@@ -129,6 +130,18 @@ const ContentStyle = styled.div`
             margin-top:60px;
         }
     }
+    #video {
+        position:absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width:640px;
+        height:480px;
+        background-color:#000;
+        z-index:300000;
+    }
 `;
 class Page extends SuperPage {
     constructor(props) {
@@ -141,30 +154,28 @@ class Page extends SuperPage {
             imgSrc4: theme.DefaultImgSrc
         }
     }
-    timer() {
-        this.setState({
-          currentCount: this.state.currentCount - 1
-        })
-        if(this.state.currentCount < 1) { 
-            console.log('remove video')
-            clearInterval(this.intervalId);
-        }
+
+    offVideo() {
+        document.getElementById('player').pause();
+        document.getElementById('video').style.display = 'none';
     }
       
     componentDidMount() {
-        this.intervalId = setInterval(this.timer.bind(this), 1000);
+        // this.intervalId = setInterval(this.timer.bind(this), 1000);
         this.callAPI();
     }
 
     callAPI = async () => {
         var result;
         try {
-            var aid = theme.Masterpiecelist.indexOf(this.props.masterpiece)
+            var aid = theme.Masterpiecelist.indexOf(this.props.masterpiece);
             result = await axios.get(theme.BackendServer+'cv/'+String(aid));
-            result = result.data
+            result = result.data;
+            this.offVideo();
         }
         catch (error) {
             result = [Example,Example,Example,Example]
+            this.offVideo();
         };
         this.setState({
             imgSrc1:[result[0], 0],
@@ -245,6 +256,11 @@ class Page extends SuperPage {
                         <p>4</p>
                     </Grid>
                 </Grid>
+                
+                <div id="video">
+                    <video id="player" src={Video} type="video/mp4" autoplay="true" width="640px" height="480px">Your browser does not support this streaming content.</video>
+                </div>
+                
             </ContentStyle>
         )
     }
