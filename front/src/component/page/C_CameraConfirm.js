@@ -74,8 +74,9 @@ class Page extends SuperPage {
                 })
             }else{
                 clearInterval(this.intervalId);
-                this.props.setPageNum("4");
+                
             }
+            this.props.setPageNum("4");
         }
     }
       
@@ -149,7 +150,7 @@ class Page extends SuperPage {
                     <h1>로딩 중..<br />{this.state.currentCount}초 후에 자동으로 넘어갑니다</h1>
                     <div>
                         {/* camera */}
-                        <img src={this.props.cropImg} alt="#"/>
+                        <img src={this.props.cameraImg} alt="#"/>
                     </div>
                     <img src={BTN} alt="#" onClick={() => this.props.setPageNum("2")}/>
                 </Grid>
