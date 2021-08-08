@@ -155,7 +155,7 @@ for batch_id, (x, _) in enumerate(test_loader):
     style_imgs.append(preprocess_batch(style_image))
 
 
-def evaluate(content_image):
+def rsevaluate(content_image):
     result = []
     count = 0
     for batch_id, (x, _) in enumerate(test_loader): 

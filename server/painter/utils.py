@@ -54,7 +54,7 @@ from .runsample import *
 def run_sample(input):
     
     content_image = tensor_load_rgbimage(input, ctx, size=evalargs.content_size, keep_asp=True)
-    result = evaluate(content_image)
+    result = rsevaluate(content_image)
 
     return result
 
@@ -62,9 +62,11 @@ def run_sample(input):
 ## input : 얼굴 crop 사진 opencv 객체
 ## id : 작품 id
 ## result : weight다른 결과 opencv 객체 3개 리스트
+from .runvariation import *
+
 def run_variation(input, id):
 
-
+    # rvevaluate
     sample1 = cv2.cvtColor(input, cv2.COLOR_BGR2GRAY)
     sample2 = cv2.cvtColor(input, cv2.COLOR_BGR2RGB)
     sample3 = cv2.cvtColor(input, cv2.COLOR_BGR2Luv)

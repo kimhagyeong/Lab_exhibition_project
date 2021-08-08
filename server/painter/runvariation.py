@@ -11,10 +11,10 @@ from mxnet import autograd, gluon, gpu
 from mxnet.gluon import nn, Block, HybridBlock, Parameter, ParameterDict
 import mxnet.ndarray as F
 
-import net
-import utils
-from option import Options
-import data
+from .net import *
+from .mutils import *
+from .option import Options
+from .data import *
 
 import cv2,dlib, sys
 from facenet_pytorch import MTCNN, InceptionResnetV1
@@ -22,7 +22,7 @@ import torch
 
 # devices = [gpu(0), gpu(1)]
 
-def evaluate(args):
+def rvevaluate(args):
     if args.cuda:
         ctx = mx.gpu(0)
         ctx1 = mx.gpu(1)
@@ -31,22 +31,22 @@ def evaluate(args):
     else:
         ctx = mx.cpu(0)
     # images
-    content_image = utils.tensor_load_rgbimage(args.content_image,ctx, size=args.content_size, keep_asp=True)
-    content_image1 = utils.tensor_load_rgbimage(args.content_image,ctx1, size=args.content_size, keep_asp=True)
-    content_image2 = utils.tensor_load_rgbimage(args.content_image,ctx2, size=args.content_size, keep_asp=True)
+    content_image = tensor_load_rgbimage(args.content_image,ctx, size=args.content_size, keep_asp=True)
+    content_image1 = tensor_load_rgbimage(args.content_image,ctx1, size=args.content_size, keep_asp=True)
+    content_image2 = tensor_load_rgbimage(args.content_image,ctx2, size=args.content_size, keep_asp=True)
     
-    style_image = utils.tensor_load_rgbimage(args.style_image, ctx, size=args.style_size)
-    style_image1 = utils.tensor_load_rgbimage(args.style_image, ctx1, size=args.style_size)
-    style_image2 = utils.tensor_load_rgbimage(args.style_image, ctx2, size=args.style_size)
+    style_image = tensor_load_rgbimage(args.style_image, ctx, size=args.style_size)
+    style_image1 = tensor_load_rgbimage(args.style_image, ctx1, size=args.style_size)
+    style_image2 = tensor_load_rgbimage(args.style_image, ctx2, size=args.style_size)
     
-    style_image = utils.preprocess_batch(style_image)
-    style_image1 = utils.preprocess_batch(style_image1)
-    style_image2 = utils.preprocess_batch(style_image2)
+    style_image = preprocess_batch(style_image)
+    style_image1 = preprocess_batch(style_image1)
+    style_image2 = preprocess_batch(style_image2)
     # model
 
-    style_model = net.Net(ngf=args.ngf)
-    style_model1 = net.Net(ngf=args.ngf)
-    style_model2 = net.Net(ngf=args.ngf)
+    style_model = Net(ngf=args.ngf)
+    style_model1 = Net(ngf=args.ngf)
+    style_model2 = Net(ngf=args.ngf)
     
     style_model.load_params(args.model, ctx=ctx)
     style_model1.load_params('/home/pyj/style/MXNet-Gluon-Style-Transfer-master/models_512_30_10e/Final_epoch_10.params', ctx=ctx1)
@@ -67,12 +67,13 @@ def evaluate(args):
     output2 = style_model2(content_image2)
         # print(count)
         # print("---------------------------------")
+    return [output[0], output1[0], output2[0]]
     utils.tensor_save_bgrimage(output[0], 'final0'+'.jpg', args.cuda)
     utils.tensor_save_bgrimage(output1[0], 'final1'+'.jpg', args.cuda)
     utils.tensor_save_bgrimage(output2[0], 'final2'+'.jpg', args.cuda)
 
 
-def main():
+def rvmain():
     # figure out the experiments type
     args = Options().parse()
 
@@ -82,7 +83,7 @@ def main():
 
     if args.subcommand == 'eval':
         # Test the pre-trained model
-        evaluate(args)
+        rvevaluate(args)
 
     else:
         raise ValueError('Unknow experiment type')
@@ -154,4 +155,4 @@ def main():
 
 
 if __name__ == "__main__":
-   main()
+   rvmain()
