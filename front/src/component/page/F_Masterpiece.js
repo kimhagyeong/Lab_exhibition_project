@@ -46,6 +46,7 @@ const ContentStyle = styled.div`
             position:absolute;
             top:485px;
             left:23px;
+            object-fit: cover;
         }
     }
     &>div>div:nth-child(3){
@@ -61,6 +62,7 @@ const ContentStyle = styled.div`
             position:absolute;
             top:485px;
             left:23px;
+            object-fit: cover;
         }
     }
     &>div>div:nth-child(4){
@@ -76,6 +78,7 @@ const ContentStyle = styled.div`
             position:absolute;
             top:485px;
             left:24px;
+            object-fit: cover;
         }
     }
     
@@ -191,10 +194,12 @@ class Page extends SuperPage {
     }
 
     backButton() {
+        let backpage = (parseInt(theme.Painter.indexOf(this.props.painter)/3)+4).toString()
         return (
-            <img src={backSvg} alt="#" onClick={() => this.props.setPageNum("4")} />
+            <img src={backSvg} alt="#" onClick={() => this.props.setPageNum(backpage)} />
         )
     }
+
     render() {
         return (
             <Section id="result">

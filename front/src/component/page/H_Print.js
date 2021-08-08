@@ -7,6 +7,7 @@ import nextSvg from "../../resource/BTN-18-2.svg";
 import BTN from "../../resource/BTN-15.svg";
 import Section from "../section03";
 
+
 const ContentStyle = styled.div`
     width:1550px;
     height:100%;
@@ -81,7 +82,7 @@ class Page extends SuperPage {
     constructor(props) {
         super(props);
         this.state = {
-            currentCount: 10
+            currentCount: 7
         }
     }
     timer() {
@@ -97,6 +98,7 @@ class Page extends SuperPage {
     componentDidMount() {
         this.intervalId = setInterval(this.timer.bind(this), 1000);
     }
+
     componentWillUnmount() {
         clearInterval(this.intervalId);
     }
@@ -118,8 +120,8 @@ class Page extends SuperPage {
                             direction="column"
                             justify="space-between"
                             alignItems="center">
-                            <div><img src={this.props.cameraImg} alt="#" /></div>
-                            <img src={theme.CategoryImg[this.props.painter]} alt="#"></img>
+                            <div><img src={this.props.cropImg} alt="#" /></div>
+                            <img src={theme.Masterpieces[this.props.masterpiece]} alt="#"></img>
                         </Grid>
                     </Grid>
                     <Grid container xs={6}
@@ -128,7 +130,7 @@ class Page extends SuperPage {
                         alignItems="center"
                     >
                         <img src={nextSvg} alt="#" />
-                        <img src={this.props.resultImg} alt="#"></img>
+                        <img src={this.props.resultImg[0]} alt="#"></img>
                     </Grid>
                     <Grid item xs={12}>
                         <img src={BTN} alt="#" onClick={() => this.props.setPageNum("6")} />

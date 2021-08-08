@@ -145,29 +145,21 @@ class Page extends SuperPage {
         this.callAPI();
     }
     callAPI = async () => {
-        var img;
+        var result;
         try {
-            img = await axios.get('https://test.com/', {
-                params: {
-                    img: this.props.cameraImg,
-                    masterpiece: this.props.masterpiece
-                }
-            });
+            var aid = theme.Masterpiecelist.indexOf(this.props.masterpiece)
+            result = await axios.get(theme.BackendServer+'cv/'+String(aid));
+            result = result.data
         }
         catch (error) {
-            img = {
-                "imgSrc1" : Example,
-                "imgSrc2" : Example,
-                "imgSrc3" : Example,
-                "imgSrc4" : Example,
-            }
-        }
+            result = [Example,Example,Example,Example]
+        };
         this.setState({
-            imgSrc1:img.imgSrc1,
-            imgSrc2:img.imgSrc2,
-            imgSrc3:img.imgSrc3,
-            imgSrc4:img.imgSrc4
-        })
+            imgSrc1:[result[0], 0],
+            imgSrc2:[result[1], 1],
+            imgSrc3:[result[2], 2],
+            imgSrc4:[result[3], 3]
+        });
     }
 
 
@@ -184,28 +176,28 @@ class Page extends SuperPage {
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={this.state.imgSrc1} alt="#"></img>
+                        <img src={this.state.imgSrc1[0]} alt="#"></img>
                     </Grid>
                     <Grid container xs={3}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={this.state.imgSrc2} alt="#"></img>
+                        <img src={this.state.imgSrc2[0]} alt="#"></img>
                     </Grid>
                     <Grid container xs={3}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={this.state.imgSrc3} alt="#"></img>
+                        <img src={this.state.imgSrc3[0]} alt="#"></img>
                     </Grid>
                     <Grid container xs={3}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={this.state.imgSrc4} alt="#"></img>
+                        <img src={this.state.imgSrc4[0]} alt="#"></img>
                     </Grid>
 
                     <Grid container xs={3}
@@ -221,7 +213,7 @@ class Page extends SuperPage {
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc1) }} />
+                        <img src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc2) }} />
                         <p>2</p>
                     </Grid>
                     <Grid container xs={3}
@@ -229,7 +221,7 @@ class Page extends SuperPage {
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc1) }} />
+                        <img src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc3) }} />
                         <p>3</p>
                     </Grid>
                     <Grid container xs={3}
@@ -237,7 +229,7 @@ class Page extends SuperPage {
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc1) }} />
+                        <img src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc4) }} />
                         <p>4</p>
                     </Grid>
                 </Grid>
