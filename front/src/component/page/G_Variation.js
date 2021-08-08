@@ -134,16 +134,28 @@ class Page extends SuperPage {
     constructor(props) {
         super(props);
         this.state = {
+            currentCount: 5,
             imgSrc1: theme.DefaultImgSrc,
             imgSrc2: theme.DefaultImgSrc,
             imgSrc3: theme.DefaultImgSrc,
             imgSrc4: theme.DefaultImgSrc
         }
     }
-
+    timer() {
+        this.setState({
+          currentCount: this.state.currentCount - 1
+        })
+        if(this.state.currentCount < 1) { 
+            console.log('remove video')
+            clearInterval(this.intervalId);
+        }
+    }
+      
     componentDidMount() {
+        this.intervalId = setInterval(this.timer.bind(this), 1000);
         this.callAPI();
     }
+
     callAPI = async () => {
         var result;
         try {

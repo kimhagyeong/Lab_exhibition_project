@@ -58,6 +58,7 @@ class Page extends SuperPage {
             isFailApi: false,
         }
     }
+
     timer() {
         this.setState({
           currentCount: this.state.currentCount - 1,
@@ -90,7 +91,7 @@ class Page extends SuperPage {
             const formData = new FormData();
             formData.append("img", this.props.cameraImg);
             var img = await axios({
-              method: "post",
+              method: "get",
               url: theme.BackendServer+'cs',
               data: formData,
               headers: { "Content-Type": "multipart/form-data"}
