@@ -43,16 +43,21 @@ def img_to_PIL(img):
 ## input : 웹캠 캡처 사진 opencv 객체
 ## result : 얼굴 crop 사진 opencv 객체
 def run_crop(input):
-    
-
-    result = cv2.cvtColor(input, cv2.COLOR_BGR2RGB)
+    print(input.shape)
+    w = 375
+    h = 470
+    center = input.shape
+    x = center[1]/2 - w/2
+    y = center[0]/2 - h/2
+    result = input[int(y):int(y+h), int(x):int(x+w)]
+    print(result.shape)
     return result
 
 
 ## input : 얼굴 crop 사진 opencv 객체
 ## result : 작품 18개에 대한 결과 opencv 객체 18개 리스트
 from .mutils import *
-from .runsample import *
+from .runsample import rsevaluate, ctx, evalargs
 
 def run_sample(input):
     
@@ -65,7 +70,7 @@ def run_sample(input):
 ## input : 얼굴 crop 사진 opencv 객체
 ## id : 작품 id
 ## result : weight다른 결과 opencv 객체 3개 리스트
-from .runvariation import *
+from .runvariation import rvevaluate
 
 def run_variation(input, id):
     
@@ -82,11 +87,14 @@ def run_variation(input, id):
 ## result : 출력화 된 결과 
 def run_frame(input, id):
     src2 = input
-    src1 = cv2.imread('./painter/logo_frame/frame'+'{0}'.format(id)+'.png')
-    src3 = cv2.imread('./painter/images/style1/'+'{0}'.format(id)+'.jpg')
+    # src2 = cv2.imread(input)
+    src1 = cv2.imread(f'./painter/logo_frame/frame{id}.png')
+    src3 = cv2.imread(f'./painter/images/style1/{id}.jpg')
+
     src3 = cv2.copyMakeBorder(src3, 10,10, 10, 10, cv2.BORDER_CONSTANT, value=[0,0,0])
-    src2 = cv2.resize(src2, dsize=(1005, 1300),interpolation=cv2.INTER_AREA)
-    src3 = cv2.resize(src3, dsize=(150, 200),interpolation=cv2.INTER_AREA)
+    src2 = cv2.resize(src2, dsize=(1005, 1300), interpolation=cv2.INTER_AREA)
+    src3 = cv2.resize(src3, dsize=(150, 200), interpolation=cv2.INTER_AREA)
+
     src2[1100:1300,0:150] = src3
     dst = src2
     src1[247:1547,100:1105] = dst

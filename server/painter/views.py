@@ -41,7 +41,7 @@ def create_sample(request):
             
             for i, src in enumerate(model_output):
                 variation_data = {
-                    'source' : i+1,
+                    'source' : i,
                     'face' : face
                 }
                 variations = Variation(**variation_data)
@@ -70,11 +70,11 @@ def create_variations(request, art_id):
         model_output = run_variation(*model_input)
         ####
         
-        sample = opencv_to_img(model_output[0])
+        sample = pil_to_file(model_output[0])
         main_art.img1.save(f'{main_art.code}_1.jpg', sample) 
-        sample = opencv_to_img(model_output[1])
+        sample = pil_to_file(model_output[1])
         main_art.img2.save(f'{main_art.code}_2.jpg', sample) 
-        sample = opencv_to_img(model_output[2])
+        sample = pil_to_file(model_output[2])
         main_art.img3.save(f'{main_art.code}_3.jpg', sample) 
     serializer = VariationSerializer(main_art).data
     result = [URL + serializer['sample'], 
@@ -98,8 +98,9 @@ def create_printable(request, art_code):
             input = main_art.img2
         elif final == 3:
             input = main_art.img3
-
-        result = run_frame(img_to_opencv(input), art_code)
+        
+        # result = run_frame(input.path, art_id)
+        result = run_frame(img_to_opencv(input), art_id)
         print = opencv_to_img(result)
         main_art.print.save(f'{main_art.code}_{face.id}.jpg', print) 
 

@@ -32,24 +32,24 @@ class Variation(models.Model):
                 "자코모 발라","프란시스 피카비아","피카소")
 
     class Source(models.IntegerChoices):
-        ROV1 =1
-        ROV2 =2
-        ROV3 =3
-        VAN1 =4
-        VAN2 =5
-        VAN3 =6
-        AND1 =7
-        AND2 =8
-        AND3 =9
-        JAK1 =10
-        JAK2 =11
-        JAK3 =12
-        FRN1 =13
-        FRN2 =14
-        FRN3 =15
-        PIC1 =16
-        PIC2 =17
-        PIC3 =18
+        ROV1 =0
+        ROV2 =1
+        ROV3 =2
+        VAN1 =3
+        VAN2 =4
+        VAN3 =5
+        AND1 =6
+        AND2 =7
+        AND3 =8
+        JAK1 =9
+        JAK2 =10
+        JAK3 =11
+        FRN1 =12
+        FRN2 =13
+        FRN3 =14
+        PIC1 =15
+        PIC2 =16
+        PIC3 =17
 
     source = models.IntegerField(choices=Source.choices)
 

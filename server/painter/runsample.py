@@ -46,7 +46,6 @@ style_imgs = []
 for batch_id, (x, _) in enumerate(test_loader): 
 
     style_image = style_loader.get(batch_id)
-    style_image = preprocess_batch(style_image) ##add
 
     style_imgs.append(preprocess_batch(style_image))
 
