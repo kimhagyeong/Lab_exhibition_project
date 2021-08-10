@@ -6,7 +6,7 @@ import backSvg from "../../resource/BTN-18.svg"
 import BTN1 from '../../resource/BTN-theme.svg';
 import axios from "axios"
 import Section from "../section02"
-import Example from "../../resource/masterpiece1_1.png";
+import Example from "../../resource/DICE.png";
 import Video from "./test.mp4";
 
 const ContentStyle = styled.div`
@@ -35,28 +35,32 @@ const ContentStyle = styled.div`
     }
     &>div>div:nth-child(2){
         img{
-            width: 370px;
+            object-fit: cover;
+            width: 296px;
             height: 370px;
             margin-top:240px;
         }
     }
     &>div>div:nth-child(3){
         img{
-            width: 370px;
+            object-fit: cover;
+            width: 296px;
             height: 370px;
             margin-top:240px;
         }
     }
     &>div>div:nth-child(4){
         img{
-            width: 370px;
+            object-fit: cover;
+            width: 296px;
             height: 370px;
             margin-top:240px;
         }
     }
     &>div>div:nth-child(5){
         img{
-            width: 370px;
+            object-fit: cover;
+            width: 296px;
             height: 370px;
             margin-top:240px;
         }
@@ -148,10 +152,10 @@ class Page extends SuperPage {
         super(props);
         this.state = {
             currentCount: 5,
-            imgSrc1: theme.DefaultImgSrc,
-            imgSrc2: theme.DefaultImgSrc,
-            imgSrc3: theme.DefaultImgSrc,
-            imgSrc4: theme.DefaultImgSrc
+            imgSrc1: [Example],
+            imgSrc2: [Example],
+            imgSrc3: [Example],
+            imgSrc4: [Example]
         }
     }
 

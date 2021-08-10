@@ -36,7 +36,7 @@ const ContentStyle = styled.div`
     &>div>div:nth-child(2){
         position:relative;
         & > img:nth-child(1){
-            width: 470px;
+            width: 375px;
             height: 470px;
             margin-top:115px;
         }
@@ -44,15 +44,15 @@ const ContentStyle = styled.div`
             width: 100px;
             height: 100px;
             position:absolute;
-            top:485px;
-            left:23px;
+            top:505px;
+            left:50px;
             object-fit: cover;
         }
     }
     &>div>div:nth-child(3){
         position:relative;
         & > img:nth-child(1){
-            width: 470px;
+            width: 375px;
             height: 470px;
             margin-top:115px;
         }
@@ -60,15 +60,15 @@ const ContentStyle = styled.div`
             width: 100px;
             height: 100px;
             position:absolute;
-            top:485px;
-            left:23px;
+            top:505px;
+            left:50px;
             object-fit: cover;
         }
     }
     &>div>div:nth-child(4){
         position:relative;
         & > img:nth-child(1){
-            width: 470px;
+            width: 375px;
             height: 470px;
             margin-top:115px;
         }
@@ -76,8 +76,8 @@ const ContentStyle = styled.div`
             width: 100px;
             height: 100px;
             position:absolute;
-            top:485px;
-            left:24px;
+            top:505px;
+            left:50px;
             object-fit: cover;
         }
     }

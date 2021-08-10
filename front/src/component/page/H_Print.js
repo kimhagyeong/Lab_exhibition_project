@@ -6,7 +6,7 @@ import backSvg from "../../resource/BTN-18.svg"
 import nextSvg from "../../resource/BTN-18-2.svg";
 import BTN from "../../resource/BTN-15.svg";
 import Section from "../section03";
-
+import axios from "axios"
 
 const ContentStyle = styled.div`
     width:1550px;
@@ -41,20 +41,23 @@ const ContentStyle = styled.div`
             width: 262px;
             height: 262px;
             background: #FFFFFF 0% 0% no-repeat padding-box;
-            border: 1px solid #707070;
             display:block;
             margin-top:0px;
             &>img{
-                width:262px;
+                width:auto;
                 height:262px;
                 margin-top:0px;
+                margin-left:auto;
+                margin-right:auto;
             }
         }
         img{
-            width: 262px;
+            width: auto;
             height: 241px;
             display:block;
             margin-bottom:0px;
+            margin-left:auto;
+            margin-right:auto;
         }
     }
     &>div>div:nth-child(3){
@@ -67,7 +70,7 @@ const ContentStyle = styled.div`
             left: -80px;
         }
         img:nth-child(2){
-            width: 471px;
+            width: auto;
             max-height: 637px;
         }
     }
@@ -89,6 +92,9 @@ class Page extends SuperPage {
         this.setState({
             currentCount: this.state.currentCount - 1
         })
+        if (this.state.currentCount === 3) {
+            this.callAPI();
+        }
         if (this.state.currentCount < 1) {
             clearInterval(this.intervalId);
             this.props.setPageNum("9");
@@ -102,6 +108,22 @@ class Page extends SuperPage {
     componentWillUnmount() {
         clearInterval(this.intervalId);
     }
+
+    callAPI = async () => {
+        var result;
+        try {
+            var aid = theme.Masterpiecelist.indexOf(this.props.masterpiece)
+            result = await axios.get(theme.BackendServer+'cp/'+String(aid)+String(this.props.resultImg[1]));
+            result= result.data
+            console.log("api 요청 받음");
+        }
+        catch (error) {
+            console.log("api 요청 실패");
+        };
+        // this.setState({printimg:result});
+        this.props.setResultImg([result])
+    }
+
 
     content() {
         return (

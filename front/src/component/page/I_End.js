@@ -3,7 +3,6 @@ import styled from "styled-components";
 import theme from "../theme";
 import Grid from '@material-ui/core/Grid';
 import Section from "../section01"
-import axios from "axios"
 
 const ContentStyle = styled.div`
     width:1390px;
@@ -24,9 +23,8 @@ const ContentStyle = styled.div`
         // border: 1px solid #707070;
         opacity: 1;
         &>img{
-            width: 565px;
+            width: auto;
             max-height: 764px;
-            margin-top:50px;
         }
     }
     
@@ -35,7 +33,7 @@ class Page extends SuperPage {
     constructor(props) {
         super(props);
         this.state = {
-            currentCount: 5,
+            currentCount: 10,
             // printimg : ''
         };
     }
@@ -51,25 +49,10 @@ class Page extends SuperPage {
       
     componentDidMount() {
         this.intervalId = setInterval(this.timer.bind(this), 1000);
-        this.callAPI();
+        
     }
     componentWillUnmount(){
         clearInterval(this.intervalId);
-    }
-
-    callAPI = async () => {
-        var result;
-        try {
-            var aid = theme.Masterpiecelist.indexOf(this.props.masterpiece)
-            result = await axios.get(theme.BackendServer+'cp/'+String(aid)+String(this.props.resultImg[1]));
-            result= result.data
-            console.log("api 요청 받음");
-        }
-        catch (error) {
-            console.log("api 요청 실패");
-        };
-        // this.setState({printimg:result});
-        this.props.setResultImg(result)
     }
 
     content() {
@@ -83,7 +66,7 @@ class Page extends SuperPage {
                 >
                     <h1>인쇄가 완료되었습니다.<br/>{this.state.currentCount}초 후 메인화면으로 이동합니다.</h1>
                     <div>
-                        <img src={this.props.resultImg} alt="#"/>
+                        <img src={this.props.resultImg[0]} alt="#"/>
                     </div>
                 </Grid>
             </ContentStyle>
