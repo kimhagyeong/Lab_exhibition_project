@@ -90,12 +90,20 @@ def run_frame(input, id):
     # src2 = cv2.imread(input)
     src1 = cv2.imread(f'./painter/logo_frame/frame{id}.png')
     src3 = cv2.imread(f'./painter/images/style1/{id}.jpg')
+    max_width = 200
+    
+    sh, sw, _ = src3.shape
+    if sw > sh :
+        dsize3 = (200, int(sh/sw*200))
+    else:
+        dsize3 = (int(sw/sh*200), 200)
 
     src3 = cv2.copyMakeBorder(src3, 10,10, 10, 10, cv2.BORDER_CONSTANT, value=[0,0,0])
     src2 = cv2.resize(src2, dsize=(1005, 1300), interpolation=cv2.INTER_AREA)
-    src3 = cv2.resize(src3, dsize=(150, 200), interpolation=cv2.INTER_AREA)
+    src3 = cv2.resize(src3, dsize=dsize3, interpolation=cv2.INTER_AREA)
 
-    src2[1100:1300,0:150] = src3
+    src2[1300-dsize3[1]:1300,0:dsize3[0]] = src3
     dst = src2
     src1[247:1547,100:1105] = dst
+    
     return src1
