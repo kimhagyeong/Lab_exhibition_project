@@ -25,6 +25,20 @@ def tensor_load_rgbimage(filename, ctx, size=None, scale=None, keep_asp=False):
     img = F.expand_dims(mx.nd.array(img, ctx=ctx), 0)
     return img
 
+def tensor_load_rgbimage_img(img, ctx, size=None, scale=None, keep_asp=False):
+    if size is not None:
+        if keep_asp:
+            size2 = int(size * 1.0 / img.size[0] * img.size[1])
+            img = img.resize((size, size2), Image.ANTIALIAS)
+        else:
+            img = img.resize((size, size), Image.ANTIALIAS)
+
+    elif scale is not None:
+        img = img.resize((int(img.size[0] / scale), int(img.size[1] / scale)), Image.ANTIALIAS)
+    img = np.array(img).transpose(2, 0, 1).astype(float)
+    img = F.expand_dims(mx.nd.array(img, ctx=ctx), 0)
+    return img
+
 
 def tensor_save_rgbimage(img, filename, cuda=False):
     img = F.clip(img, 0, 255).asnumpy()

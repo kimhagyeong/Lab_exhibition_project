@@ -66,7 +66,7 @@ def create_variations(request, art_id):
     if not main_art.img1:
 
         ####
-        model_input = (img_to_opencv(face.img), art_id)
+        model_input = (img_to_PIL(face.img), art_id)
         model_output = run_variation(*model_input)
         ####
         

@@ -37,6 +37,9 @@ def pil_to_file(img):
     img.save(blob, 'JPEG')
     return File(blob)
 
+def img_to_PIL(img):
+    return Image.open(img)
+
 ## input : 웹캠 캡처 사진 opencv 객체
 ## result : 얼굴 crop 사진 opencv 객체
 def run_crop(input):
@@ -65,12 +68,12 @@ def run_sample(input):
 from .runvariation import *
 
 def run_variation(input, id):
-
-    # rvevaluate
-    sample1 = cv2.cvtColor(input, cv2.COLOR_BGR2GRAY)
-    sample2 = cv2.cvtColor(input, cv2.COLOR_BGR2RGB)
-    sample3 = cv2.cvtColor(input, cv2.COLOR_BGR2Luv)
-    result = [sample1, sample2, sample3]
+    
+    result = rvevaluate(input, id)
+    # sample1 = cv2.cvtColor(input, cv2.COLOR_BGR2GRAY)
+    # sample2 = cv2.cvtColor(input, cv2.COLOR_BGR2RGB)
+    # sample3 = cv2.cvtColor(input, cv2.COLOR_BGR2Luv)
+    # result = [sample1, sample2, sample3]
     return result
 
 
@@ -78,5 +81,13 @@ def run_variation(input, id):
 ## id : 작품 id
 ## result : 출력화 된 결과 
 def run_frame(input, id):
-    result = cv2.cvtColor(input, cv2.COLOR_BGR2HSV)
-    return result
+    src2 = input
+    src1 = cv2.imread('./painter/logo_frame/frame'+'{0}'.format(id)+'.png')
+    src3 = cv2.imread('./painter/images/style1/'+'{0}'.format(id)+'.jpg')
+    src3 = cv2.copyMakeBorder(src3, 10,10, 10, 10, cv2.BORDER_CONSTANT, value=[0,0,0])
+    src2 = cv2.resize(src2, dsize=(1005, 1300),interpolation=cv2.INTER_AREA)
+    src3 = cv2.resize(src3, dsize=(150, 200),interpolation=cv2.INTER_AREA)
+    src2[1100:1300,0:150] = src3
+    dst = src2
+    src1[247:1547,100:1105] = dst
+    return src1
