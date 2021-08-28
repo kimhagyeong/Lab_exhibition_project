@@ -1,0 +1,28 @@
+asgiref @ file:///home/conda/feedstock_root/build_artifacts/asgiref_1625395912402/work
+backcall==0.2.0
+certifi==2021.5.30
+decorator==4.4.2
+Django @ file:///home/conda/feedstock_root/build_artifacts/django_1625148501818/work
+django-cors-headers @ file:///home/conda/feedstock_root/build_artifacts/django-cors-headers_1618338117247/work
+djangorestframework @ file:///home/conda/feedstock_root/build_artifacts/djangorestframework_1616757768152/work
+ipython==7.16.1
+ipython-genutils==0.2.0
+jedi==0.17.1
+jupyter-client==6.1.6
+jupyter-core==4.6.3
+numpy @ file:///D:/bld/numpy_1624400025471/work
+olefile @ file:///home/conda/feedstock_root/build_artifacts/olefile_1602866521163/work
+parso==0.7.0
+pickleshare==0.7.5
+Pillow @ file:///D:/bld/pillow_1625678130042/work
+prompt-toolkit==3.0.5
+Pygments==2.6.1
+python-dateutil==2.8.1
+pytz @ file:///home/conda/feedstock_root/build_artifacts/pytz_1612179539967/work
+pyzmq==19.0.1
+sqlparse @ file:///home/conda/feedstock_root/build_artifacts/sqlparse_1602142927465/work
+tornado==6.0.4
+traitlets==4.3.3
+typing-extensions @ file:///home/conda/feedstock_root/build_artifacts/typing_extensions_1622748266870/work
+wcwidth==0.2.5
+wincertstore==0.2

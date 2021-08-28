@@ -6,7 +6,8 @@ import backSvg from "../../resource/BTN-18.svg"
 import BTN1 from '../../resource/BTN-theme.svg';
 import axios from "axios"
 import Section from "../section02"
-import Example from "../../resource/masterpiece1_1.png";
+import Example from "../../resource/DICE.png";
+import Video from "./test.mp4";
 
 const ContentStyle = styled.div`
     width:1550px;
@@ -34,28 +35,32 @@ const ContentStyle = styled.div`
     }
     &>div>div:nth-child(2){
         img{
-            width: 370px;
+            object-fit: cover;
+            width: 296px;
             height: 370px;
             margin-top:240px;
         }
     }
     &>div>div:nth-child(3){
         img{
-            width: 370px;
+            object-fit: cover;
+            width: 296px;
             height: 370px;
             margin-top:240px;
         }
     }
     &>div>div:nth-child(4){
         img{
-            width: 370px;
+            object-fit: cover;
+            width: 296px;
             height: 370px;
             margin-top:240px;
         }
     }
     &>div>div:nth-child(5){
         img{
-            width: 370px;
+            object-fit: cover;
+            width: 296px;
             height: 370px;
             margin-top:240px;
         }
@@ -129,45 +134,59 @@ const ContentStyle = styled.div`
             margin-top:60px;
         }
     }
+    #video {
+        position:absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width:640px;
+        height:480px;
+        background-color:#000;
+        z-index:300000;
+    }
 `;
 class Page extends SuperPage {
     constructor(props) {
         super(props);
         this.state = {
-            imgSrc1: theme.DefaultImgSrc,
-            imgSrc2: theme.DefaultImgSrc,
-            imgSrc3: theme.DefaultImgSrc,
-            imgSrc4: theme.DefaultImgSrc
+            currentCount: 5,
+            imgSrc1: [Example],
+            imgSrc2: [Example],
+            imgSrc3: [Example],
+            imgSrc4: [Example]
         }
     }
 
+    offVideo() {
+        document.getElementById('player').pause();
+        document.getElementById('video').style.display = 'none';
+    }
+      
     componentDidMount() {
+        // this.intervalId = setInterval(this.timer.bind(this), 1000);
         this.callAPI();
     }
+
     callAPI = async () => {
-        var img;
+        var result;
         try {
-            img = await axios.get('https://test.com/', {
-                params: {
-                    img: this.props.cameraImg,
-                    masterpiece: this.props.masterpiece
-                }
-            });
+            var aid = theme.Masterpiecelist.indexOf(this.props.masterpiece);
+            result = await axios.get(theme.BackendServer+'cv/'+String(aid));
+            result = result.data;
+            this.offVideo();
         }
         catch (error) {
-            img = {
-                "imgSrc1" : Example,
-                "imgSrc2" : Example,
-                "imgSrc3" : Example,
-                "imgSrc4" : Example,
-            }
-        }
+            result = [Example,Example,Example,Example]
+            this.offVideo();
+        };
         this.setState({
-            imgSrc1:img.imgSrc1,
-            imgSrc2:img.imgSrc2,
-            imgSrc3:img.imgSrc3,
-            imgSrc4:img.imgSrc4
-        })
+            imgSrc1:[result[0], 0],
+            imgSrc2:[result[1], 1],
+            imgSrc3:[result[2], 2],
+            imgSrc4:[result[3], 3]
+        });
     }
 
 
@@ -184,28 +203,28 @@ class Page extends SuperPage {
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={this.state.imgSrc1} alt="#"></img>
+                        <img src={this.state.imgSrc1[0]} alt="#"></img>
                     </Grid>
                     <Grid container xs={3}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={this.state.imgSrc2} alt="#"></img>
+                        <img src={this.state.imgSrc2[0]} alt="#"></img>
                     </Grid>
                     <Grid container xs={3}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={this.state.imgSrc3} alt="#"></img>
+                        <img src={this.state.imgSrc3[0]} alt="#"></img>
                     </Grid>
                     <Grid container xs={3}
                         direction="row"
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={this.state.imgSrc4} alt="#"></img>
+                        <img src={this.state.imgSrc4[0]} alt="#"></img>
                     </Grid>
 
                     <Grid container xs={3}
@@ -221,7 +240,7 @@ class Page extends SuperPage {
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc1) }} />
+                        <img src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc2) }} />
                         <p>2</p>
                     </Grid>
                     <Grid container xs={3}
@@ -229,7 +248,7 @@ class Page extends SuperPage {
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc1) }} />
+                        <img src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc3) }} />
                         <p>3</p>
                     </Grid>
                     <Grid container xs={3}
@@ -237,10 +256,15 @@ class Page extends SuperPage {
                         justify="center"
                         alignItems="center"
                     >
-                        <img src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc1) }} />
+                        <img src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc4) }} />
                         <p>4</p>
                     </Grid>
                 </Grid>
+                
+                <div id="video">
+                    <video id="player" src={Video} type="video/mp4" autoplay="true" width="640px" height="480px">Your browser does not support this streaming content.</video>
+                </div>
+                
             </ContentStyle>
         )
     }

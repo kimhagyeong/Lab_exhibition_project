@@ -3,8 +3,8 @@ import styled from "styled-components";
 import theme from "../theme"
 import Grid from '@material-ui/core/Grid';
 import BTN from '../../resource/BTN-01.svg'
-import Image1 from '../../resource/page1_1.png';
-import Image2 from '../../resource/page1_2.png';
+import Image1 from '../../resource/main1.jpg';
+import Image2 from '../../resource/main2.jpg';
 
 const Section = styled.section`
     background-color:${theme.OrangeColor};
@@ -20,7 +20,7 @@ const Section = styled.section`
         text-align:center;
     }
     img{
-        width: 510px;
+        width: auto;
         height: 510px;
         margin-top:102px;
     }

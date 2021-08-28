@@ -16,6 +16,7 @@ import End from "./component/page/I_End";
 function App() {
 
   const [cameraImg, setCameraImg] = useState(theme.DefaultImgSrc);
+  const [cropImg, setCropImg] = useState(theme.DefaultImgSrc);
   const [resultImg, setResultImg] = useState(theme.DefaultImgSrc);
   const [painter, setPainter] = useState("");
   const [masterpiece, setMasterpiece] = useState("");
@@ -46,10 +47,15 @@ function App() {
 
   const reset = () => {
     setCameraImg(theme.DefaultImgSrc);
+    setCropImg(theme.DefaultImgSrc);
     setResultImg("");
     setPainter("");
     setMasterpiece("");
     setPageNum("1");
+  }
+
+  const setCropImgFunction = (data) => {
+    setCropImg(data)
   }
 
   const setCameraImgFunction = (data) => {
@@ -81,13 +87,13 @@ function App() {
       {pageNum === "0" ? <AD setPageNum={setPageNumFunction}></AD> : null}
       {pageNum === "1" ? <Home setPageNum={setPageNumFunction}></Home> : null}
       {pageNum === "2" ? <Camera setPageNum={setPageNumFunction} reset={reset} setCameraImg={setCameraImgFunction}></Camera> : null}
-      {pageNum === "3" ? <CameraConfirm setPageNum={setPageNumFunction} reset={reset} cameraImg={cameraImg} setMasterpieceResultImg={setMasterpieceResultImgFunction}></CameraConfirm> : null}
+      {pageNum === "3" ? <CameraConfirm setPageNum={setPageNumFunction} reset={reset} cameraImg={cameraImg} cropImg={cropImg} setMasterpieceResultImg={setMasterpieceResultImgFunction} setCropImg={setCropImgFunction}></CameraConfirm> : null}
       {pageNum === "4" ? <Painter setPageNum={setPageNumFunction} reset={reset} setPainter={setPainterFunction} painter={painter}></Painter> : null}
       {pageNum === "5" ? <Painter2 setPageNum={setPageNumFunction} reset={reset} setPainter={setPainterFunction}></Painter2> : null}
       {pageNum === "6" ? <Masterpiece setPageNum={setPageNumFunction} reset={reset} painter={painter} setMasterpiece={setMasterpieceFunction} cameraImg={cameraImg} masterpieceResultImg={masterpieceResultImg}></Masterpiece> : null}
       {pageNum === "7" ? <Variation setPageNum={setPageNumFunction} reset={reset} painter={painter} masterpiece={masterpiece} setResultImg={setResultImgFunction}></Variation> : null}
-      {pageNum === "8" ? <Print setPageNum={setPageNumFunction} reset={reset} painter={painter} masterpiece={masterpiece} cameraImg={cameraImg} resultImg={resultImg}></Print> : null}
-      {pageNum === "9" ? <End setPageNum={setPageNumFunction} reset={reset} resultImg={resultImg}></End> : null}
+      {pageNum === "8" ? <Print setPageNum={setPageNumFunction} reset={reset} painter={painter} masterpiece={masterpiece} cropImg={cropImg} resultImg={resultImg} setResultImg={setResultImgFunction}></Print> : null}
+      {pageNum === "9" ? <End setPageNum={setPageNumFunction} reset={reset} resultImg={resultImg} masterpiece={masterpiece} setResultImg={setResultImgFunction}></End> : null}
 
     </>
   );

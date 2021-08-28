@@ -6,29 +6,56 @@ import page6_2 from "../resource/page6_2.png";
 import page6_3 from "../resource/page6_3.png";
 
 import default_image from "../resource/DICE.png";
-import masterpiece1_1 from "../resource/page5_1.png";
-import masterpiece1_2 from "../resource/page5_2.png";
-import masterpiece1_3 from "../resource/page5_3.png";
-import masterpiece2_1 from "../resource/page5_1.png";
-import masterpiece2_2 from "../resource/page5_2.png";
-import masterpiece2_3 from "../resource/page5_3.png";
-import masterpiece3_1 from "../resource/page5_1.png";
-import masterpiece3_2 from "../resource/page5_2.png";
-import masterpiece3_3 from "../resource/page5_3.png";
-import masterpiece4_1 from "../resource/page5_1.png";
-import masterpiece4_2 from "../resource/page5_2.png";
-import masterpiece4_3 from "../resource/page5_3.png";
-import masterpiece5_1 from "../resource/page5_1.png";
-import masterpiece5_2 from "../resource/page5_2.png";
-import masterpiece5_3 from "../resource/page5_3.png";
-import masterpiece6_1 from "../resource/page5_1.png";
-import masterpiece6_2 from "../resource/page5_2.png";
-import masterpiece6_3 from "../resource/page5_3.png";
+import masterpiece1_1 from "../resource/page5_11.jpg";
+import masterpiece1_2 from "../resource/page5_12.jpg";
+import masterpiece1_3 from "../resource/page5_13.jpg";
+import masterpiece2_1 from "../resource/page5_21.jpg";
+import masterpiece2_2 from "../resource/page5_22.jpg";
+import masterpiece2_3 from "../resource/page5_2.png";
+import masterpiece3_1 from "../resource/page5_31.jpg";
+import masterpiece3_2 from "../resource/page5_32.jpg";
+import masterpiece3_3 from "../resource/page5_33.jpg";
+import masterpiece4_1 from "../resource/page5_41.jpg";
+import masterpiece4_2 from "../resource/page5_42.jpg";
+import masterpiece4_3 from "../resource/page5_43.jpg";
+import masterpiece5_1 from "../resource/page5_51.jpg";
+import masterpiece5_2 from "../resource/page5_52.jpg";
+import masterpiece5_3 from "../resource/page5_53.jpg";
+import masterpiece6_1 from "../resource/page5_61.jpg";
+import masterpiece6_2 from "../resource/page5_62.jpg";
+import masterpiece6_3 from "../resource/page5_63.jpg";
+
+const BackendServer = 'http://218.150.183.60:8000/'
+// const BackendServer = 'http://127.0.0.1:8000/'
 
 const BubbleButton = {
   width: "382px",
   height: "128px"
 }
+
+const Painter = ["로베르 들로네","반 고흐","앙드레 드랭",
+                "자코모 발라","프란시스 피카비아","피카소"];
+const Masterpiecelist = [
+  "리듬들(1934)",
+  "삶의 기쁨(1930)",
+  "무한리듬(1934)" ,
+  "가죽나막신(1888)",
+  "밤의 카페 테라스(1888)" ,
+  "별이 빛나는 밤에(1889)",
+  "뮤직(1904)" ,
+  "채링 크로스 다리(1906)",
+  "콜리우르의 보트들(1905)",
+  "비관론과 낙관론(1923)",
+  "원형 비행기(1924)",
+  "불꽃놀이(1917)",
+  "뉴욕(1913)",
+  "성직자(1913)",
+  "우드니(젊은미국소녀)(1913)",
+  "거울 앞 소녀(1932)",
+  "자화상(1901)",
+  "la muse(1935)"
+]
+
 const CategoryImg = {
   "": "",
   "로베르 들로네": page5_1,
@@ -50,6 +77,7 @@ const PainterArts = {
 };
 
 const Masterpieces ={
+  "": "",
   "리듬들(1934)":masterpiece1_1 ,
   "삶의 기쁨(1930)":masterpiece1_2, 
   "무한리듬(1934)" :masterpiece1_3,
@@ -83,7 +111,10 @@ const theme = {
   DefaultImgSrc: default_image,
   CategoryImg,
   PainterArts,
-  Masterpieces
+  Masterpieces,
+  Painter,
+  Masterpiecelist,
+  BackendServer
 };
 
 export default theme;
