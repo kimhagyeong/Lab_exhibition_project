@@ -23,9 +23,8 @@ const ContentStyle = styled.div`
         // border: 1px solid #707070;
         opacity: 1;
         &>img{
-            width: 565px;
+            width: auto;
             max-height: 764px;
-            margin-top:50px;
         }
     }
     
@@ -34,8 +33,9 @@ class Page extends SuperPage {
     constructor(props) {
         super(props);
         this.state = {
-            currentCount: 5
-        }
+            currentCount: 10,
+            // printimg : ''
+        };
     }
     timer() {
         this.setState({
@@ -49,6 +49,7 @@ class Page extends SuperPage {
       
     componentDidMount() {
         this.intervalId = setInterval(this.timer.bind(this), 1000);
+        
     }
     componentWillUnmount(){
         clearInterval(this.intervalId);
@@ -65,8 +66,7 @@ class Page extends SuperPage {
                 >
                     <h1>인쇄가 완료되었습니다.<br/>{this.state.currentCount}초 후 메인화면으로 이동합니다.</h1>
                     <div>
-                        {/* camera */}
-                        <img src={this.props.resultImg} alt="#"/>
+                        <img src={this.props.resultImg[0]} alt="#"/>
                     </div>
                 </Grid>
             </ContentStyle>
