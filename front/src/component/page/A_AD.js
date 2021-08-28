@@ -163,7 +163,6 @@ class Page extends Component {
         return (
             <Section id="AD">
                 <div class="workspace">
-                    <div class="note">The iphone is created using HTML and CSS</div>
                     <div class="bg-content"></div>
                     <div class="mobile-body">
                         <div class="top-bar">
