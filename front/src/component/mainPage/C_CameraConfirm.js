@@ -5,8 +5,6 @@ import theme from "../theme";
 import Grid from '@material-ui/core/Grid';
 import Section from "../section01";
 import axios from "axios";
-import sampleResultImg from "../../resource/masterpiece1_1.png";
-
 const ContentStyle = styled.div`
     width:1390px;
     height:100%;
