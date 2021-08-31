@@ -97,7 +97,8 @@ const Section = styled.section`
   box-shadow: none;
   transition: all 1s;
   margin-bottom: 7.5rem;
-
+  margin-right:100px;
+  margin-left:100px;
   &:hover {
     box-shadow: none !important;
     transform: scale(.95) !important;
@@ -229,6 +230,29 @@ const Section = styled.section`
       right: -10px;
       left: auto;
       transform: rotate(180deg);
+    }
+  }
+}
+
+.ipad{
+  width: 1200px;
+  height: 800px;
+  transform : rotate( 90deg );
+  background-color:black;
+  background-image:none;
+  margin-right:0px;
+
+  video { 
+    width: 100%;
+    border-radius: 65px;
+  }
+  .camera {
+    top:380px;
+    left:30px;
+  }
+  .button {
+    &.volume-down {
+      top: 35rem;
     }
   }
 }

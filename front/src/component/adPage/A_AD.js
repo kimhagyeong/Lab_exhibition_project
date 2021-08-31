@@ -3,6 +3,7 @@ import theme from "../theme"
 import Section from './A_AD_css.js';
 import SampleImg01 from '../../resource/sampleMaster_1.png'
 import SampleImg02 from '../../resource/sampleMaster_2.png'
+import AD_video from '../mainPage/test.mp4'
 
 class Page extends Component {
     constructor(props) {
@@ -41,6 +42,9 @@ class Page extends Component {
     }
     
     componentDidMount(){
+        // var mobileBody = document.querySelector('.ipad');
+        // mobileBody.style.backgroundImage = `url('${AD_video}')`;
+
         document.querySelector('.workspace').classList.add('active');
         this.intervalId = setInterval(this.timer.bind(this), 1000);
         this.callAPI();
@@ -53,7 +57,6 @@ class Page extends Component {
         var resetTimer = this.state.resetTimer-1;
         if(timer === 0){
             timer=5;
-            console.log(this.state.clickImgOriginNum);
             if(this.state.clickImgNum>=this.state.imgSrc.length-1){
                 await this.setState({
                     clickImgNum:0
@@ -155,7 +158,7 @@ class Page extends Component {
     }
 
     changeImg(){
-        var mobileBody = document.querySelector('.mobile-body');
+        var mobileBody = document.querySelector('.iphone');
         mobileBody.style.backgroundImage = `url('${this.state.imgSrc[this.state.clickImgNum]}')`;
     }
 
@@ -164,7 +167,16 @@ class Page extends Component {
             <Section id="AD">
                 <div class="workspace">
                     <div class="bg-content"></div>
-                    <div class="mobile-body">
+                    <div class="mobile-body ipad">
+                        <video loop="loop" autoplay="autoplay" muted="muted">
+                            <source src={AD_video} type="video/mp4"/>
+                        </video>
+                        <div class="camera"></div>
+                        <div class="button volume-down"></div>
+                        <div class="layer-2"></div>
+                        <div class="layer-1"></div>
+                    </div>
+                    <div class="mobile-body iphone">
                         <div class="top-bar">
                             <div class="camera"></div>
                             <div class="speaker"></div>

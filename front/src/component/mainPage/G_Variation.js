@@ -160,8 +160,14 @@ class Page extends SuperPage {
     }
 
     offVideo() {
-        document.getElementById('player').pause();
-        document.getElementById('video').style.display = 'none';
+        if(document.getElementById('player')){
+            document.getElementById('player').pause();
+        }
+       
+        if(document.getElementById('video')){
+            document.getElementById('video').style.display = 'none';
+        }
+        
     }
       
     componentDidMount() {
