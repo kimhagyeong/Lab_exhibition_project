@@ -33,7 +33,7 @@ const ContentStyle = styled.div`
         } 
     }
     &>div>div{
-        width: 650px;
+        width: auto;
         height: 490px;
         background: #FFFFFF 0% 0% no-repeat padding-box;
         border: 1px solid #707070;
