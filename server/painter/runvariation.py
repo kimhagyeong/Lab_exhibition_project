@@ -16,9 +16,7 @@ from .mutils import *
 from .option import Options
 from .data import *
 
-import cv2,dlib, sys
-from facenet_pytorch import MTCNN, InceptionResnetV1
-import torch
+import cv2,sys
 
 # devices = [gpu(0), gpu(1)]
 

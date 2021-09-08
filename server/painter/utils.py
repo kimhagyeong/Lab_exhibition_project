@@ -43,9 +43,11 @@ def img_to_PIL(img):
 ## input : 웹캠 캡처 사진 opencv 객체
 ## result : 얼굴 crop 사진 opencv 객체
 def run_crop(input):
-    print(input.shape)
+    print('input shape', input.shape)
+    
     w = 375
-    h = 470
+    h = 470    
+
     center = input.shape
     x = center[1]/2 - w/2
     y = center[0]/2 - h/2
