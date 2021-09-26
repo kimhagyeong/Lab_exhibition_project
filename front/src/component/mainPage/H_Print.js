@@ -111,15 +111,16 @@ class Page extends SuperPage {
 
     callAPI = async () => {
         var result;
-        try {
-            var aid = theme.Masterpiecelist.indexOf(this.props.masterpiece)
-            result = await axios.get(theme.BackendServer+'cp/'+String(aid)+String(this.props.resultImg[1]));
-            result= result.data
-            console.log("api 요청 받음");
-        }
-        catch (error) {
-            console.log("api 요청 실패");
-        };
+        // try {
+        //     var aid = theme.Masterpiecelist.indexOf(this.props.masterpiece)
+        //     result = await axios.get(theme.BackendServer+'cp/'+String(aid)+String(this.props.resultImg[1]));
+        //     result= result.data
+        //     console.log("api 요청 받음");
+        // }
+        // catch (error) {
+            result=theme.DefaultImgSrc;
+        //     console.log("api 요청 실패");
+        // };
         // this.setState({printimg:result});
         this.props.setResultImg([result])
     }
@@ -133,24 +134,16 @@ class Page extends SuperPage {
                         <div></div>
                         <h1>완성된 사진입니다. 어떠신가요?<br />{this.state.currentCount}초 후 인쇄를 진행합니다.</h1>
                     </Grid>
-                    <Grid container xs={6}
-                        direction="row"
-                        justify="center"
-                        alignItems="center"
-                    >
+                    <Grid item xs={6}>
                         <Grid container
                             direction="column"
                             justify="space-between"
                             alignItems="center">
-                            <div><img src={this.props.cropImg} alt="#" /></div>
+                            <div><img src={this.props.cameraImg} alt="#" /></div>
                             <img src={theme.Masterpieces[this.props.masterpiece]} alt="#"></img>
                         </Grid>
                     </Grid>
-                    <Grid container xs={6}
-                        direction="row"
-                        justify="center"
-                        alignItems="center"
-                    >
+                    <Grid item xs={6}>
                         <img src={nextSvg} alt="#" />
                         <img src={this.props.resultImg[0]} alt="#"></img>
                     </Grid>

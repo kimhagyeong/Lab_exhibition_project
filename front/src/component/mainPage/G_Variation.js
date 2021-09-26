@@ -6,7 +6,6 @@ import backSvg from "../../resource/BTN-18.svg"
 import BTN1 from '../../resource/BTN-theme.svg';
 import axios from "axios"
 import Section from "../section02"
-import Example from "../../resource/DICE.png";
 import Video from "./test.mp4";
 
 const ContentStyle = styled.div`
@@ -67,7 +66,8 @@ const ContentStyle = styled.div`
     }
     
     
-    &>div>div:nth-child(6){
+    &>div{
+    div:nth-child(n+6):nth-child(-n+9){
         position:relative;
         img{
             ${theme.BubbleButton}
@@ -80,52 +80,9 @@ const ContentStyle = styled.div`
             letter-spacing: 1.72px;
             color: ${theme.OrangeColor};
             top:108px;
+            left: 177px;
         }
     }
-    &>div>div:nth-child(7){
-        position:relative;
-        img{
-            ${theme.BubbleButton}
-            margin-top:68px;
-        }
-        p{
-            position:absolute;
-            text-align: center;
-            font: normal normal bold 55px/52px ${theme.GmarketFontBold};
-            letter-spacing: 1.72px;
-            color: ${theme.OrangeColor};
-            top:108px;
-        }
-    }
-    &>div>div:nth-child(8){
-        position:relative;
-        img{
-            ${theme.BubbleButton}
-            margin-top:68px;
-        }
-        p{
-            position:absolute;
-            text-align: center;
-            font: normal normal bold 55px/52px ${theme.GmarketFontBold};
-            letter-spacing: 1.72px;
-            color: ${theme.OrangeColor};
-            top:108px;
-        }
-    }
-    &>div>div:nth-child(9){
-        position:relative;
-        img{
-            ${theme.BubbleButton}
-            margin-top:68px;
-        }
-        p{
-            position:absolute;
-            text-align: center;
-            font: normal normal bold 55px/52px ${theme.GmarketFontBold};
-            letter-spacing: 1.72px;
-            color: ${theme.OrangeColor};
-            top:108px;
-        }
     }
     &>div>div:nth-child(10){
         img{
@@ -152,24 +109,24 @@ class Page extends SuperPage {
         super(props);
         this.state = {
             currentCount: 5,
-            imgSrc1: [Example],
-            imgSrc2: [Example],
-            imgSrc3: [Example],
-            imgSrc4: [Example]
+            imgSrc1: [theme.DefaultImgSrc],
+            imgSrc2: [theme.DefaultImgSrc],
+            imgSrc3: [theme.DefaultImgSrc],
+            imgSrc4: [theme.DefaultImgSrc]
         }
     }
 
     offVideo() {
-        if(document.getElementById('player')){
+        if (document.getElementById('player')) {
             document.getElementById('player').pause();
         }
-       
-        if(document.getElementById('video')){
+
+        if (document.getElementById('video')) {
             document.getElementById('video').style.display = 'none';
         }
-        
+
     }
-      
+
     componentDidMount() {
         // this.intervalId = setInterval(this.timer.bind(this), 1000);
         this.callAPI();
@@ -178,20 +135,22 @@ class Page extends SuperPage {
     callAPI = async () => {
         var result;
         try {
-            var aid = theme.Masterpiecelist.indexOf(this.props.masterpiece);
-            result = await axios.get(theme.BackendServer+'cv/'+String(aid));
-            result = result.data;
-            this.offVideo();
+            // var aid = theme.Masterpiecelist.indexOf(this.props.masterpiece);
+            // result = await axios.get(theme.BackendServer+'cv/'+String(aid));
+            // result = result.data;
+            // this.offVideo();
+            setTimeout(() => this.offVideo(), 5000);
         }
         catch (error) {
-            result = [Example,Example,Example,Example]
+            result = [theme.DefaultImgSrc, theme.DefaultImgSrc, theme.DefaultImgSrc, theme.DefaultImgSrc]
             this.offVideo();
         };
+        result = [theme.DefaultImgSrc, theme.DefaultImgSrc, theme.DefaultImgSrc, theme.DefaultImgSrc]
         this.setState({
-            imgSrc1:[result[0], 0],
-            imgSrc2:[result[1], 1],
-            imgSrc3:[result[2], 2],
-            imgSrc4:[result[3], 3]
+            imgSrc1: [result[0], 0],
+            imgSrc2: [result[1], 1],
+            imgSrc3: [result[2], 2],
+            imgSrc4: [result[3], 3]
         });
     }
 
@@ -204,73 +163,41 @@ class Page extends SuperPage {
                         <div></div>
                         <h1>[{this.props.masterpiece}] 선택하였습니다</h1>
                     </Grid>
-                    <Grid container xs={3}
-                        direction="row"
-                        justify="center"
-                        alignItems="center"
-                    >
+                    <Grid item xs={3}>
                         <img src={this.state.imgSrc1[0]} alt="#"></img>
                     </Grid>
-                    <Grid container xs={3}
-                        direction="row"
-                        justify="center"
-                        alignItems="center"
-                    >
+                    <Grid item xs={3}>
                         <img src={this.state.imgSrc2[0]} alt="#"></img>
                     </Grid>
-                    <Grid container xs={3}
-                        direction="row"
-                        justify="center"
-                        alignItems="center"
-                    >
+                    <Grid item xs={3}>
                         <img src={this.state.imgSrc3[0]} alt="#"></img>
                     </Grid>
-                    <Grid container xs={3}
-                        direction="row"
-                        justify="center"
-                        alignItems="center"
-                    >
+                    <Grid item xs={3}>
                         <img src={this.state.imgSrc4[0]} alt="#"></img>
                     </Grid>
 
-                    <Grid container xs={3}
-                        direction="column"
-                        justify="center"
-                        alignItems="center"
-                    >
-                        <img src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc1)}} />
+                    <Grid item xs={3}>
+                        <img src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc1) }} />
                         <p>1</p>
                     </Grid>
-                    <Grid container xs={3}
-                        direction="column"
-                        justify="center"
-                        alignItems="center"
-                    >
+                    <Grid item xs={3}>
                         <img src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc2) }} />
                         <p>2</p>
                     </Grid>
-                    <Grid container xs={3}
-                        direction="column"
-                        justify="center"
-                        alignItems="center"
-                    >
+                    <Grid item xs={3}>
                         <img src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc3) }} />
                         <p>3</p>
                     </Grid>
-                    <Grid container xs={3}
-                        direction="column"
-                        justify="center"
-                        alignItems="center"
-                    >
+                    <Grid item xs={3}>
                         <img src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc4) }} />
                         <p>4</p>
                     </Grid>
                 </Grid>
-                
+
                 <div id="video">
-                    <video id="player" src={Video} type="video/mp4" autoplay="true" width="640px" height="480px">Your browser does not support this streaming content.</video>
+                    <video id="player" src={Video} type="video/mp4" autoPlay={true} width="640px" height="480px">Your browser does not support this streaming content.</video>
                 </div>
-                
+
             </ContentStyle>
         )
     }

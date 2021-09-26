@@ -7,6 +7,8 @@ import BTN2 from '../../resource/BTN-10.svg';
 import BTN3 from '../../resource/BTN-11.svg';
 import prevSvg from "../../resource/BTN-17.svg";
 import Section from "../section02"
+import Card from '../Card';
+
 
 const ContentStyle = styled.div`
     width:1550px;
@@ -32,27 +34,7 @@ const ContentStyle = styled.div`
             margin-top:0;
         } 
     }
-    &>div>div:nth-child(2){
-        img{
-            width: 470px;
-            height: 470px;
-            margin-top:115px;
-        }
-    }
-    &>div>div:nth-child(3){
-        img{
-            width: 470px;
-            height: 470px;
-            margin-top:115px;
-        }
-    }
-    &>div>div:nth-child(4){
-        img{
-            width: 470px;
-            height: 470px;
-            margin-top:115px;
-        }
-    }
+    
     
     &>div>div:nth-child(5){
         img{
@@ -95,46 +77,28 @@ class Page extends SuperPage {
                         <div></div>
                         <h1>어떤 화가를 선택하시겠어요?</h1>
                     </Grid>
-                    <Grid container xs={4}
-                        direction="row"
-                        justify="center"
-                        alignItems="center"
-                    >
-                        <img src={theme.CategoryImg["자코모 발라"]} alt="#"></img>
+                    <Grid item xs={4}>
+                        <Card 
+                            img={theme.CategoryImg["자코모 발라"]}
+                            info={theme.CategoryInfo["자코모 발라"]}/>
                     </Grid>
-                    <Grid container xs={4}
-                        direction="row"
-                        justify="center"
-                        alignItems="center"
-                    >
-                        <img src={theme.CategoryImg["프란시스 피카비아"]} alt="#"></img>
+                    <Grid item xs={4}>
+                        <Card 
+                            img={theme.CategoryImg["프란시스 피카비아"]}
+                            info={theme.CategoryInfo["프란시스 피카비아"]}/>
                     </Grid>
-                    <Grid container xs={4}
-                        direction="row"
-                        justify="center"
-                        alignItems="center"
-                    >
-                        <img src={theme.CategoryImg["피카소"]} alt="#"></img>
+                    <Grid item xs={4}>
+                        <Card 
+                            img={theme.CategoryImg["피카소"]}
+                            info={theme.CategoryInfo["피카소"]}/>
                     </Grid>
-                    <Grid container xs={4}
-                        direction="row"
-                        justify="center"
-                        alignItems="center"
-                    >
+                    <Grid item xs={4}>
                         <img src={BTN1} alt="#" onClick={() => { this.props.setPainter("자코모 발라"); this.props.setPageNum("6") }} />
                     </Grid>
-                    <Grid container xs={4}
-                        direction="row"
-                        justify="center"
-                        alignItems="center"
-                    >
+                    <Grid item xs={4}>
                         <img src={BTN2} alt="#" onClick={() => { this.props.setPainter("프란시스 피카비아"); this.props.setPageNum("6") }} />
                     </Grid>
-                    <Grid container xs={4}
-                        direction="row"
-                        justify="center"
-                        alignItems="center"
-                    >
+                    <Grid item xs={4}>
                         <img src={BTN3} alt="#" onClick={() => { this.props.setPainter("피카소"); this.props.setPageNum("6") }} />
                     </Grid>
                     <Grid item xs={12}>

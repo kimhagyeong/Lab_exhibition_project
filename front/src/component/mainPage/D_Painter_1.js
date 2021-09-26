@@ -1,3 +1,4 @@
+import React from 'react';
 import SuperPage from "./B_Camera"
 import styled from "styled-components";
 import theme from "../theme";
@@ -8,6 +9,7 @@ import BTN2 from '../../resource/BTN-07.svg';
 import BTN3 from '../../resource/BTN-08.svg';
 import nextSvg from "../../resource/BTN-16.svg";
 import Section from "../section02"
+import Card from '../Card';
 
 const ContentStyle = styled.div`
     width:1550px;
@@ -33,27 +35,7 @@ const ContentStyle = styled.div`
             margin-top:0;
         } 
     }
-    &>div>div:nth-child(2){
-        img{
-            width: 470px;
-            height: 470px;
-            margin-top:115px;
-        }
-    }
-    &>div>div:nth-child(3){
-        img{
-            width: 470px;
-            height: 470px;
-            margin-top:115px;
-        }
-    }
-    &>div>div:nth-child(4){
-        img{
-            width: 470px;
-            height: 470px;
-            margin-top:115px;
-        }
-    }
+    
     
     &>div>div:nth-child(5){
         img{
@@ -96,46 +78,28 @@ class Page extends SuperPage {
                         <div></div>
                         <h1>어떤 화가를 선택하시겠어요?</h1>
                     </Grid>
-                    <Grid container xs={4}
-                        direction="row"
-                        justify="center"
-                        alignItems="center"
-                    >
-                        <img src={theme.CategoryImg["로베르 들로네"]} alt="#"></img>
+                    <Grid item xs={4}>
+                        <Card 
+                            img={theme.CategoryImg["로베르 들로네"]}
+                            info={theme.CategoryInfo["로베르 들로네"]}/>
                     </Grid>
-                    <Grid container xs={4}
-                        direction="row"
-                        justify="center"
-                        alignItems="center"
-                    >
-                        <img src={theme.CategoryImg["반 고흐"]} alt="#"></img>
+                    <Grid item xs={4}>
+                        <Card 
+                            img={theme.CategoryImg["반 고흐"]}
+                            info={theme.CategoryInfo["반 고흐"]}/>
                     </Grid>
-                    <Grid container xs={4}
-                        direction="row"
-                        justify="center"
-                        alignItems="center"
-                    >
-                        <img src={theme.CategoryImg["앙드레 드랭"]} alt="#"></img>
+                    <Grid item xs={4}>
+                        <Card 
+                            img={theme.CategoryImg["앙드레 드랭"]}
+                            info={theme.CategoryInfo["앙드레 드랭"]}/>
                     </Grid>
-                    <Grid container xs={4}
-                        direction="row"
-                        justify="center"
-                        alignItems="center"
-                    >
+                    <Grid item xs={4}>
                         <img src={BTN1} alt="#" onClick={() => { this.props.setPainter("로베르 들로네"); this.props.setPageNum("6") }} />
                     </Grid>
-                    <Grid container xs={4}
-                        direction="row"
-                        justify="center"
-                        alignItems="center"
-                    >
+                    <Grid item xs={4}>
                         <img src={BTN2} alt="#" onClick={() => { this.props.setPainter("반 고흐"); this.props.setPageNum("6") }} />
                     </Grid>
-                    <Grid container xs={4}
-                        direction="row"
-                        justify="center"
-                        alignItems="center"
-                    >
+                    <Grid item xs={4}>
                         <img src={BTN3} alt="#" onClick={() => { this.props.setPainter("앙드레 드랭"); this.props.setPageNum("6") }} />
                     </Grid>
                     <Grid item xs={12}>

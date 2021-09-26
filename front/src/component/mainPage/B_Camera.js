@@ -13,28 +13,28 @@ const ContentStyle = styled.div`
     background-color:${theme.OrangeColor};
     h1{
         text-align: center;
-        font: normal normal bold 56px/67px ${theme.GmarketFontBold};
+        font: normal normal bold 47px/55px ${theme.GmarketFontBold};
         letter-spacing: 0px;
         color: #FFFFFF;
         opacity: 1;   
     }
     h1:nth-child(1){
-        margin:87px 0px 70px 0px;
+        margin:30px 0px 20px 0px;
     }
     h1:nth-child(3){
-        margin-top:90px;
+        margin-top:65px;
         position:relative;
         & > img{
             width:100px;
             height:100px;
             position:absolute;
             top:-15px;
-            left:208px;
+            left:168px;
         } 
     }
     &>div>div{
         width: auto;
-        height: 490px;
+        height: 720px;
         background: #FFFFFF 0% 0% no-repeat padding-box;
         border: 1px solid #707070;
         opacity: 1;

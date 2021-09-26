@@ -65,7 +65,15 @@ const CategoryImg = {
   "프란시스 피카비아": page6_2,
   "피카소": page6_3
 };
-
+const CategoryInfo ={
+  "": "",
+  "로베르 들로네": "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
+  "반 고흐": "반 고흐는 AAAAAAAAAAAAAAAA </br> AAAAAAAAAAA AAAA",
+  "앙드레 드랭": "안드레 드랭은 AAAAAAAAAAAAAAAA </br> AAAAAAAAAAA AAAA",
+  "자코모 발라": "자코모 발라는 AAAAAAAAAAAAAAAA </br> AAAAAAAAAAA AAAA",
+  "프란시스 피카비아": "프란시스 피카비아는 AAAAAAAAAAAAAAAA </br> AAAAAAAAAAA AAAA",
+  "피카소": "피카소는 AAAAAAAAAAAAAAAA </br> AAAAAAAAAAA AAAA"
+}
 const PainterArts = {
   "": ["", "", ""],
   "로베르 들로네": ["리듬들(1934)", "삶의 기쁨(1930)", "무한리듬(1934)"],
@@ -110,6 +118,7 @@ const theme = {
   BubbleButton,
   DefaultImgSrc: default_image,
   CategoryImg,
+  CategoryInfo,
   PainterArts,
   Masterpieces,
   Painter,

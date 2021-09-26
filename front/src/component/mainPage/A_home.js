@@ -9,11 +9,13 @@ import Image2 from '../../resource/main2.jpg';
 const Section = styled.section`
     background-color:${theme.OrangeColor};
 
-    &>div>div:nth-child(1){
-        height:612px
-    }
     &>div>div:nth-child(2){
         height:612px;
+        text-align:center;
+    }
+    &>div>div:nth-child(3){
+        height:612px;
+        text-align:center;
     }
     &>div>div:nth-child(5){
         height:276px;
@@ -59,29 +61,18 @@ class Page extends Component {
     render() {
         return (
             <Section id="home">
-                <Grid container>
-                    <Grid xs={1} container
-                    direction="column"
-                    justify="flex-start"
+                <Grid container
+                    direction="row"
+                    justify="center"
                     alignItems="center">
-                    </Grid>
-                    <Grid xs={5} container
-                    direction="column"
-                    justify="flex-start"
-                    alignItems="center">
+                    <Grid item xs={1}></Grid>
+                    <Grid item xs={5}>
                         <img src={Image1} alt="#"></img>
                     </Grid>
-                    <Grid xs={5} container
-                    direction="column"
-                    justify="flex-start"
-                    alignItems="center">
+                    <Grid item xs={5}>
                         <img src={Image2} alt="#"></img>
                     </Grid>
-                    <Grid xs={1} container
-                    direction="column"
-                    justify="flex-start"
-                    alignItems="center">
-                    </Grid>
+                    <Grid item xs={1}></Grid>
                     <Grid item xs={12}>
                         <h2>화가의 채색을 입혀드립니다</h2>
                         <p>AI를 이용하여 작품에 대한 전반적인<br />질감과 색을 학습해 입혀드립니다</p>

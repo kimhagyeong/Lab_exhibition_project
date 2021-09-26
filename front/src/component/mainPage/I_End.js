@@ -23,8 +23,8 @@ const ContentStyle = styled.div`
         // border: 1px solid #707070;
         opacity: 1;
         &>img{
-            width: auto;
-            max-height: 764px;
+            max-width:565px;
+            max-height:764px;
         }
     }
     
@@ -35,23 +35,40 @@ class Page extends SuperPage {
         this.state = {
             currentCount: 10,
             // printimg : ''
+            resultImg:'',
         };
     }
     timer() {
         this.setState({
-          currentCount: this.state.currentCount - 1
+            currentCount: this.state.currentCount - 1
         })
-        if(this.state.currentCount < 1) { 
-          clearInterval(this.intervalId);
-          this.props.setPageNum("1");
+        if (this.state.currentCount < 1) {
+            clearInterval(this.intervalId);
+            this.props.setPageNum("1");
         }
-      }
-      
+    }
+
     componentDidMount() {
         this.intervalId = setInterval(this.timer.bind(this), 1000);
-        
+
+        this.setState({resultImg:this.props.resultImg[0]})
+        var printContents = document.createElement('DIV');
+        var Content = document.createElement('IMG');
+        Content.src = this.props.resultImg[0];
+        Content.setAttribute("style", "width:100%; height:100%;");
+        printContents.appendChild(Content)
+        //width, height 를 조절해서 프린트 사이즈를 조절해보기..
+        var windowObject = window.open('/print', "PrintWindow", "width=1080, height=1440, toolbars=no, status=no,scrollbars=no, resizable=no");
+
+        windowObject.document.write(printContents.innerHTML);
+        windowObject.focus();
+        windowObject.print();
+        windowObject.close();
+
+        // windowObject.close(); 
+        // setTimeout(() => windowObject.print(), 1000);
     }
-    componentWillUnmount(){
+    componentWillUnmount() {
         clearInterval(this.intervalId);
     }
 
@@ -65,8 +82,8 @@ class Page extends SuperPage {
                     alignItems="center"
                 >
                     <h1>인쇄가 완료되었습니다.<br/>{this.state.currentCount}초 후 메인화면으로 이동합니다.</h1>
-                    <div>
-                        <img src={this.props.resultImg[0]} alt="#"/>
+                    <div id="finalImg">
+                        <img id="innerImg" src={this.state.resultImg} alt="#" />
                     </div>
                 </Grid>
             </ContentStyle>

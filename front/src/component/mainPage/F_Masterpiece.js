@@ -139,52 +139,28 @@ class Page extends SuperPage {
                         <div></div>
                         <h1>[{this.props.painter}] 선택하였습니다</h1>
                     </Grid>
-                    <Grid container xs={4}
-                        direction="row"
-                        justify="center"
-                        alignItems="center"
-                    >
+                    <Grid item xs={4}>
                         <img src={this.state.resultImg1} alt="#"></img>
                         <img src={this.state.masterpieceImg1} alt="#"></img>
                     </Grid>
-                    <Grid container xs={4}
-                        direction="row"
-                        justify="center"
-                        alignItems="center"
-                    >
+                    <Grid item xs={4}>
                         <img src={this.state.resultImg2} alt="#"></img>
                         <img src={this.state.masterpieceImg2} alt="#"></img>
                     </Grid>
-                    <Grid container xs={4}
-                        direction="row"
-                        justify="center"
-                        alignItems="center"
-                    >
+                    <Grid item xs={4}>
                         <img src={this.state.resultImg3} alt="#"></img>
                         <img src={this.state.masterpieceImg3} alt="#"></img>
                     </Grid>
 
-                    <Grid container xs={4}
-                        direction="column"
-                        justify="center"
-                        alignItems="center"
-                    >
+                    <Grid item xs={4}>
                         <p>{theme.PainterArts[this.props.painter][0]}</p>
                         <img src={BTN1} alt="#" onClick={() => { this.props.setMasterpiece(theme.PainterArts[this.props.painter][0]); this.props.setPageNum("7") }} />
                     </Grid>
-                    <Grid container xs={4}
-                        direction="column"
-                        justify="center"
-                        alignItems="center"
-                    >
+                    <Grid item xs={4}>
                         <p>{theme.PainterArts[this.props.painter][1]}</p>
                         <img src={BTN2} alt="#" onClick={() => { this.props.setMasterpiece(theme.PainterArts[this.props.painter][1]); this.props.setPageNum("7") }} />
                     </Grid>
-                    <Grid container xs={4}
-                        direction="column"
-                        justify="center"
-                        alignItems="center"
-                    >
+                    <Grid item xs={4}>
                         <p>{theme.PainterArts[this.props.painter][2]}</p>
                         <img src={BTN3} alt="#" onClick={() => { this.props.setMasterpiece(theme.PainterArts[this.props.painter][2]); this.props.setPageNum("7") }} />
                     </Grid>
