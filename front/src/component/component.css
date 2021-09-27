@@ -116,13 +116,27 @@
 
 
   /* -------hover--------- */
- 
-#Card1:nth-child(1):hover >div{
-  height:250px;
-  transition: all .1s ease-in-out;
-  opacity: 0.5;
+#Card1{
+  position: relative;
 }
-#Card1:nth-child(2):hover >div{
+#Card1 > p{
+  font: normal normal normal 35px/40px GmarketSansMedium;
+  text-align:left;
+  padding:20px;
+  color:rgba(0, 0, 0, 0);
+  position: absolute;
+  top:0;
+}
+
+#Card1:hover >div{
+  transition: all .1s ease-in-out;
+  opacity: 0.3;
+}
+#Card1:hover >p{
+  transition: all .1s ease-in;
+  color:black;
+}
+/* #Card1:nth-child(2):hover >div{
   height:250px;
   transition: all .1s ease-in-out;
   opacity: 0.5;
@@ -131,4 +145,5 @@
   height:250px;
   transition: all .1s ease-in-out;
   opacity: 0.5;
-}
+} */
+

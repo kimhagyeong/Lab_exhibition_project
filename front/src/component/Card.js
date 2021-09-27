@@ -24,9 +24,9 @@ export default function MediaCard(props) {
           className={classes.media}
           image={props.img}
         />
-          <Typography variant="h4" color="textSecondary" component="p">
-            {props.info}
-          </Typography>
+        <p>
+          {props.info}
+        </p>
     </Card>
   );
 }
