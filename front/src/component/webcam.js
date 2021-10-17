@@ -2,7 +2,7 @@
 import React from 'react';
 import Webcam from "react-webcam";
 
-const videoConstraints = {height: 540, width: 720, resizeMode:"crop-and-scale"};
+// const videoConstraints = {height: 540, width: 720, resizeMode:"crop-and-scale"};
 
 
 const WebcamCapture = (props) => {
@@ -18,7 +18,7 @@ const WebcamCapture = (props) => {
           // height={540}
           mirrored={true}
           maxScale={5}
-          videoConstraints = {videoConstraints}
+          // videoConstraints = {videoConstraints}
           onClick={()=>{
               props.setCameraImg(webcamRef.current.getScreenshot({width: 1440,height:1080}));
               props.setPageNum("3");

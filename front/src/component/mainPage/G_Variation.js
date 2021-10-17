@@ -135,17 +135,17 @@ class Page extends SuperPage {
     callAPI = async () => {
         var result;
         try {
-            // var aid = theme.Masterpiecelist.indexOf(this.props.masterpiece);
-            // result = await axios.get(theme.BackendServer+'cv/'+String(aid));
-            // result = result.data;
-            // this.offVideo();
+            var aid = theme.Masterpiecelist.indexOf(this.props.masterpiece);
+            result = await axios.get(theme.BackendServer+'cv/'+String(aid));
+            result = result.data;
+            this.offVideo();
             setTimeout(() => this.offVideo(), 5000);
         }
         catch (error) {
             result = [theme.DefaultImgSrc, theme.DefaultImgSrc, theme.DefaultImgSrc, theme.DefaultImgSrc]
             this.offVideo();
         };
-        result = [theme.DefaultImgSrc, theme.DefaultImgSrc, theme.DefaultImgSrc, theme.DefaultImgSrc]
+        // result = [theme.DefaultImgSrc, theme.DefaultImgSrc, theme.DefaultImgSrc, theme.DefaultImgSrc]
         this.setState({
             imgSrc1: [result[0], 0],
             imgSrc2: [result[1], 1],

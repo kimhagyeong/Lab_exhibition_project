@@ -1,9 +1,9 @@
-import page5_1 from "../resource/page5_1.png";
-import page5_2 from "../resource/page5_2.png";
-import page5_3 from "../resource/page5_3.png";
-import page6_1 from "../resource/page6_1.png";
-import page6_2 from "../resource/page6_2.png";
-import page6_3 from "../resource/page6_3.png";
+import page5_1 from "../resource/page5_1.jpg";
+import page5_2 from "../resource/page5_2.jpg";
+import page5_3 from "../resource/page5_3.jpg";
+import page6_1 from "../resource/page6_1.jpg";
+import page6_2 from "../resource/page6_2.jpg";
+import page6_3 from "../resource/page6_3.jpg";
 
 import default_image from "../resource/DICE.png";
 import masterpiece1_1 from "../resource/page5_11.jpg";
@@ -11,7 +11,7 @@ import masterpiece1_2 from "../resource/page5_12.jpg";
 import masterpiece1_3 from "../resource/page5_13.jpg";
 import masterpiece2_1 from "../resource/page5_21.jpg";
 import masterpiece2_2 from "../resource/page5_22.jpg";
-import masterpiece2_3 from "../resource/page5_2.png";
+import masterpiece2_3 from "../resource/page5_23.jpg";
 import masterpiece3_1 from "../resource/page5_31.jpg";
 import masterpiece3_2 from "../resource/page5_32.jpg";
 import masterpiece3_3 from "../resource/page5_33.jpg";
@@ -67,7 +67,7 @@ const CategoryImg = {
 };
 const CategoryInfo ={
   "": "",
-  "로베르 들로네": "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
+  "로베르 들로네":  "with over 6,000 species, ranging across all continents except Antarctica",
   "반 고흐": "반 고흐는 AAAAAAAAAAAAAAAA </br> AAAAAAAAAAA AAAA",
   "앙드레 드랭": "안드레 드랭은 AAAAAAAAAAAAAAAA </br> AAAAAAAAAAA AAAA",
   "자코모 발라": "자코모 발라는 AAAAAAAAAAAAAAAA </br> AAAAAAAAAAA AAAA",
