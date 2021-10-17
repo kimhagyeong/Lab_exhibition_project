@@ -99,7 +99,7 @@ class Page extends SuperPage {
             ////////////////
 
             const formData = new FormData();
-            formData.append("img", babyFaceImg);
+            formData.append("img", this.props.cameraImg);
             var img = await axios({
                 method: "post",
                 url: theme.BackendServer + 'cs',
@@ -129,6 +129,7 @@ class Page extends SuperPage {
                 "자화상(1901)": img[16],
                 "la muse(1935)": img[17]
             };
+            await this.props.setMasterpieceResultImg(imgMap);
 
             ////////////////
             // var imgMap = {
