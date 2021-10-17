@@ -110,18 +110,17 @@ class Page extends SuperPage {
     }
 
     callAPI = async () => {
-        var result;
-        // try {
-        //     var aid = theme.Masterpiecelist.indexOf(this.props.masterpiece)
-        //     result = await axios.get(theme.BackendServer+'cp/'+String(aid)+String(this.props.resultImg[1]));
-        //     result= result.data
-        //     console.log("api 요청 받음");
-        // }
-        // catch (error) {
-            result=theme.DefaultImgSrc;
-        //     console.log("api 요청 실패");
-        // };
-        // this.setState({printimg:result});
+        var result=theme.DefaultImgSrc;
+        try {
+            var aid = theme.Masterpiecelist.indexOf(this.props.masterpiece)
+            result = await axios.get(theme.BackendServer+'cp/'+String(aid)+String(this.props.resultImg[1]));
+            result= result.data
+            console.log("api 요청 받음");
+        }
+        catch (error) {
+            console.log("api 요청 실패");
+        };
+        this.setState({printimg:result});
         this.props.setResultImg([result])
     }
 
