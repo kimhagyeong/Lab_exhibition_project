@@ -35,8 +35,8 @@ const ContentStyle = styled.div`
     &>div>div{
         width: auto;
         height: 720px;
-        background: #FFFFFF 0% 0% no-repeat padding-box;
-        border: 1px solid #707070;
+        // background: #FFFFFF 0% 0% no-repeat padding-box;
+        // border: 1px solid #707070;
         opacity: 1;
     }
 `;

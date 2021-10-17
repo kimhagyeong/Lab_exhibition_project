@@ -4,7 +4,7 @@ import GlobalStyle from "../GlobalStyles"
 import theme from "../theme"
 import Home from "./A_home";
 import Camera from "./B_Camera";
-import BabyFace from "./C_Babyface";
+import CameraResult from "./C_Camera_result";
 import Painter from "./D_Painter_1";
 import Painter2 from "./D_Painter_2";
 import Masterpiece from "./F_Masterpiece";
@@ -91,7 +91,7 @@ function App() {
       <GlobalStyle />
       {pageNum === "1" ? <Home setPageNum={setPageNumFunction}></Home> : null}
       {pageNum === "2" ? <Camera setPageNum={setPageNumFunction} reset={reset} setCameraImg={setCameraImgFunction}></Camera> : null}
-      {pageNum === "3" ? <BabyFace setPageNum={setPageNumFunction} reset={reset} cameraImg={cameraImg} babyFaceImg={babyFaceImg} setBabyFaceImg={setBabyFaceImgFunction} cropImg={cropImg} setMasterpieceResultImg={setMasterpieceResultImgFunction} setCropImg={setCropImgFunction}></BabyFace> : null}
+      {pageNum === "3" ? <CameraResult setPageNum={setPageNumFunction} reset={reset} cameraImg={cameraImg} babyFaceImg={babyFaceImg} setBabyFaceImg={setBabyFaceImgFunction} cropImg={cropImg} setMasterpieceResultImg={setMasterpieceResultImgFunction} setCropImg={setCropImgFunction}></CameraResult> : null}
       {pageNum === "4" ? <Painter setPageNum={setPageNumFunction} reset={reset} setPainter={setPainterFunction} painter={painter}></Painter> : null}
       {pageNum === "5" ? <Painter2 setPageNum={setPageNumFunction} reset={reset} setPainter={setPainterFunction}></Painter2> : null}
       {pageNum === "6" ? <Masterpiece setPageNum={setPageNumFunction} reset={reset} painter={painter} setMasterpiece={setMasterpieceFunction} cameraImg={cameraImg} masterpieceResultImg={masterpieceResultImg}></Masterpiece> : null}
