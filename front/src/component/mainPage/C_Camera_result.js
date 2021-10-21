@@ -20,30 +20,35 @@ const ContentStyle = styled.div`
     &>div>div:nth-child(1){
         text-align:center;
         &>div{
-            width: 850px;
-            height: 650px;
+            width: 600px;
+            height: 450px;
             opacity: 1;
             text-align : center;
             margin-top:20px;
-            
-            &>img{
-                
-                transition: all .2s ease-in-out;
-                max-width:600px;
-                // max-height:550px;
+            overflow: hidden;
+            transform: rotate(270deg);     
+            border-radius: 10px;
+            box-shadow: rgb(0 0 0 / 20%) 0px 3px 5px -1px, rgb(0 0 0 / 14%) 0px 6px 10px 0px, rgb(0 0 0 / 12%) 0px 1px 18px 0px;
+            &>div{
                 margin-top:75px;
-                border-radius: 8px;
-                box-shadow: rgb(0 0 0 / 20%) 0px 3px 5px -1px, rgb(0 0 0 / 14%) 0px 6px 10px 0px, rgb(0 0 0 / 12%) 0px 1px 18px 0px;   
-                transform: rotate(90deg);     
+                &>img{
+                    transform: scale(1.3333);  
+                    transition: all .2s ease-in-out;
+                    width:600px;
+                    margin: -75px 0px -100px 0px;                    
+                }
             }
         }
+    }
+    
+    &>div>div:nth-child(2){
         &>img{
             ${theme.BubbleButton}
             margin-top:40px;
         }
     }
-    
-    &>div>div:nth-child(2){
+
+    &>div>div:nth-child(3){
         display: flex;
         justify-content: center;
         align-items: center;
@@ -72,12 +77,19 @@ const ContentStyle = styled.div`
             margin-top:0;
         } 
     }
+    .blind {
+        position:absolute;
+        top:20px;
+        left:20px;
+        width: 100px;
+        height: 100px;
+    }
 `;
 class Page extends SuperPage {
     constructor(props) {
         super(props);
         this.state = {
-            isGetApi: false,
+            isGetApi:false,
             babyFaceList: [
                 theme.DefaultImgSrc,
                 theme.DefaultImgSrc,
@@ -100,6 +112,7 @@ class Page extends SuperPage {
 
             const formData = new FormData();
             formData.append("img", this.props.cameraImg);
+            this.state.isGetApi = true
             var img = await axios({
                 method: "post",
                 url: theme.BackendServer + 'cs',
@@ -154,8 +167,9 @@ class Page extends SuperPage {
             // };
             // await this.props.setMasterpieceResultImg(imgMap);
             ///////////////
-            
-            this.props.setPageNum("4");
+            if (this.state.isGetApi) {
+                this.props.setPageNum("4");
+            }
         }
         catch (error) {
             console.log(error);
@@ -175,9 +189,15 @@ class Page extends SuperPage {
                     <Grid item>
                         <div>
                             {/* camera */}
-                            <img src={this.props.cameraImg} alt="#" />
-                        </div>
-                        <img src={BTN} alt="#" onClick={() => this.props.setPageNum("2")} />
+                            <div>
+                                <img src={this.props.cameraImg} alt="#" />
+                            </div>
+                        </div>``
+                    </Grid>
+                        
+                    <Grid item>
+                        <img src={BTN} alt="#" onClick={() => { this.state.isGetApi=false
+                                                                    this.props.setPageNum("2");}} />
                     </Grid>
 
                     <Grid item >
@@ -191,9 +211,10 @@ class Page extends SuperPage {
                         } */}
                         <div className="loader-div">
                                 <div className="loader"></div>
-                            </div>
+                        </div>
                     </Grid>
                 </Grid>
+                <div class="blind"></div>
             </ContentStyle>
         )
     }

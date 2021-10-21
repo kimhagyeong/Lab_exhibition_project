@@ -18,6 +18,7 @@ const ContentStyle = styled.div`
         text-align:center;
         padding-top:30px;
         margin-bottom: 50px;
+        
         &>div{
             width: 679px;
             height: 39px;
@@ -38,22 +39,22 @@ const ContentStyle = styled.div`
             height:637px;
         }
         &>div>div{
-            width: 262px;
-            height: 262px;
+            width:auto;
+            height: 225px;
             background: #FFFFFF 0% 0% no-repeat padding-box;
             display:block;
             margin-top:0px;
             &>img{
                 width:auto;
-                height:262px;
-                margin-top:0px;
-                margin-left:auto;
-                margin-right:auto;
+                height:225px;
+                transform: rotate(270deg);
+                // margin-top:0px;
+                // margin-left:-50px;
             }
         }
         img{
             width: auto;
-            height: 241px;
+            height: 300px;
             display:block;
             margin-bottom:0px;
             margin-left:auto;

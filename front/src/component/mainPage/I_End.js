@@ -19,6 +19,7 @@ const ContentStyle = styled.div`
     &>div>div{
         width: 565px;
         height: 764px;
+        
         // background: #FFFFFF 0% 0% no-repeat padding-box;
         // border: 1px solid #707070;
         opacity: 1;
@@ -56,6 +57,9 @@ class Page extends SuperPage {
         var Content = document.createElement('IMG');
         Content.src = this.props.resultImg[0];
         Content.setAttribute("style", "width:100%; height:100%;");
+        
+        // Content.width = 1080;
+        // Content.height = 1550;
         printContents.appendChild(Content)
         //width, height 를 조절해서 프린트 사이즈를 조절해보기..
         var windowObject = window.open('/print', "PrintWindow", "width=1080, height=1440, toolbars=no, status=no,scrollbars=no, resizable=no");

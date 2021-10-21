@@ -39,6 +39,14 @@ const ContentStyle = styled.div`
         // border: 1px solid #707070;
         opacity: 1;
     }
+    .guideline{
+        position:absolute;
+        top:250px;
+        left:780px;
+        width: 360px;
+        height: 480px;
+        border: 3px solid #707070;
+    }
 `;
 
 class Page extends Component {
@@ -76,6 +84,7 @@ class Page extends Component {
                     </div>
                     <h1>여기를&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src={arrowSvg} alt="#" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;보세요</h1>
                 </Grid>
+                
             </ContentStyle>
         )
     }

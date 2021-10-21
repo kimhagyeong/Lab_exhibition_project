@@ -17,7 +17,7 @@ const ContentStyle = styled.div`
     &>div>div:nth-child(1){
         text-align:center;
         padding-top:30px;
-        &>div{
+        &>#block{
             width: 1000px;
             height: 39px;
             background: rgb(255,210,181) 0% 0% no-repeat padding-box;
@@ -91,6 +91,12 @@ const ContentStyle = styled.div`
             margin-top:60px;
         }
     }
+    #loader-d{
+        display: flex;
+        justify-content: center;
+        align-items: center;        
+        background-color:transparent;
+    }
     #video {
         position:absolute;
         top: 0;
@@ -98,10 +104,11 @@ const ContentStyle = styled.div`
         left: 0;
         right: 0;
         margin: auto;
-        width:640px;
-        height:480px;
-        background-color:#000;
+        // width:640px;
+        // height:480px;
+        // background-color:#000;
         z-index:300000;
+
     }
 `;
 class Page extends SuperPage {
@@ -117,9 +124,9 @@ class Page extends SuperPage {
     }
 
     offVideo() {
-        if (document.getElementById('player')) {
-            document.getElementById('player').pause();
-        }
+        // if (document.getElementById('player')) {
+        //     document.getElementById('player').pause();
+        // }
 
         if (document.getElementById('video')) {
             document.getElementById('video').style.display = 'none';
@@ -160,7 +167,7 @@ class Page extends SuperPage {
             <ContentStyle>
                 <Grid container>
                     <Grid item xs={12}>
-                        <div></div>
+                        <div id="block"></div>
                         <h1>[{this.props.masterpiece}] 선택하였습니다</h1>
                     </Grid>
                     <Grid item xs={3}>
@@ -193,9 +200,13 @@ class Page extends SuperPage {
                         <p>4</p>
                     </Grid>
                 </Grid>
-
-                <div id="video">
+                {/* <div id="video">
                     <video id="player" src={Video} type="video/mp4" autoPlay={true} width="640px" height="480px">Your browser does not support this streaming content.</video>
+                </div> */}
+                <div id="loader-d">
+                    <div className="loader-div" id="video">
+                        <div className="loader"></div>
+                    </div>
                 </div>
 
             </ContentStyle>
