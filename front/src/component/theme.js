@@ -67,12 +67,12 @@ const CategoryImg = {
 };
 const CategoryInfo ={
   "": "",
-  "로베르 들로네":  "with over 6,000 species, ranging across all continents except Antarctica",
-  "반 고흐": "반 고흐는 AAAAAAAAAAAAAAAA </br> AAAAAAAAAAA AAAA",
-  "앙드레 드랭": "안드레 드랭은 AAAAAAAAAAAAAAAA </br> AAAAAAAAAAA AAAA",
-  "자코모 발라": "자코모 발라는 AAAAAAAAAAAAAAAA </br> AAAAAAAAAAA AAAA",
-  "프란시스 피카비아": "프란시스 피카비아는 AAAAAAAAAAAAAAAA </br> AAAAAAAAAAA AAAA",
-  "피카소": "피카소는 AAAAAAAAAAAAAAAA </br> AAAAAAAAAAA AAAA"
+  "로베르 들로네":  "출생지: 프랑스 파리　　　　출생: 1885/04/12　　　　사망: 1941/10/25　　　　예술 사조: 근대미술, 탈인상주의, 입체주의, 표현주의",
+  "반 고흐": "출생지: 네덜란드 준데르트　　　　출생: 1853/03/30　　　　사망: 1890/07/29　　　　예술 사조: 사실주의, 탈인상주의, 자포니즘, 점묘법",
+  "앙드레 드랭": "출생지: 프랑스 이블린　　　　출생: 1880/06/10　　　　사망: 1954/09/08　　　　예술 사조: 신고전주의, 표현주의, 야수파, 입체주의",
+  "자코모 발라": "출생지: 이탈리아 튜린　　　　출생: 1871/07/18　　　　사망: 1958/03/01　　　　예술 사조: 미래파, 근대 미술, 인상주의, 점묘법",
+  "프란시스 피카비아": "출생지: 프랑스 파리　　　　출생: 1879/01/22　　　　사망: 1953/11/30　　　　예술 사조: 초현실주의, 인상주의, 표현주의, 야수파",
+  "피카소": "출생지: 스페인 말라가　　　　출생: 1881/10/25　　　　사망: 1973/04/08　　　　예술사조: 입체주의, 초현실주의, 표현주의, 탈인상주의"
 }
 const PainterArts = {
   "": ["", "", ""],
