@@ -44,9 +44,9 @@ def img_to_PIL(img):
 ## result : 얼굴 crop 사진 opencv 객체
 def run_crop(input):
     print('input shape', input.shape)
-    input = cv2.rotate(input, cv2.ROTATE_90_CLOCKWISE)
-    w = 540
-    h = 720   
+    input = cv2.rotate(input, cv2.ROTATE_90_COUNTERCLOCKWISE)
+    w = 810
+    h = 1080   
 
     center = input.shape
     x = center[1]/2 - w/2
