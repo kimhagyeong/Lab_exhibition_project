@@ -99,13 +99,14 @@ def run_frame(input, id):
         dsize3 = (200, int(sh/sw*200))
     else:
         dsize3 = (int(sw/sh*200), 200)
-
+    # 1005,1300  1045,1415
     src3 = cv2.copyMakeBorder(src3, 10,10, 10, 10, cv2.BORDER_CONSTANT, value=[0,0,0])
-    src2 = cv2.resize(src2, dsize=(1005, 1300), interpolation=cv2.INTER_AREA)
+    src2 = cv2.resize(src2, dsize=(1045, 1415), interpolation=cv2.INTER_AREA)
     src3 = cv2.resize(src3, dsize=dsize3, interpolation=cv2.INTER_AREA)
 
-    src2[1300-dsize3[1]:1300,0:dsize3[0]] = src3
+    src2[1415-dsize3[1]:1415,0:dsize3[0]] = src3
     dst = src2
-    src1[247:1547,100:1105] = dst
+    src1[85:1500,80:1125] = dst
+    # 247:1547,100:1105 85:1500,80:1125    
     
     return src1
