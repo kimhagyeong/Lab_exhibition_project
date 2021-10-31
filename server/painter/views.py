@@ -12,6 +12,7 @@ from django.core.files.base import ContentFile
 
 import io
 from asgiref.sync import sync_to_async
+import random
 
 @sync_to_async
 @api_view(['GET', 'POST'])
@@ -108,3 +109,30 @@ def create_printable(request, art_code):
     result = URL+serializer['print']
 
     return Response(result)
+
+
+@api_view(['GET'])
+def view_sample(request):
+    def get_random():
+        max_id = Userface.objects.all().aggregate(max_id=Max("id"))['max_id']
+        while True:
+            pk = random.randint(1, max_id)
+            user = Userface.objects.filter(pk=pk).first()
+            if user:
+                idx = random.randint(0,len(list(user.vars.all()))-1)
+                select = user.vars.all()[idx]
+
+                if random.randint(0,1):
+                    if random.randint(0,1):
+                        result = URL+VariationSerializer(main_art).data['sample']
+                    else:
+                        result = URL+VariationSerializer(main_art).data['img1']
+                else:
+                    if random.randint(0,1):
+                        result = URL+VariationSerializer(main_art).data['img2']
+                    else:
+                        result = URL+VariationSerializer(main_art).data['img3']
+                    
+                return result
+    return Response([get_random() for i in range(10)])
+    

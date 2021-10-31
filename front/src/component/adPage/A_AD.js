@@ -95,38 +95,36 @@ class Page extends Component {
 
     callAPI = async () => {
         try {
-            // var img = await axios.get('https://test.com/', {
-            //     params: {
-            //     }
-            // });
-            var img = [
-                SampleImg01,
-                SampleImg02,
-                SampleImg01,
-                SampleImg02,
-                SampleImg01,
-                SampleImg02,
-                SampleImg01,
-                SampleImg02,
-                SampleImg01,
-                SampleImg02,
+            var img = await axios.get(theme.BackendServer+'sample')
+            img = img.data['data']
+            // var img = [
+            //     SampleImg01,
+            //     SampleImg02,
+            //     SampleImg01,
+            //     SampleImg02,
+            //     SampleImg01,
+            //     SampleImg02,
+            //     SampleImg01,
+            //     SampleImg02,
+            //     SampleImg01,
+            //     SampleImg02,
 
-                SampleImg01,
-                SampleImg02,
-                SampleImg02,
-                SampleImg02,
-                SampleImg02,
-                SampleImg02,
-                SampleImg02,
-                SampleImg02,
-                SampleImg02,
-                SampleImg02,
+            //     SampleImg01,
+            //     SampleImg02,
+            //     SampleImg02,
+            //     SampleImg02,
+            //     SampleImg02,
+            //     SampleImg02,
+            //     SampleImg02,
+            //     SampleImg02,
+            //     SampleImg02,
+            //     SampleImg02,
 
-                SampleImg01,
-                SampleImg01,
-                SampleImg01,
-                SampleImg02
-            ]
+            //     SampleImg01,
+            //     SampleImg01,
+            //     SampleImg01,
+            //     SampleImg02
+            // ]
 
         }
         catch (error) {
