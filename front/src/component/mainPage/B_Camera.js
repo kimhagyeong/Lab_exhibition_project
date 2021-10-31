@@ -32,20 +32,30 @@ const ContentStyle = styled.div`
             left:168px;
         } 
     }
+    #cam{
+        position:relative;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        margin:auto;
+        width: 540px;
+        height: 720px;
+        overflow: hidden;
+    }
+    #cam-inner{
+        margin-left:-100px;
+        margin-top:100px;
+        transform: scale(1.3333);  
+        &>video{
+            width:720px;
+            height:540px;
+        }
+    }
     &>div>div{
+        
         width: auto;
         height: 720px;
-        // background: #FFFFFF 0% 0% no-repeat padding-box;
+        // background: #000000 0% 0% no-repeat padding-box;
         // border: 1px solid #707070;
         opacity: 1;
-    }
-    .guideline{
-        position:absolute;
-        top:250px;
-        left:780px;
-        width: 360px;
-        height: 480px;
-        border: 3px solid #707070;
     }
 `;
 
@@ -76,11 +86,13 @@ class Page extends Component {
                     alignItems="center"
                 >
                     <h1>카메라는 아래쪽에 있습니다 <br/>화면을 클릭하면 찰칵!</h1>
-                    <div>
-                        <Webcame 
-                            setCameraImg={this.props.setCameraImg}
-                            setPageNum={this.props.setPageNum}>
-                        </Webcame>
+                    <div id="cam">
+                        <div id="cam-inner">
+                            <Webcame 
+                                setCameraImg={this.props.setCameraImg}
+                                setPageNum={this.props.setPageNum}>
+                            </Webcame>
+                        </div>
                     </div>
                     <h1>여기를&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src={arrowSvg} alt="#" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;보세요</h1>
                 </Grid>
@@ -122,3 +134,4 @@ class Page extends Component {
 }
 
 export default Page;
+

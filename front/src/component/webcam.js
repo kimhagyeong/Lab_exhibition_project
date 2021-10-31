@@ -11,7 +11,7 @@ const WebcamCapture = (props) => {
     return (
       <>
         <Webcam
-          style={{ transform: `rotate(270deg)`, marginTop: '90px'}}
+          style={{ transform: `rotate(270deg)`}}
           audio={false}
           ref={webcamRef}
           screenshotFormat="image/jpeg"
@@ -24,13 +24,6 @@ const WebcamCapture = (props) => {
               props.setPageNum("3");
             }}
         />
-        <div class="guideline"
-        onClick={()=>{
-          props.setCameraImg(webcamRef.current.getScreenshot({width: 1440,height:1080, transform: `rotate(270deg)`}));
-          props.setPageNum("3");
-        }}>
-          
-        </div>
       </>
     );
   };

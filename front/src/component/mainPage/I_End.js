@@ -28,7 +28,7 @@ const ContentStyle = styled.div`
             max-height:764px;
         }
     }
-    
+   
 `;
 class Page extends SuperPage {
     constructor(props) {
@@ -56,14 +56,14 @@ class Page extends SuperPage {
         var printContents = document.createElement('DIV');
         var Content = document.createElement('IMG');
         Content.src = this.props.resultImg[0];
-        Content.setAttribute("style", "width:100%; height:100%;");
+        // Content.setAttribute("style","max-width:1205px; width:100%; height:100%;");
+        Content.setAttribute("style", "width:100vw; height:150vw; margin:-8px 0px -8px -8px;");
         
         // Content.width = 1080;
         // Content.height = 1550;
         printContents.appendChild(Content)
         //width, height 를 조절해서 프린트 사이즈를 조절해보기..
-        var windowObject = window.open('/print', "PrintWindow", "width=1080, height=1440, toolbars=no, status=no,scrollbars=no, resizable=no");
-
+        var windowObject = window.open('/print', "PrintWindow", "width=1205, height=1797, toolbars=no, status=no, scrollbars=no, resizable=no");
         windowObject.document.write(printContents.innerHTML);
         windowObject.focus();
         windowObject.print();

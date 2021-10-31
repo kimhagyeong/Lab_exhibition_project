@@ -185,19 +185,19 @@ class Page extends SuperPage {
 
                     <Grid item xs={3}>
                         <img src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc1) }} />
-                        <p>1</p>
+                        <p onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc1) }}>1</p>
                     </Grid>
                     <Grid item xs={3}>
                         <img src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc2) }} />
-                        <p>2</p>
+                        <p onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc2) }}>2</p>
                     </Grid>
                     <Grid item xs={3}>
                         <img src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc3) }} />
-                        <p>3</p>
+                        <p onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc3) }}>3</p>
                     </Grid>
                     <Grid item xs={3}>
                         <img src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc4) }} />
-                        <p>4</p>
+                        <p onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc4) }}>4</p>
                     </Grid>
                 </Grid>
                 {/* <div id="video">

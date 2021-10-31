@@ -25,7 +25,7 @@ import masterpiece6_1 from "../resource/page5_61.jpg";
 import masterpiece6_2 from "../resource/page5_62.jpg";
 import masterpiece6_3 from "../resource/page5_63.jpg";
 
-const BackendServer = 'http://218.150.183.60:8000/'
+const BackendServer = 'http://218.150.183.59:8000/'
 // const BackendServer = 'http://127.0.0.1:8000/'
 
 const BubbleButton = {
