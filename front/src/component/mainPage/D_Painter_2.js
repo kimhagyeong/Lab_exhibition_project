@@ -93,16 +93,16 @@ class Page extends SuperPage {
                             info={theme.CategoryInfo["피카소"]}/>
                     </Grid>
                     <Grid item xs={4}>
-                        <img src={BTN1} alt="#" onClick={() => { this.props.setPainter("자코모 발라"); this.props.setPageNum("6") }} />
+                        <img draggable="false" src={BTN1} alt="#" onClick={() => { this.props.setPainter("자코모 발라"); this.props.setPageNum("6") }} />
                     </Grid>
                     <Grid item xs={4}>
-                        <img src={BTN2} alt="#" onClick={() => { this.props.setPainter("프란시스 피카비아"); this.props.setPageNum("6") }} />
+                        <img draggable="false" src={BTN2} alt="#" onClick={() => { this.props.setPainter("프란시스 피카비아"); this.props.setPageNum("6") }} />
                     </Grid>
                     <Grid item xs={4}>
-                        <img src={BTN3} alt="#" onClick={() => { this.props.setPainter("피카소"); this.props.setPageNum("6") }} />
+                        <img draggable="false" src={BTN3} alt="#" onClick={() => { this.props.setPainter("피카소"); this.props.setPageNum("6") }} />
                     </Grid>
                     <Grid item xs={12}>
-                        <img src={prevSvg} alt="#" onClick={() => this.props.setPageNum("4")} />
+                        <img draggable="false" src={prevSvg} alt="#" onClick={() => this.props.setPageNum("4")} />
                     </Grid>
                 </Grid>
             </ContentStyle>

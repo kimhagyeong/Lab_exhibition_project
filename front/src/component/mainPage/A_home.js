@@ -78,7 +78,7 @@ class Page extends Component {
                         <p>AI를 이용하여 작품에 대한 전반적인<br />질감과 색을 학습해 입혀드립니다</p>
                     </Grid>
                     <Grid item xs={12}>
-                        <img src={BTN} alt="#" onClick={() => this.props.setPageNum("2")} ></img>
+                        <img draggable="false" src={BTN} alt="#" onClick={() => this.props.setPageNum("2")} ></img>
                     </Grid>
                 </Grid>
             </Section>

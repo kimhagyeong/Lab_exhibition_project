@@ -144,11 +144,11 @@ class Page extends SuperPage {
                         </Grid>
                     </Grid>
                     <Grid item xs={6}>
-                        <img src={nextSvg} alt="#" />
-                        <img src={this.props.resultImg[0]} alt="#"></img>
+                        <img draggable="false" src={nextSvg} alt="#" />
+                        <img draggable="false" src={this.props.resultImg[0]} alt="#"></img>
                     </Grid>
                     <Grid item xs={12}>
-                        <img src={BTN} alt="#" onClick={() => this.props.setPageNum("6")} />
+                        <img draggable="false" src={BTN} alt="#" onClick={() => this.props.setPageNum("6")} />
                     </Grid>
                 </Grid>
             </ContentStyle>
@@ -157,7 +157,7 @@ class Page extends SuperPage {
 
     backButton() {
         return (
-            <img src={backSvg} alt="#" onClick={() => this.props.setPageNum("7")} />
+            <img draggable="false" src={backSvg} alt="#" onClick={() => this.props.setPageNum("7")} />
         )
     }
     render() {

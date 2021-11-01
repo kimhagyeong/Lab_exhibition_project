@@ -154,15 +154,15 @@ class Page extends SuperPage {
 
                     <Grid item xs={4}>
                         <p>{theme.PainterArts[this.props.painter][0]}</p>
-                        <img src={BTN1} alt="#" onClick={() => { this.props.setMasterpiece(theme.PainterArts[this.props.painter][0]); this.props.setPageNum("7") }} />
+                        <img draggable="false" src={BTN1} alt="#" onClick={() => { this.props.setMasterpiece(theme.PainterArts[this.props.painter][0]); this.props.setPageNum("7") }} />
                     </Grid>
                     <Grid item xs={4}>
                         <p>{theme.PainterArts[this.props.painter][1]}</p>
-                        <img src={BTN2} alt="#" onClick={() => { this.props.setMasterpiece(theme.PainterArts[this.props.painter][1]); this.props.setPageNum("7") }} />
+                        <img draggable="false" src={BTN2} alt="#" onClick={() => { this.props.setMasterpiece(theme.PainterArts[this.props.painter][1]); this.props.setPageNum("7") }} />
                     </Grid>
                     <Grid item xs={4}>
                         <p>{theme.PainterArts[this.props.painter][2]}</p>
-                        <img src={BTN3} alt="#" onClick={() => { this.props.setMasterpiece(theme.PainterArts[this.props.painter][2]); this.props.setPageNum("7") }} />
+                        <img draggable="false" src={BTN3} alt="#" onClick={() => { this.props.setMasterpiece(theme.PainterArts[this.props.painter][2]); this.props.setPageNum("7") }} />
                     </Grid>
                 </Grid>
             </ContentStyle>
@@ -172,7 +172,7 @@ class Page extends SuperPage {
     backButton() {
         let backpage = (parseInt(theme.Painter.indexOf(this.props.painter)/3)+4).toString()
         return (
-            <img src={backSvg} alt="#" onClick={() => this.props.setPageNum(backpage)} />
+            <img draggable="false" src={backSvg} alt="#" onClick={() => this.props.setPageNum(backpage)} />
         )
     }
 

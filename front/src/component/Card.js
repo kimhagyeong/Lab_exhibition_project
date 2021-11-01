@@ -20,11 +20,11 @@ export default function MediaCard(props) {
 
   return (
     <Card className={classes.root} id="Card1">
-        <CardMedia
+        <CardMedia 
           className={classes.media}
           image={props.img}
         />
-        <p>
+        <p draggable="false" >
           {props.info}
         </p>
     </Card>

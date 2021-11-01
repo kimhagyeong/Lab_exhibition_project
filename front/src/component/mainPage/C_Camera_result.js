@@ -195,8 +195,8 @@ class Page extends SuperPage {
                         </div>``
                     </Grid>
                         
-                    <Grid item>
-                        <img src={BTN} alt="#" onClick={() => { this.state.isGetApi=false
+                    <Grid draggable="false" item>
+                        <img draggable="false" src={BTN} alt="#" onClick={() => { this.state.isGetApi=false
                                                                     this.props.setPageNum("2");}} />
                     </Grid>
 

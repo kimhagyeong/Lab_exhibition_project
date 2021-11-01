@@ -72,7 +72,7 @@ class Page extends SuperPage {
 
     content() {
         return (
-            <ContentStyle>
+            <ContentStyle >
                 <Grid container>
                     <Grid item xs={12}>
                         <div></div>
@@ -94,16 +94,16 @@ class Page extends SuperPage {
                             info={theme.CategoryInfo["앙드레 드랭"]}/>
                     </Grid>
                     <Grid item xs={4}>
-                        <img src={BTN1} alt="#" onClick={() => { this.props.setPainter("로베르 들로네"); this.props.setPageNum("6") }} />
+                        <img draggable="false" src={BTN1} alt="#" onClick={() => { this.props.setPainter("로베르 들로네"); this.props.setPageNum("6") }} />
                     </Grid>
                     <Grid item xs={4}>
-                        <img src={BTN2} alt="#" onClick={() => { this.props.setPainter("반 고흐"); this.props.setPageNum("6") }} />
+                        <img draggable="false" src={BTN2} alt="#" onClick={() => { this.props.setPainter("반 고흐"); this.props.setPageNum("6") }} />
                     </Grid>
                     <Grid item xs={4}>
-                        <img src={BTN3} alt="#" onClick={() => { this.props.setPainter("앙드레 드랭"); this.props.setPageNum("6") }} />
+                        <img draggable="false" src={BTN3} alt="#" onClick={() => { this.props.setPainter("앙드레 드랭"); this.props.setPageNum("6") }} />
                     </Grid>
                     <Grid item xs={12}>
-                        <img src={nextSvg} alt="#" onClick={() => this.props.setPageNum("5")} />
+                        <img draggable="false" src={nextSvg} alt="#" onClick={() => this.props.setPageNum("5")} />
                     </Grid>
                 </Grid>
             </ContentStyle>
@@ -112,7 +112,7 @@ class Page extends SuperPage {
 
     backButton() {
         return (
-            <img src={backSvg} alt="#" onClick={() => this.props.setPageNum("2")} />
+            <img src={backSvg} draggable="false" alt="#" onClick={() => this.props.setPageNum("2")} />
         )
     }
 

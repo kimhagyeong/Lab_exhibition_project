@@ -103,7 +103,7 @@ class Page extends Component {
 
     backButton() {
         return (
-            <>
+            < >
             </>
         )
     }
@@ -112,7 +112,7 @@ class Page extends Component {
         return(
             <>
                 <div>
-                    <img src={homeSvg} alt="#"  onClick={() => {this.props.setPageNum("1"); this.props.reset();}}/>
+                    <img draggable="false" src={homeSvg} alt="#"  onClick={() => {this.props.setPageNum("1"); this.props.reset();}}/>
                     <h2>AI Photographer</h2>
                     {this.backButton()}
                 </div>

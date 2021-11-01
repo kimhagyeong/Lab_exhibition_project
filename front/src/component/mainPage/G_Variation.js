@@ -184,19 +184,19 @@ class Page extends SuperPage {
                     </Grid>
 
                     <Grid item xs={3}>
-                        <img src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc1) }} />
+                        <img draggable="false" src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc1) }} />
                         <p onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc1) }}>1</p>
                     </Grid>
                     <Grid item xs={3}>
-                        <img src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc2) }} />
+                        <img draggable="false" src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc2) }} />
                         <p onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc2) }}>2</p>
                     </Grid>
                     <Grid item xs={3}>
-                        <img src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc3) }} />
+                        <img draggable="false" src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc3) }} />
                         <p onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc3) }}>3</p>
                     </Grid>
                     <Grid item xs={3}>
-                        <img src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc4) }} />
+                        <img draggable="false" src={BTN1} alt="#" onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc4) }} />
                         <p onClick={() => { this.props.setPageNum("8"); this.props.setResultImg(this.state.imgSrc4) }}>4</p>
                     </Grid>
                 </Grid>
@@ -215,7 +215,7 @@ class Page extends SuperPage {
 
     backButton() {
         return (
-            <img src={backSvg} alt="#" onClick={() => this.props.setPageNum("6")} />
+            <img src={backSvg} draggable="false"  alt="#" onClick={() => this.props.setPageNum("6")} />
         )
     }
     render() {
