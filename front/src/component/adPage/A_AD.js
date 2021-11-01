@@ -4,6 +4,7 @@ import Section from './A_AD_css.js';
 import SampleImg01 from '../../resource/sampleMaster_1.png'
 import SampleImg02 from '../../resource/sampleMaster_2.png'
 import AD_video from '../mainPage/test.mp4'
+import axios from "axios";
 
 class Page extends Component {
     constructor(props) {
@@ -96,7 +97,9 @@ class Page extends Component {
     callAPI = async () => {
         try {
             var img = await axios.get(theme.BackendServer+'sample')
-            img = img.data['data']
+            console.log(img)
+            img = img.data
+            console.log(img)
             // var img = [
             //     SampleImg01,
             //     SampleImg02,
