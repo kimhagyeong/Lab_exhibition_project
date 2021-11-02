@@ -35,7 +35,7 @@ class Page extends Component {
                 theme.DefaultImgSrc
             ],
             timer:5,
-            resetTimer:50,
+            resetTimer:500,
             clickImgNum : 0,
             clickImgOriginNum:0,
             pageImgs : 10,
