@@ -16,7 +16,7 @@ from django.core.files.base import ContentFile
 import base64
 
 # URL = 'http://127.0.0.1:8000'
-URL = 'http://218.150.183.59:8000'
+URL = 'http://218.150.183.60:8000'
 
 def base64_to_img(imgstring):
     format, imgstr = imgstring.split(';base64,')  # format ~= data:image/X,

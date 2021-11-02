@@ -128,14 +128,13 @@ class Page extends Component {
             //     SampleImg01,
             //     SampleImg02
             // ]
-
+            await this.setState({
+                imgOrigin:img,
+            })
         }
         catch (error) {
             console.log("api 요청 실패");
         }
-        await this.setState({
-            imgOrigin:img,
-        })
         this.splitImgOrigin();
     }
 
