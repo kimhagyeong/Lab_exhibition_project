@@ -30,6 +30,7 @@ const ContentStyle = styled.div`
             position:absolute;
             top:-15px;
             left:168px;
+            transform: rotate(180deg);
         } 
     }
     #cam{
@@ -85,7 +86,7 @@ class Page extends Component {
                     justify="flex-start"
                     alignItems="center"
                 >
-                    <h1>카메라는 아래쪽에 있습니다 <br/>화면을 클릭하면 찰칵!</h1>
+                    <h1>카메라는 위쪽에 있습니다 <br/>화면을 클릭하면 찰칵!</h1>
                     <div id="cam">
                         <div id="cam-inner">
                             <Webcame 

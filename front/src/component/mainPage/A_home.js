@@ -60,7 +60,7 @@ class Page extends Component {
     }
     render() {
         return (
-            <Section id="home">
+            <Section id="home" >
                 <Grid container
                     direction="row"
                     justify="center"
